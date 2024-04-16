@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        GAME101_Lecture02学习 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-title">GAME101_Lecture02学习</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6-GAME101/" class="post-tag">#计算机图形学 GAME101</a>
+
+
+          <span class="post-date">2024-04-16</span>
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h1 id="向量复习"><a href="#向量复习" class="headerlink" title="向量复习"></a>向量复习</h1><p>图形学中，未作特殊规定的向量，缺省值（默认值）都是列</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416184237.png" alt="image-20240416184124364"></p>
+<ul>
+<li>点积</li>
+<li>叉积</li>
+<li>正交基与坐标系</li>
+</ul>
+<h2 id="点乘"><a href="#点乘" class="headerlink" title="点乘"></a>点乘</h2><h3 id="点乘基本知识"><a href="#点乘基本知识" class="headerlink" title="点乘基本知识"></a>点乘基本知识</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416173005.png" alt="image-20240416172958213"></p>
+<p>左下角的公式中：点乘可以快速得到两个向量之间的夹角，特别是在两个向量都只是方向的时候。</p>
+<p>右下角的公式中：只要我们做一个反余弦，那就可以得到两个向量之间的夹角。 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416181414.png" alt="image-20240416181413864"></p>
+<p>A表示一个向量（默认列向量），AT是A向量的转置</p>
+<p>A的值可以用红色公式表示。</p>
+<h3 id="直角坐标系的点积"><a href="#直角坐标系的点积" class="headerlink" title="直角坐标系的点积"></a>直角坐标系的点积</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416173414.png" alt="image-20240416173414055"></p>
+<h4 id="图形学应用"><a href="#图形学应用" class="headerlink" title="图形学应用"></a>图形学应用</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416173442.png" alt="image-20240416173442667"></p>
+<ul>
+<li>求两个向量之间的夹角(如光源与表面夹角的余弦)</li>
+<li>求一个向量在另一个向量上的投影</li>
+</ul>
+<h3 id="投影点积"><a href="#投影点积" class="headerlink" title="投影点积"></a>投影点积</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416173507.png" alt="image-20240416173507601"></p>
+<p>点乘可以把一个向量任意的进行垂直与平行的分解</p>
+<p>上图计算向量b向量a的投影时，b的投影向量  &#x3D; 向量b的长度 · cosθ · 向量a</p>
+<h4 id="图形学作用"><a href="#图形学作用" class="headerlink" title="图形学作用"></a>图形学作用</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416173534.png" alt="image-20240416173534623"></p>
+<ul>
+<li>测量两个方向的距离</li>
+<li>分解向量</li>
+<li>确定向前&#x2F;向后</li>
+</ul>
+<p>图形学中，可以计算两个向量或两个方向多么接近。主要通过比较点乘结果，可以判断接近还是远离这两个方向。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416173926.png" alt="image-20240416173926813"></p>
+<p>向量的点乘还可以得到一个前与后的信息。</p>
+<p>如图假设向量a给定了某个方向，从a的起点向上为前，向下为后。</p>
+<p>向量a与b的点乘会为正数表示其的方向是指向a的前方。向量c反之。</p>
+<p>若向量a与某个向量的点乘为0，那么这个向量与向量a垂直。</p>
+<p>同理，前面说到点乘可以判断接近还是原理。向量b与向量a越来越远，那么两者的点乘还会越来越等于0（即垂直），随后更远就是与a的方向相反，直到点乘变成-1（此时b与a完全相反）。</p>
+<p>判断两个向量是否接近，其中一个应用——菲涅尔效果（看的角度和面的法线是否重合问题。越重合，说明面是对着相机的。否则面就越侧面（越亮），直到变成负数就是背面了（暗色））</p>
+<h2 id="叉乘"><a href="#叉乘" class="headerlink" title="叉乘"></a>叉乘</h2><h3 id="叉乘基本知识"><a href="#叉乘基本知识" class="headerlink" title="叉乘基本知识"></a>叉乘基本知识</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416180608.png" alt="image-20240416180608714"></p>
+<ul>
+<li>叉积与两个初始向量正交</li>
+<li>右手定则确定方向</li>
+<li>在构造坐标系中很有用(以后)</li>
+</ul>
+<p>右手螺旋定则（有些地方会用左手），可以判断</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416181640.png" alt="image-20240416181639954"></p>
+<p>左侧的公式中，如果在三维坐标系中，x叉乘y是z，那么这个坐标系就是一个右手坐标系。</p>
+<p>右侧的公式中，注意向量叉乘自己是0向量。并且叉乘只有反交换律。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416182118.png" alt="image-20240416182118165"></p>
+<p>在下方的公式，是向量可以写成矩阵的形式，然后向量的叉乘可以转换成矩阵乘以向量</p>
+<h3 id="图形学的应用"><a href="#图形学的应用" class="headerlink" title="图形学的应用"></a>图形学的应用</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416182409.png" alt="image-20240416182340467"></p>
+<ul>
+<li>确定左&#x2F;右</li>
+<li>确定内部&#x2F;外部</li>
+</ul>
+<p>在图形学中，叉乘一是判断左和右，另一个是判断内和外。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416182759.png" alt="image-20240416182759510"></p>
+<p>在左图中，向量a叉乘向量b、得到z是正的；向量b叉乘向量a、得到的z是负的。这两种都能证明b在a的左侧。</p>
+<p>在右图中，ABC的排布是逆时针，AB叉乘AP和BC叉乘AP、AC叉乘AP的z都是向外的（即AP都在所有边的左侧），这能说明P在ABC的中间。</p>
+<p>ABC的排布变成顺时针也同理。（此处是对三角形做光栅化的基础，可以判断三角形覆盖了那些像素。若值等于0，即该像素刚好在三角形的边上，那么就自己定义）</p>
+<h2 id="正交基与坐标系"><a href="#正交基与坐标系" class="headerlink" title="正交基与坐标系"></a>正交基与坐标系</h2><p>通过这些向量的乘法，就可以定义坐标系。定义坐标系可以把任意一个向量分解到三个轴上（利用点积算投影，然后用投影分解）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416190717.png" alt="image-20240416190717359"></p>
+<p>如图，假设将uvw设为一个三维坐标系的坐标轴，它们都是单位向量。</p>
+<p>假设有一个向量p。我们可以用投影的方式投影到坐标轴上，直接用点乘的结果就可以立刻得到投影的长度。原因解释如下：</p>
+<ul>
+<li>先假设向量p投影到u轴上，此时计算向量p在向量u上的投影向量。</li>
+<li>p在向量u上的投影向量  &#x3D; 向量p的长度 · cosθ · 向量u</li>
+<li>向量p点乘向量u&#x3D;p的长度 × u的长度 × cosθ。</li>
+<li>此时u为单位向量，长度为1。</li>
+<li>那么，向量p点乘向量u &#x3D; u的长度 × cosθ，正好就是其投影长度。</li>
+<li>（picgo上传出了问题，后面再补坑吧呜呜呜）<img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20240416200321655.png" alt="image-20240416200321655"></li>
+</ul>
+<h1 id="矩阵复习"><a href="#矩阵复习" class="headerlink" title="矩阵复习"></a>矩阵复习</h1><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416190822.png" alt="image-20240416190822580"></p>
+<ul>
+<li>神奇的2D阵列，在每一个CS课程中萦绕</li>
+<li>在图形学中，广泛用于表示变换翻译、旋转、剪切、缩放(下一讲更详细)</li>
+</ul>
+<h2 id="矩阵乘积知识"><a href="#矩阵乘积知识" class="headerlink" title="矩阵乘积知识"></a>矩阵乘积知识</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416191421.png" alt="image-20240416191421852"></p>
+<p>m*n的矩阵 乘以 n*p的矩阵 &#x3D; m*p的矩阵</p>
+<p>矩阵乘法运算，黑色框框和蓝色框框分别是两个例子：</p>
+<ul>
+<li>黑色框框的？，是在结果的第一行第二列，那么就去第一个矩阵中找第一行，第二个矩阵中找第二列，(1*6)+(3*7) &#x3D; 27</li>
+<li>蓝色框框同理，(5*4)+(2*3) &#x3D; 26</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416192400.png" alt="image-20240416192400862"></p>
+<p>矩阵没有任何的交换率。结合律比较有用。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416192852.png" alt="image-20240416192852730"></p>
+<ul>
+<li>将向量视为列矩阵(mx1)</li>
+<li>转换点的关键(下一讲)</li>
+<li>官方剧透:关于y轴的2D反射</li>
+</ul>
+<p> 始终认为，矩阵在左边，向量在右边。 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416192945.png" alt="image-20240416192945749"></p>
+<p>矩阵的变换（转置）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416193014.png" alt="image-20240416193013912"></p>
+<h1 id="矩阵和向量"><a href="#矩阵和向量" class="headerlink" title="矩阵和向量"></a>矩阵和向量</h1><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/16/20240416193056.png" alt="image-20240416193056657"></p>
+<p>向量在矩阵形式上的计算。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这节课主要是对线性代数中向量和矩阵的复习，总体来说难度不大。</p>
+<p>1.向量主要是其点乘和叉乘的两种乘法。</p>
+<ul>
+<li>点乘能够用于计算向量之间的投影和向量之间的夹角，能够判断两向量是否相近（菲涅尔效果）</li>
+<li>而向量投影主要能测量两个方向的距离、分解向量以及确定向前&#x2F;向后等，这些特性能够运用到确定直角坐标系上（即确定基坐标，就是确定一个基准的感觉）</li>
+<li>叉乘能够用于确定向量之间的位置关系，左右、内外等。</li>
+<li>确定内外在后续光栅化用的会很多，而确定左右的方向好像没有提及运用？？后续有涉及到的话在回来补坑。</li>
+</ul>
+<p>2.矩阵则是其乘法计算的一些计算方法。</p>
+<ul>
+<li>计算机的图形信息基本都是用矩阵存储的，信息与信息的计算后续也会涉及。这里闫老师主要是稍微复习了一下。</li>
+</ul>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+    <div class="post-nav">
+  
+    <div class="post-nav-item-left"></div>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/04/14/GAME101-Lecture01%E5%AD%A6%E4%B9%A0/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      GAME101_Lecture01学习
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6-GAME101/" class="post-tag">#计算机图形学 GAME101</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\14\GAME101-Lecture01学习\" title="GAME101_Lecture01学习" rel="bookmark">GAME101_Lecture01学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
