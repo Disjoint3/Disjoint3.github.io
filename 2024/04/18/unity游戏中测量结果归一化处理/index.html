@@ -146,17 +146,23 @@
     <div class="body">
       
   <article class="post-content">
-    <div class="post-inner">
+    <div class="post-inner--toc">
       <div class="post-content__head">
         <div class="post-title">unity游戏中测量结果归一化处理</div>
         <div class="post-info">
           
-  
+  <a href="/tags/unity/" class="post-tag">#unity</a>
 
 
           <span class="post-date">2024-04-18</span>
         </div>
       </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="post-toc-text">需求分析</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E5%85%AC%E5%BC%8F"><span class="post-toc-text">归一化公式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">代码实现</span></a></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
       
       <div class="post-content__body">
         
@@ -164,8 +170,21 @@
             
           </div>
         
-        <p>5</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/irober/article/details/115601223">将数据归一化到任意区间范围的方法_数据 处理到 指定范围内-CSDN博客</a></p>
+        <h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><p>在UGUI下，提前知道两点（设为A、B）之间的距离，以及他们的屏幕坐标。</p>
+<p>现在想要实现，鼠标从A点出发移动的偏移值映射到两点之间距离的区间中（即将鼠标相对A点的偏移数据处理到AB距离的范围内，以达到模拟真实测量的效果。</p>
+<p>（例如：让玩家点击A点后出现，从A点延申到鼠标上有一条线，通过拉线来实现测量的效果。）</p>
+<p>时间有点紧迫，也没有细想这样实现的可用性啥的。真诚希望有大佬指教！</p>
+<h1 id="归一化公式"><a href="#归一化公式" class="headerlink" title="归一化公式"></a>归一化公式</h1><p>使用的公式出处：<a target="_blank" rel="noopener" href="https://blog.csdn.net/irober/article/details/115601223">将数据归一化到任意区间范围的方法_数据 处理到 指定范围内-CSDN博客</a></p>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><strong>归一化函数：</strong></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 将测量结果归一化</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;min&quot;&gt;</span>样本数据的最小值<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;max&quot;&gt;</span>样本数据的最大值<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;left&quot;&gt;</span>区间的左边界<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;right&quot;&gt;</span>区间的有边界<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;value&quot;&gt;</span>需要归一化的测量结果<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">float</span> <span class="title">MeasureNormalization</span>(<span class="params"><span class="built_in">float</span> min,<span class="built_in">float</span> max,<span class="built_in">float</span> left,<span class="built_in">float</span> right,<span class="built_in">float</span> <span class="keyword">value</span></span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">float</span> temp;</span><br><span class="line">    <span class="keyword">if</span> (min&gt;max)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = min;</span><br><span class="line">        min = max;</span><br><span class="line">        max = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (left&gt;right)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = left;</span><br><span class="line">        left = right;</span><br><span class="line">        right = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> left + (right - left) / (max - min) * (<span class="keyword">value</span> - min);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>调用举例：</strong></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将鼠标的坐标转为屏幕坐标系的坐标</span></span><br><span class="line">RectTransformUtility.ScreenPointToLocalPointInRectangle( UI的画布RectTransform, 鼠标自己坐标系下的当前坐标, <span class="literal">null</span>, <span class="keyword">out</span> 接收鼠标在屏幕坐标系下的坐标的变量);</span><br><span class="line"></span><br><span class="line"><span class="comment">//归一化后的结果</span></span><br><span class="line">ans = MeasureNormalization( <span class="number">0</span>, AB点屏幕坐标下的距离, <span class="number">0</span>, AB点认为规定要测量出来的距离, 鼠标在屏幕坐标系下的坐标);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
       </div>
     </div>
@@ -245,12 +264,12 @@
     
       <div class="related-post">
   <div class="related__head">
-  
+  <a href="/tags/unity/" class="post-tag">#unity</a>
 
 </div>
   <div class="realated__body">
     
-      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\前言\" title="前言" rel="bookmark">前言</a></div></div></div>
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\18\unity中鼠标与物体的交互\" title="unity中鼠标与物体的交互" rel="bookmark">unity中鼠标与物体的交互</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
     
   </div>
 </div>

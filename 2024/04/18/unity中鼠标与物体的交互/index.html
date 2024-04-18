@@ -146,17 +146,23 @@
     <div class="body">
       
   <article class="post-content">
-    <div class="post-inner">
+    <div class="post-inner--toc">
       <div class="post-content__head">
         <div class="post-title">unity中鼠标与物体的交互</div>
         <div class="post-info">
           
-  
+  <a href="/tags/unity/" class="post-tag">#unity</a>
 
 
           <span class="post-date">2024-04-18</span>
         </div>
       </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#unity%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95"><span class="post-toc-text">unity内置方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#unity-EventTrigger%E7%BB%84%E4%BB%B6"><span class="post-toc-text">unity EventTrigger组件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91%E9%93%BE%E6%8E%A5"><span class="post-toc-text">学习视频链接</span></a></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
       
       <div class="post-content__body">
         
@@ -164,9 +170,16 @@
             
           </div>
         
-        <p>5是</p>
-<p>4.81.关于OnMouseOve这类的unity内置方法unity内置的OnMouseOver等方法，原理是利用射线检测。前提条件一是要有collider，二是摄像机要能够进行射线检测。第四中的小刀，无法使用OnMouseOver的原因，猜测是因为摄像机实际上不是对着UI的。OnMouseOver这类方法，不适合对UI的拖拽进行处理，适合对3d物体的拖拽进行处理。2.EventTrigger使用方法有很多，一是手动添加EventTrigger组件，然后对事件函数进行拖拽。二是可以重写接口。重写接口时，要注意，IBeginDrawHandler和IEndDrawHandler一定要有IDrawHandler才能实现。在鼠标拖拽时，UI物体与鼠标相差太远，原因可能是因为Canvas的Scale数值不是1，这时候要么就全调成1，要么就在脚本中除以相应的画布尺寸大小系数。</p>
-<p>4.12eventTrigger，drag的用法public void OnDrag(PointerEventData eventData){if (Mouse.current.leftButton.isPressed){Debug.Log(“leftButton OnDrag”);}else if (Mouse.current.rightButton.isPressed){Debug.Log(“RightButton OnDrag”);}}public void OnBeginDrag(PointerEventData eventData){if (Mouse.current.leftButton.isPressed){Debug.Log(“leftButton OnBeginDrag”);}else if (Mouse.current.rightButton.isPressed){Debug.Log(“RightButton OnBeginDrag”);}}public void OnEndDrag(PointerEventData eventData){if (Mouse.current.leftButton.wasReleasedThisFrame){Debug.Log(“leftButton OnEndDrag”);}else if (Mouse.current.rightButton.wasReleasedThisFrame){Debug.Log(“RightButton OnEndDrag”);}}ScreenPointToLocalPointInRectangle函数的用法：RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, Mouse.current.position.ReadValue(), null, out pos);</p>
+        <h1 id="unity内置方法"><a href="#unity内置方法" class="headerlink" title="unity内置方法"></a>unity内置方法</h1><p>unity内置的OnMouseOver等方法，原理是利用射线检测。</p>
+<p>前提条件一是要有collider，二是摄像机要能够进行射线检测。</p>
+<ul>
+<li>在做的项目中，有个UGUI的2d物体无法使用OnMouseOver，猜测是因为摄像机实际上不是对着UI的。</li>
+<li><strong>OnMouseOver这类方法，不适合对UI的拖拽进行处理，适合对3d物体的拖拽进行处理。</strong></li>
+</ul>
+<h1 id="unity-EventTrigger组件"><a href="#unity-EventTrigger组件" class="headerlink" title="unity EventTrigger组件"></a>unity EventTrigger组件</h1><p>EventTrigger的使用方法有很多，一是手动添加EventTrigger组件，然后对事件函数进行拖拽。二是可以重写接口。</p>
+<p>重写接口时，要注意，IBeginDrawHandler和IEndDrawHandler一定要有IDrawHandler才能实现。</p>
+<p>在鼠标拖拽时，UI物体与鼠标相差太远，原因可能是因为Canvas的Scale数值不是1，这时候要么就全调成1，要么就在脚本中除以相应的画布尺寸大小系数。</p>
+<h1 id="学习视频链接"><a href="#学习视频链接" class="headerlink" title="学习视频链接"></a>学习视频链接</h1><p>学习时看的视频链接：【【盘点】Unity常用的三种拖拽方法（内置方法 + 接口 + Event Trigger组件）】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1W541147GK/?share_source=copy_web&vd_source=8332072dc5586e92174abc96d6e4280f">https://www.bilibili.com/video/BV1W541147GK/?share_source=copy_web&amp;vd_source=8332072dc5586e92174abc96d6e4280f</a></p>
 
       </div>
     </div>
@@ -246,12 +259,12 @@
     
       <div class="related-post">
   <div class="related__head">
-  
+  <a href="/tags/unity/" class="post-tag">#unity</a>
 
 </div>
   <div class="realated__body">
     
-      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\前言\" title="前言" rel="bookmark">前言</a></div></div></div>
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\18\unity游戏中测量结果归一化处理\" title="unity游戏中测量结果归一化处理" rel="bookmark">unity游戏中测量结果归一化处理</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
     
   </div>
 </div>
