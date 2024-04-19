@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        GAME101-Lecture04学习 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">GAME101-Lecture04学习</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6-GAME101/" class="post-tag">#计算机图形学 GAME101</a>
+
+
+          <span class="post-date">2024-04-19</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%A5%E5%85%85"><span class="post-toc-text">二维旋转矩阵的补充</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%89%E7%BB%B4%E5%8F%98%E6%8D%A2%E7%9A%84%E8%A1%A5%E5%85%85"><span class="post-toc-text">三维变换的补充</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BC%A9%E6%94%BE%E5%92%8C%E5%B9%B3%E7%A7%BB%EF%BC%88%E5%8F%98%E6%8D%A2%EF%BC%89"><span class="post-toc-text">缩放和平移（变换）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%97%8B%E8%BD%AC%EF%BC%88%E5%8F%98%E6%8D%A2%EF%BC%89"><span class="post-toc-text">旋转（变换）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5"><span class="post-toc-text">旋转变换矩阵</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%AC%A7%E6%8B%89%E8%A7%92"><span class="post-toc-text">欧拉角</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BD%97%E5%BE%B7%E9%87%8C%E6%A0%BC%E6%96%AF%E6%97%8B%E8%BD%AC%E5%85%AC%E5%BC%8F"><span class="post-toc-text">罗德里格斯旋转公式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0"><span class="post-toc-text">四元数</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%A7%82%E6%B5%8B%E5%8F%98%E6%8D%A2"><span class="post-toc-text">观测变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%A7%86%E5%9B%BE%E5%8F%98%E6%8D%A2"><span class="post-toc-text">视图变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%95%E5%85%A5"><span class="post-toc-text">引入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A7%86%E5%9B%BE%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5"><span class="post-toc-text">视图变换矩阵</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%9F%A9%E9%98%B5%E6%A6%82%E5%BF%B5%E5%AE%9A%E4%B9%89"><span class="post-toc-text">矩阵概念定义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%9F%A9%E9%98%B5%E6%8E%A8%E5%AF%BC"><span class="post-toc-text">矩阵推导</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8A%95%E5%BD%B1%E5%8F%98%E6%8D%A2"><span class="post-toc-text">投影变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%95%E5%85%A5-1"><span class="post-toc-text">引入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%8A%95%E5%BD%B1"><span class="post-toc-text">投影</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%91%84%E5%83%8F%E6%9C%BA%E7%9A%84%E6%88%90%E5%83%8F%E6%96%B9%E5%BC%8F"><span class="post-toc-text">摄像机的成像方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="post-toc-text">正交投影</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5"><span class="post-toc-text">正交矩阵</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1"><span class="post-toc-text">透视投影</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%BC%95%E5%85%A5-2"><span class="post-toc-text">引入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E2%80%9C%E6%8C%A4%E5%8E%8B%E2%80%9D%E6%8A%95%E5%BD%B1"><span class="post-toc-text">“挤压”投影</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%8F%E8%A7%86%E7%9F%A9%E9%98%B5"><span class="post-toc-text">透视矩阵</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E7%BB%B4%E4%B8%89%E7%BB%B4%E8%A1%A5%E5%85%85"><span class="post-toc-text">二维三维补充</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%8C%E7%BB%B4"><span class="post-toc-text">二维</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%89%E7%BB%B4"><span class="post-toc-text">三维</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%A7%82%E6%B5%8B%E5%8F%98%E6%8D%A2-1"><span class="post-toc-text">观测变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A7%86%E5%9B%BE%E5%8F%98%E6%8D%A2-1"><span class="post-toc-text">视图变换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8A%95%E5%BD%B1%E5%8F%98%E6%8D%A2-1"><span class="post-toc-text">投影变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2"><span class="post-toc-text">正交变换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2"><span class="post-toc-text">透视变换</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AF%BE%E5%A0%82%E9%81%97%E7%95%99%E9%97%AE%E9%A2%98"><span class="post-toc-text">课堂遗留问题</span></a></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h1 id="二维旋转矩阵的补充"><a href="#二维旋转矩阵的补充" class="headerlink" title="二维旋转矩阵的补充"></a>二维旋转矩阵的补充</h1><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419180446.png" alt="image-20240419180446306"></p>
+<p>第一行的式子，是上节讲到的二维的旋转矩阵（二维的变换不用齐次坐标表示的话，基本就是这种2*2的矩阵表示）</p>
+<p>第二行的式子，旋转-θ角。是将第一行的所有θ替换成-θ，然后化简得来的。</p>
+<ul>
+<li>观察可以发现，<strong>旋转-θ的旋转矩阵，就是旋转θ的旋转矩阵的转置</strong>。</li>
+<li>另外也可以，<strong>旋转-θ的旋转矩阵，也是旋转θ的旋转矩阵的逆</strong>。（第三行的式子。通过矩阵的定义，矩阵转成逆矩阵可知）</li>
+<li>从而可以得到性质：<strong>在旋转里，旋转θ的旋转矩阵的转置 等于 旋转θ的旋转矩阵的逆</strong>（在数学上，一个矩阵的逆等于它的转置，这个矩阵就是正交矩阵）</li>
+<li>如果想要让二维物体沿着相反的方向旋转相同的角度，那么写出一个正向旋转矩阵，然后转置即可。</li>
+</ul>
+<h1 id="三维变换的补充"><a href="#三维变换的补充" class="headerlink" title="三维变换的补充"></a>三维变换的补充</h1><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419182036.png" alt="image-20240419182036017"></p>
+<p>通过升维来表示三维变换。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419182154.png" alt="image-20240419182154357"> </p>
+<p>和二维的变换一样，三维的仿射变换也是线性变换再平移变换的。</p>
+<h2 id="缩放和平移（变换）"><a href="#缩放和平移（变换）" class="headerlink" title="缩放和平移（变换）"></a>缩放和平移（变换）</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419182201.png" alt="image-20240419182201446"></p>
+<h2 id="旋转（变换）"><a href="#旋转（变换）" class="headerlink" title="旋转（变换）"></a>旋转（变换）</h2><h3 id="旋转变换矩阵"><a href="#旋转变换矩阵" class="headerlink" title="旋转变换矩阵"></a>旋转变换矩阵</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419183923.png" alt="image-20240419183923059"></p>
+<p>三维的旋转分为绕着x、y、z三个轴旋转的情况。</p>
+<p>第一个式子中是绕着x轴旋转，可以发现：</p>
+<ul>
+<li>x的值是不变的。因此在左上角3*3的线性变换矩阵中，其第一行和第一列都是100（图中蓝色框框）</li>
+<li>y的值和z的值都是旋转的。因此左上角3*3的线性变换矩阵中，右下角的2*2的矩阵是变化的，这其实是因为y和z都旋转了相同角度。（图中红色框框）</li>
+</ul>
+<p>第三个式子中是绕着z轴旋转，和绕着x轴旋转的情况分析方式一样。</p>
+<p>第二个式子中是绕着y轴旋转，其式子就有些不同了。其旋转矩阵的值是其他的负值。</p>
+<ul>
+<li>坐标系的建立是用向量叉乘的方式建立的。本门课用的是右手螺旋定则判断正负（方向）。</li>
+<li>在确定x轴时可以用y叉乘z；z轴可以用x叉乘y。</li>
+<li>而y轴，只能用z叉乘x，x叉乘z是负值，所以其旋转矩阵的值是其他的负值</li>
+</ul>
+<h3 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419184149.png" alt="image-20240419184148962"></p>
+<ul>
+<li>从RX，Ry，Rz组成任意3D旋转?</li>
+<li>所谓欧拉角</li>
+<li>常用于飞行模拟器:滚转、俯仰、偏航</li>
+</ul>
+<p>任意的一个旋转，都可以写成绕x、y、z旋转的组合。</p>
+<p>三个轴旋转的旋转角，称为欧拉角。</p>
+<h3 id="罗德里格斯旋转公式"><a href="#罗德里格斯旋转公式" class="headerlink" title="罗德里格斯旋转公式"></a>罗德里格斯旋转公式</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419184530.png" alt="image-20240419184530904"></p>
+<p>简单来说就是将任意的旋转写成一个旋转公式，该公式可以将旋转“分解”到三个轴上。</p>
+<p>罗德里格斯公式提供了一个旋转矩阵，旋转矩阵定义了一个旋转轴n和旋转角度α。</p>
+<ul>
+<li>这里旋转轴默认过原点，那么就是起点是原点，方向是n，旋转角度是α旋转。</li>
+<li>如果要实现真正的绕任意轴旋转（即轴可以平移），那么就得平移这一条轴到能自转的情况（即让这个轴的起点与原点重合），先旋转（自传），转完再移回去。（所有的旋转都是自旋转，上节课提到的绕着某个点旋转也是得先平移让旋转点与原点重合，旋转完后再平移回去）</li>
+<li>图中公式最后的大N，就要看这个公式的推导。闫老师把推导过程的pdf发了出来，配合这个视频（<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qV411X79j/?share_source=copy_web&vd_source=8332072dc5586e92174abc96d6e4280f">games101罗德里格斯旋转公式推导</a>）大概是明白了怎么推到的。（但自己推那是真搞不定，只能说数学水平真的决定计算机的上限。。。）</li>
+<li>推导过程中，有涉及到两个向量的叉乘。在进行两个向量的叉乘时，可以用矩阵的形式，因此才会出现最后面那个矩阵N。</li>
+<li>（第二节的向量叉乘：）<br><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419190235.png" alt="image-20240419190235517"><br>在三维中的两个向量的叉乘方法，就是图中第一条式子。而叉乘也可以写成下方第二条式子的样子（矩阵的形式)。</li>
+</ul>
+<h2 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h2><p>四元数是为了给旋转做差值才引入的。</p>
+<ul>
+<li>假设一个旋转矩阵是旋转15°，另一个是旋转25°。如果将两个矩阵加起来求平均，结果并不是20°。</li>
+<li>这是因为旋转矩阵不适合做差值。</li>
+</ul>
+<p>闫老师没有深入讲这个四元数，提了一嘴。后续自己会找些资料研究研究，毕竟unity里就有这个四元数。。</p>
+<h1 id="观测变换"><a href="#观测变换" class="headerlink" title="观测变换"></a>观测变换</h1><p>变换其实是为了让三维的空间变成二维的图。</p>
+<h2 id="视图变换"><a href="#视图变换" class="headerlink" title="视图变换"></a>视图变换</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419195444.png" alt="image-20240419195444944"></p>
+<ul>
+<li>什么是视图转换</li>
+<li>想想怎么拍一张照片<br>–一找个好地方，安排人(<strong>模式改造</strong>)<br>–找一个好的“角度”来放相机(<strong>视图变换</strong>)<br>–“茄子！”(<strong>投影变换</strong>)</li>
+</ul>
+<p>模型视图投影变换，简称MVP变换。</p>
+<h3 id="视图变换矩阵"><a href="#视图变换矩阵" class="headerlink" title="视图变换矩阵"></a>视图变换矩阵</h3><h4 id="矩阵概念定义"><a href="#矩阵概念定义" class="headerlink" title="矩阵概念定义"></a>矩阵概念定义</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419195907.png" alt="image-20240419195907247"></p>
+<ul>
+<li>怎么进行视图变换？</li>
+<li>定义相机<br>–位置<br>–注视&#x2F;凝视方向<br>–向上方向 (假设是 xx 观看)</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419200208.png" alt="image-20240419200208679"></p>
+<ul>
+<li>关键观察<br>–如果相机和所有对象一起移动，“照片”将是相同的</li>
+<li>不如我们总是把摄像机转换成<br>–原点，在Y上，看-Z<br>–与相机一起变换对象</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419200424.png" alt="image-20240419200424122"></p>
+<ul>
+<li>用 M<sub>view</sub> 变换相机<br>–它位于原点，在Y的上方，看-Z</li>
+<li>M在数学中如何？<br>–将 e 平移到原点<br>–将g旋转到-Z<br>–将t旋转到Y<br>–旋转(g叉乘t 可以认为是图中绿色坐标轴) 至X<br>–很难写!</li>
+</ul>
+<h4 id="矩阵推导"><a href="#矩阵推导" class="headerlink" title="矩阵推导"></a>矩阵推导</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419200939.png" alt="image-20240419200939693"></p>
+<ul>
+<li>M<sub>view</sub>如何计算？<br>– M<sub>view</sub> &#x3D; R<sub>view </sub>T<sub>view</sub></li>
+<li>平移到原点（T<sub>view</sub>就是平移矩阵）</li>
+</ul>
+<p>这里是先平移（T<sub>view</sub>平移矩阵）再线性变换（R<sub>view</sub>旋转矩阵）。</p>
+<p>对于R<sub>view</sub>，我们需要将视图的坐标系转成标准的坐标系。即g旋转到-Z；t旋转到Y；(g叉乘t)旋转到X。这样运算不好算，所以反过来让标准坐标系转成转到视图的坐标系。图中最后一行，就是用种思想进行的公式推导：</p>
+<ul>
+<li>R<sub>view</sub>是视图的坐标系转成标准的坐标系的旋转矩阵。</li>
+<li>R<sub>view</sub>直接求不好求，我们反过来，先求R<sub>view</sub><sup>-1</sup>。（前面二维矩阵补充提到，“在旋转里，旋转θ的旋转矩阵的转置 等于 旋转θ的旋转矩阵的逆”。）</li>
+<li>R<sub>view</sub><sup>-1</sup>的求法则是和前面求“旋转矩阵的ABCD”一样，用特殊值法。</li>
+<li>R<sub>view</sub><sup>-1</sup>求出来，R<sub>view</sub><sup>-1</sup> &#x3D; R<sub>view</sub><sup>-T</sup>。</li>
+<li>此时让R<sub>view</sub><sup>-T</sup>再转置回去就可以得到R<sub>view</sub>。</li>
+</ul>
+<h2 id="投影变换"><a href="#投影变换" class="headerlink" title="投影变换"></a>投影变换</h2><h3 id="引入-1"><a href="#引入-1" class="headerlink" title="引入"></a>引入</h3><h4 id="投影"><a href="#投影" class="headerlink" title="投影"></a>投影</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419203852.png" alt="image-20240419203852807"></p>
+<ul>
+<li>计算机图形学中的投影<br>–3D至2D<br>–正交投影<br>–透视投影</li>
+</ul>
+<p>上图的左下角是正交投影。正交投影并不会有近大远小的现象，透视会。</p>
+<p>上图的右下角是透视投影。原本平行的两条边，在这种投影下，会有相交。这里更像是人眼睛的效果。</p>
+<h4 id="摄像机的成像方式"><a href="#摄像机的成像方式" class="headerlink" title="摄像机的成像方式"></a>摄像机的成像方式</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419204016.png" alt="image-20240419204016470"></p>
+<p>左侧透视投影，摄像机放在某一个位置上看作一个点。以摄像机点为起点，做射线形成空间的一个锥体（视锥体）。在椎体中，通过“最远”和“最近”的设定，将“最远”和“最近”的区域的东西全显示在进出的图片上。</p>
+<h3 id="正交投影"><a href="#正交投影" class="headerlink" title="正交投影"></a>正交投影</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419204747.png" alt="image-20240419204747544"></p>
+<ul>
+<li>一个简单的方法来理解<br>–摄像头位于原点，看着-Z，向上看着Y(看起来很眼熟吗?)<br>–删除Z坐标<br>–将生成的矩形平移并缩放至[-1,1]<sup>2</sup></li>
+</ul>
+<p>不管远处还是近处，全部放在一张图上。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419204932.png" alt="image-20240419204932907"></p>
+<p>我们要把一个立方体[l,r] x [b,t] x [<strong>f,n</strong>]映射到“标准(正则、规范、标准)” 的立方体[-1,1]<sup>3</sup>上</p>
+<p>空间中的任何一个立方体（最左侧的图），都可以通过平移、缩放等变换，变成一个标准的立方体（最右侧的图）。</p>
+<p>x轴表示左右（立方体的[l,r]），y轴表示上下（立方体的[b,t]），而z轴是远近（立方体的[<strong>f,n</strong>]。注意离我们更远，z的值应该是更大的，<strong>f&gt;&#x3D;n</strong>。这就是一些API 比如OpenGL用左手系）</p>
+<h4 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419205639.png" alt="image-20240419205639065"></p>
+<p>先做平移，再做缩放。</p>
+<h3 id="透视投影"><a href="#透视投影" class="headerlink" title="透视投影"></a>透视投影</h3><h4 id="引入-2"><a href="#引入-2" class="headerlink" title="引入"></a>引入</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419205909.png" alt="image-20240419205909523"></p>
+<ul>
+<li>最常见于计算机图形学、美术、视觉系统</li>
+<li>更远的物体更小</li>
+<li>不平行的。平行线汇聚成一点。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419210045.png" alt="image-20240419210045840"></p>
+<p>齐次坐标中，(x,y,z,1)乘上任意不为0的数，在三维中的坐标都是不变的，都是(x,y,z)。</p>
+<p>当(x,y,z,1)乘上z时，(xz,yz,z<sup>2</sup>)在三维中还是(x,y,z)。</p>
+<h4 id="“挤压”投影"><a href="#“挤压”投影" class="headerlink" title="“挤压”投影"></a>“挤压”投影</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419211205.png" alt="image-20240419211205862"></p>
+<p>透视投影直接做或写出来比较困难。我们可以将远平面中间的位置，即这个Frustum（图形学中将远和近中间的区域叫做Frustum）从四棱竹的形状“挤”成立方体，然后再做正交投影即可。</p>
+<p>在“挤”的过程中，要做一些规定：</p>
+<ol>
+<li>最近的平面不能变</li>
+<li>要“挤”的z轴上的值不会变化（只向自己平面内中间收缩）</li>
+<li>远平面的中心点也不会发生变化</li>
+</ol>
+<h5 id="“挤压”矩阵"><a href="#“挤压”矩阵" class="headerlink" title="“挤压”矩阵"></a>“挤压”矩阵</h5><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419211640.png" alt="image-20240419211639970"></p>
+<ul>
+<li>回忆一下关键思想：找出变换点(x’，y’，z’)和原始点(x，y，z)之间的关系</li>
+</ul>
+<p>通过相似三角形，可以得到变换点和原始点之间的关系。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419211756.png" alt="image-20240419211756440"></p>
+<p>图中第一个式子就是变换点和原始点之间的关系。</p>
+<p>图中第二个式子，是原始点到变换点的过程。(x,y,z,1)会被映射成最右边的向量。</p>
+<h6 id="矩阵推导-1"><a href="#矩阵推导-1" class="headerlink" title="矩阵推导"></a>矩阵推导</h6><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419212435.png" alt="image-20240419212435348"></p>
+<ul>
+<li>所以“挤压”(透视到正交)投影就是这样做的</li>
+<li>可以找出部分的M<sub>persp-&gt;ortho</sub></li>
+</ul>
+<p>M<sub>persp-&gt;ortho</sub>就是挤压矩阵。</p>
+<p>图中第一个式子表示，用挤压矩阵M<sub>persp-&gt;ortho</sub>乘以原始点就可以得到最后的变换点。原始点和变换点都部分已知，求出挤压矩阵即可。</p>
+<p>图中第二个式子是求出的“挤压”矩阵（数学算出来的。。。）。第三行不知道，先放着。</p>
+<h6 id="矩阵第三行推导"><a href="#矩阵第三行推导" class="headerlink" title="矩阵第三行推导"></a>矩阵第三行推导</h6><p>这里的推导，emmmm怎么说呢，还是在用特殊值推导。了解下推导过程就好。。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419213152.png" alt="image-20240419213152008"></p>
+<ul>
+<li>如何求出图中矩阵的第三行<br>–有什么有用的信息吗</li>
+<li>观察:第三排负责<br>–近平面上的任何点都不会改变<br>–远平面上的任何点的z都不会改变</li>
+</ul>
+<p><strong>信息1：近平面上的任何点都不会改变</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419213822.png" alt="image-20240419213822775"></p>
+<ul>
+<li>近平面上的任何点都不会改变。<br>用n代替z的值</li>
+<li>所以第三行一定会是(0 0 A B)的形式<br>n<sup>2</sup>与任何x y 上的值都无关</li>
+</ul>
+<p>n为近平面到摄像机的距离。</p>
+<p>这里就是先让原始点的z值为n，然后x y值依旧不知道。此时就会变成：矩阵第三行(? ? ? ?) 乘以 列矩阵(x,y,n,1) 等于n<sup>2</sup>。<br><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419220637.png" alt="image-20240419220446698"><br>即：?x+?y+?n+?&#x3D;n<sup>2</sup>（矩阵的乘法，第i行分别乘以第i列的元素然后相加)</p>
+<p>然后观察 ?x+?y+?n+1&#x3D;n<sup>2</sup> 这个式子，等号右边没有出现任何的x y，那么他们的系数只能是0。第三四个系数还是不知道，设为A B。因此就有了(0 0 A B)这个东西，从而能得到 An+B&#x3D;n<sup>2</sup> 这个式子。</p>
+<p><strong>信息2：远平面上的任何点的z都不会改变</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419221059.png" alt="image-20240419221059316"></p>
+<p>和信息1一样，带入特殊值。f为近平面到摄像机的距离。</p>
+<p>在信息1推导出的(0 0 A B)基础上，带入f，可以得到Af+B&#x3D;f<sup>2</sup></p>
+<p><strong>联立解方程</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419221446.png" alt="image-20240419221446659"></p>
+<p>联立两个式子，用韦达定理解出了A B。此时就能够得到M<sub>persp-&gt;ortho</sub>“挤压”矩阵了。</p>
+<h3 id="透视矩阵"><a href="#透视矩阵" class="headerlink" title="透视矩阵"></a>透视矩阵</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/19/20240419221607.png" alt="image-20240419221607872"></p>
+<p>通过“挤压”投影得到“挤压”矩阵后。先“挤压”再正交投影，就可以得到透视矩阵。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="二维三维补充"><a href="#二维三维补充" class="headerlink" title="二维三维补充"></a>二维三维补充</h2><p>今天先是对之前缩放、平移和旋转等这些变换在二维、三维上的一些补充。</p>
+<h3 id="二维"><a href="#二维" class="headerlink" title="二维"></a>二维</h3><p>二维上是对旋转矩阵的补充。</p>
+<ul>
+<li>求物体旋转-θ时的旋转矩阵，发现R<sub>-θ</sub> &#x3D; R<sub>θ</sub><sup>-T</sup></li>
+<li>这里引出性质（理论上二维三维都通用）：<strong>在旋转里，旋转θ的旋转矩阵的转置 等于 旋转θ的旋转矩阵的逆</strong>。（数学上的正交矩阵）</li>
+</ul>
+<h3 id="三维"><a href="#三维" class="headerlink" title="三维"></a>三维</h3><p>三维上时对缩放、平移和旋转变换的补充。</p>
+<ul>
+<li>三维的缩放和平移变换很简单，原理和二维的一致。</li>
+<li>三维的旋转变换，其会有绕x、y、z轴三个方向旋转的情况，对应的旋转矩阵都会不一样。</li>
+<li>x和z的旋转矩阵分析方法一致。</li>
+<li>绕y轴的旋转矩阵比较特殊，其值是x 、y的旋转矩阵的负值。这是因为在右手系下，x叉乘y是-z。</li>
+<li>此外，还提及了四元数。由于矩阵不适合做差值，因此会用四元数。</li>
+</ul>
+<h2 id="观测变换-1"><a href="#观测变换-1" class="headerlink" title="观测变换"></a>观测变换</h2><p>课上的重点是观测变换。观测变换有模型、视图、投影三种（简称MVP变换）</p>
+<p>个人理解模型变换像是“建模”这种，这里就不需要讨论。</p>
+<h3 id="视图变换-1"><a href="#视图变换-1" class="headerlink" title="视图变换"></a>视图变换</h3><p>视图变换的主要原因是摄像机的摆放问题，抽象上来看，就是坐标系的建立和转换的问题。</p>
+<ul>
+<li>通过定义，我们规定了一套标准的坐标系。但是摄像机自身的坐标系并不一定与标准坐标系重合，这个时候我们需要进行坐标系的转换（视图变换）。</li>
+<li>视图变换时，要将视图（定义的摄像机的前后上下，原点，在Y上，看-Z）坐标轴通过平移、旋转等变换回到标准坐标系上。</li>
+<li>视图坐标的X轴是通过y和z叉乘得到，要将一个叉乘旋转比较麻烦。因此可以反过来，让标准坐标系旋转到视图坐标系上。接着通过前面的正交矩阵性质（在旋转里，旋转θ的旋转矩阵的转置 等于 旋转θ的旋转矩阵的逆），能够求出旋转矩阵。</li>
+<li>平移矩阵很简单，直接是原点的移动就可以得到</li>
+<li>视图变换是先旋转，再平移。通过旋转矩阵和平移矩阵，就可以算出视图矩阵。</li>
+</ul>
+<h3 id="投影变换-1"><a href="#投影变换-1" class="headerlink" title="投影变换"></a>投影变换</h3><p>投影变换是将三维的画面投影到一张二维图像上，有正交和透视两种方式。</p>
+<h4 id="正交变换"><a href="#正交变换" class="headerlink" title="正交变换"></a>正交变换</h4><p>正交投影比较简单，平移变换加上缩放变换即可得到。同理正交矩阵也是通过平移矩阵和缩放矩阵就可以算出。</p>
+<h4 id="透视变换"><a href="#透视变换" class="headerlink" title="透视变换"></a>透视变换</h4><p>透视投影比较复杂。</p>
+<ul>
+<li>透视变换中为了不涉及坐标系之间的变换，引入了“挤压”的想法。透视投影做“挤压”投影，再做正交投影，就可以得到一张二维二维画像。</li>
+<li>“挤压”投影的“挤压”矩阵推导起来比较复杂，后半节课都在干这个事情。</li>
+<li>总的来说，就是先利用相似三角形、变换点和原始点之间的关系和齐次方程的特性，得到出第三行以外的“挤压”矩阵值。</li>
+<li>第三行通过观察到的两个信息（挤压时近平面和远平面点的关系），带入特殊值解方程推出来的。</li>
+<li>算出“挤压”矩阵后，根据前面的正交矩阵，就能得到透视矩阵。</li>
+</ul>
+<h1 id="课堂遗留问题"><a href="#课堂遗留问题" class="headerlink" title="课堂遗留问题"></a>课堂遗留问题</h1><p>在透视投影做“挤压”时，近平面的所有点不变，远平面的所有点z值不变。那么远近平面中间的点，经过“挤压”变换后，z值会如何变化呢？（这个点会被推向近平面，还是推向远平面）</p>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/assets/Head.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="/assets/Pay.jpg" />
+  </div>
+  <div class="like-text">“喜欢的话，请给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <div class="post-nav-item-left"></div>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/04/19/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0day3/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      算法练习day3
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6-GAME101/" class="post-tag">#计算机图形学 GAME101</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\14\GAME101-Lecture01学习\" title="GAME101_Lecture01学习" rel="bookmark">GAME101_Lecture01学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\16\GAME101-Lecture02学习\" title="GAME101_Lecture02学习" rel="bookmark">GAME101_Lecture02学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\17\GAME101-Lecture03学习\" title="GAME101-Lecture03学习" rel="bookmark">GAME101-Lecture03学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
