@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        算法练习day6 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">算法练习day6</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" class="post-tag">#数据结构 算法练习</a>
+
+
+          <span class="post-date">2024-05-08</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="post-toc-text">哈希表理论基础</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D"><span class="post-toc-text">有效的字母异位词</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%94%99%E8%AF%AF"><span class="post-toc-text">错误</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">代码实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86"><span class="post-toc-text">两个数组的交集</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%87%8D%E7%82%B9"><span class="post-toc-text">重点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="post-toc-text">代码实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BF%AB%E4%B9%90%E6%95%B0"><span class="post-toc-text">快乐数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%87%8D%E7%82%B9-1"><span class="post-toc-text">重点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%94%99%E8%AF%AF-1"><span class="post-toc-text">错误</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="post-toc-text">代码实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="post-toc-text">两数之和</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%9D%E8%B7%AF-3"><span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%87%8D%E7%82%B9-2"><span class="post-toc-text">重点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3"><span class="post-toc-text">代码实现</span></a></li></ol></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h1 id="哈希表理论基础"><a href="#哈希表理论基础" class="headerlink" title="哈希表理论基础"></a>哈希表理论基础</h1><p>哈希表在放弃算法后，就再也没有接触过这个了。</p>
+<p>c++标准库提供的数据结构中，有数组、set和map三种可以用于实现哈希表。</p>
+<ul>
+<li>数组不用提</li>
+<li>set：中文是集合的意思</li>
+</ul>
+<p>c#的数据结构中，也有hashtable、hashSet和dictionary可以用。</p>
+<h1 id="有效的字母异位词"><a href="#有效的字母异位词" class="headerlink" title="有效的字母异位词"></a>有效的字母异位词</h1><p><a target="_blank" rel="noopener" href="https://programmercarl.com/0242.%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D.html">代码随想录 0242.有效的字母异位词</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/valid-anagram/description/">242. 有效的字母异位词 - 力扣（LeetCode）</a></p>
+<p>（用时：0.5小时）</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题直接用双重循环直接搜索也是可以的，这个思路比较粗暴就不多说。</p>
+<p>题目需要我们比较两个字符串的字母是否互为异位。我们可以查看两个字符串的字母是否完全一样，需要看的是字母的出现频率是否一样。</p>
+<p>一般的思路就是先将第一个字符串中元素出现的频率情况记录下来，接着与第二个字符串进行对照。记录的容器有很多种，第一反应想到的是数组。用数组下标区别不同元素，记录出现的频率即可。</p>
+<p>这里用数组下标区别元素，对应统计频率的想法就是哈希的思想，<u>这里哈希的实现结构就是数组。</u>（字母只有26个，故可以用数组。）</p>
+<p>总结来说：</p>
+<ul>
+<li>首先需要用一个循环将第一个字符串元素的出现情况更新在哈希数组上</li>
+<li>接着在用一个循环将第二个字符串元素的出现情况更新在同一哈希数组上（或者可以用两个哈希数组，然后比较不同也行）</li>
+<li>最后再用一个循环，判断两个字符串元素的出现情况是否一样（如果是两个哈希数组就直接比较即可，如果是一个哈希数组，那就通过哈希值来判断。）</li>
+</ul>
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p>写的过程中也有遇到一些错误：</p>
+<ol>
+<li>后面两个循环合并在一起写了（即将第二个字符串元素的出现情况的更新与判断两个字符串元素的出现情况放在了一起同时进行）</li>
+<li>第三个循环中的if判断条件出错（写成了hash[i]&lt;0）（即判断两个字符串元素的出现情况是否一样的条件写错了。</li>
+</ol>
+<p>个人理解如下：</p>
+<ul>
+<li><p><u>后面两个循环合并在一起写了</u></p>
+<p>不能把后面两个循环合在一起写。第二个循环的目的是记录字符串t字母的出现情况，第三个循环的目的是查看所有字母的情况。第二个循环中是不会遍历到所有字母的。</p>
+</li>
+<li><p><u>第三个循环中的if判断条件出错（写成了hash[i]&lt;0）</u></p>
+<p>借用官方提供的测试数据：s&#x3D;”ab” t&#x3D;”a”。在最后一个循环中，a对应的数组值是0，但b是1。只有当哈希数组中所有的值都等于0，才表示两个字符串元素的出现情况完全相同。这里应该用hash[i]!&#x3D;0判断才行。</p>
+</li>
+</ul>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 哈希数组遍历</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;s&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;t&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">IsAnagram</span>(<span class="params"><span class="built_in">string</span> s, <span class="built_in">string</span> t</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span>[] hash = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">26</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;s.Length;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        hash[s[i] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;t.Length;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        hash[t[i] - <span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;hash.Length;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (hash[i]!=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h1><p><a target="_blank" rel="noopener" href="https://programmercarl.com/0349.%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86.html">代码随想录 两个数组的交集</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/intersection-of-two-arrays/description/">349. 两个数组的交集 - 力扣（LeetCode）</a></p>
+<p>（用时：1小时）</p>
+<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>本道题要找两个数组的交集。根据力扣上的示例，可以认为找交集是要找两个数组重复的元素。判断一个元素是否重复，就是查看在这两个数组中，该元素是否都出现了。</p>
+<p>简单的暴力枚举就是两层循环直接搜索。</p>
+<p>这里卡哥提供的是用哈希的思路。力扣的题目上两个数组的数值都小于1000，故可以用数组实现哈希表。卡哥也有解释这是力扣后面修改的条件，当数值大到一定程度时，数组就会很费空间。因此本道题我们考虑用其他的容器来实现。</p>
+<p>卡哥教的c++使用的是set集合结构，在c#中可以使用hashSet。</p>
+<p>总结来说：</p>
+<ul>
+<li>首先在第一个数组中统计出现的元素。</li>
+<li>接着在第二个数组中判断前面出现的元素是否有出现。在这同时要记录下重复的元素。</li>
+</ul>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><p>本道题和上一题有些不一样，上一题的元素是比较两者的出现频率是否一样，这一题的元素是比较两者是否都出现过，并且还需要记录两者都出现的元素本身。</p>
+<p>这里需要注意两个重点：</p>
+<ol>
+<li><p><u>元素只要在两者出现过就可以了。</u></p>
+<p>有一处出现了多次和出现一次是一样的，那么意味着<strong>要给数组的元素去重</strong>。</p>
+</li>
+<li><p><u>两者都出现的元素要记录下来。</u></p>
+<p>记录的条件是通过哈希表判断出来的：要么就得在第二步判断元素是否重复出现时一起记录；要么就得先将判断结果记录下来后续再来一个循环构造答案数组。</p>
+<p>如果是前者，边判断边记录。</p>
+<ul>
+<li>普通的数组结构，数组的长度是固定的。为了保险将长度提前定义成足够大，那么就需要同时记录数组的有效长度，以便最后在对数组进行处理，去掉额外的数组空间。</li>
+<li>此外c#里面还有list、arrayList等其他数据结构可以使用，这些可以实现动态数组。</li>
+</ul>
+<p>如果是后者，先将判断结果记录下来。</p>
+<ul>
+<li>记录的同时需要一起记录有效数组的长度，在后续构建答案数组时使用。</li>
+</ul>
+</li>
+</ol>
+<h2 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h2><p><strong>哈希数组实现：</strong></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 哈希数组实现</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;nums1&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;nums2&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">int</span>[] <span class="title">Intersection</span>(<span class="params"><span class="built_in">int</span>[] nums1, <span class="built_in">int</span>[] nums2</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> ansLen = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//构建哈希数组</span></span><br><span class="line">    <span class="built_in">int</span>[] hash = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">1001</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;nums1.Length;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//输入构建哈希数组时，nums1去重</span></span><br><span class="line">        <span class="keyword">if</span> (hash[nums1[i]]==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            hash[nums1[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查找并更新哈希数组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;nums2.Length;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (hash[nums2[i]]==<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//通过哈希数组查找时，num2去重</span></span><br><span class="line">            hash[nums2[i]]++;</span><br><span class="line">            ansLen++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//通过哈希数组得到数组交集</span></span><br><span class="line">    <span class="built_in">int</span>[] ans = <span class="keyword">new</span> <span class="built_in">int</span>[ansLen];</span><br><span class="line">    ansLen = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;hash.Length;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (hash[i] == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans[ansLen++] = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>用hashSet实现：</strong></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 用hashset实现</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;nums1&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;nums2&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">int</span>[] <span class="title">Intersection2</span>(<span class="params"><span class="built_in">int</span>[] nums1, <span class="built_in">int</span>[] nums2</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    HashSet&lt;<span class="built_in">int</span>&gt; hashSet = <span class="keyword">new</span> HashSet&lt;<span class="built_in">int</span>&gt;();</span><br><span class="line">    HashSet&lt;<span class="built_in">int</span>&gt; ans = <span class="keyword">new</span> HashSet&lt;<span class="built_in">int</span>&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">foreach</span> (<span class="built_in">int</span> num <span class="keyword">in</span>  nums1)</span><br><span class="line">    &#123;</span><br><span class="line">        hashSet.Add(num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">foreach</span> (<span class="built_in">int</span> num <span class="keyword">in</span> nums2)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (hashSet.Contains(num))</span><br><span class="line">        &#123;</span><br><span class="line">            ans.Add(num);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ans.ToArray&lt;<span class="built_in">int</span>&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>本题用的还是HashSet来定义答案数组，用ToArray函数即可转成普通数组。用HashSet主要时因为</p>
+<ul>
+<li>arrayList不支持泛型，是object类型，要频繁装箱拆箱.</li>
+<li>List支持泛型，不用装箱拆箱效率较高，但是它的数据不具有唯一性。</li>
+<li>更多参考可以看这篇文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zhang_xinxiu/article/details/8657431">C#中数组、ArrayList和List三者的区别_c# 有沒有java的list-CSDN博客</a></li>
+</ul>
+<p>综合考虑，还是HashSet方便。</p>
+<h1 id="快乐数"><a href="#快乐数" class="headerlink" title="快乐数"></a>快乐数</h1><p><a target="_blank" rel="noopener" href="https://programmercarl.com/0202.%E5%BF%AB%E4%B9%90%E6%95%B0.html">代码随想录 快乐数</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/happy-number/description/">202. 快乐数 - 力扣（LeetCode）</a></p>
+<p>（用时：0.5小时）</p>
+<h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><p>刚开始看到这道题，第一反应是循环、递归这些东西。</p>
+<p>题目要求就是要一直求各个位数的平方和，直到结果为1，或者无限循环下去永远都不会为1。</p>
+<h2 id="重点-1"><a href="#重点-1" class="headerlink" title="重点"></a>重点</h2><p>这道题的重点有两个：</p>
+<ol>
+<li>各个位数平方和的求法。</li>
+<li>如何判断这个结果永远都不会到1。</li>
+</ol>
+<p>个人理解：</p>
+<ul>
+<li>各个位置上数字平方和的求法很简单，用模运算和除法即可。</li>
+<li>关于如何判断这个结果永远都不会到1，这里就出现了错误。</li>
+</ul>
+<h2 id="错误-1"><a href="#错误-1" class="headerlink" title="错误"></a>错误</h2><ol>
+<li>思路有误。认为让其始终循环，直到其s&lt;10或小于某个数时就会停止</li>
+<li>找到了1的判断出错。</li>
+</ol>
+<p>个人理解如下：</p>
+<ul>
+<li><p><u>思路有误。认为让其始终循环，直到其s&lt;10或小于某个数时就会停止。</u></p>
+<p>事实上，s即使小于10（当前的结果是个位数），依旧能够通过一次平方变为更大的数。就算是找到个位数，一次的平方无法达到更多的位数，但是多几次平方，依可以以变回去。思考的时候忽略了这道题是只要没有出现1，就需要一直平方下去。而只有1一直平方下去始终不变。</p>
+<p>正确思路：正确的想法应该是根据题目要求一直让各个位数的数字平方然后相加。题目提到说会一直无限循环，那么当开始重复循环时，就代表已经是无法找到1了。</p>
+</li>
+<li><p><u>找到了1的判断出错。</u></p>
+<p>当最原始的数在运算中，某一次所有位数的平方和是1时，就代表该数是开心数。</p>
+<p>s是用于累加平方的平方和结果。当平方和为1时就表示其是开心数，但while此时的主要功能是用于累加平方和，可能会出现最高位是1导致误判的情况，因此平方和为1且当前的数字各位数都已取出（即n&#x3D;0）才能确定原始数是开心数。</p>
+</li>
+</ul>
+<h2 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h2><p><strong>hashSet解法：</strong></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> hashSet解法</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;n&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">bool</span> <span class="title">IsHappy</span>(<span class="params"><span class="built_in">int</span> n</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span> s = <span class="number">0</span>;</span><br><span class="line">    HashSet&lt;<span class="built_in">int</span>&gt; hashSet = <span class="keyword">new</span> HashSet&lt;<span class="built_in">int</span>&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        s += (n % <span class="number">10</span>) * (n % <span class="number">10</span>);</span><br><span class="line">        n = n / <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (s==<span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!hashSet.Add(s))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            n = s;</span><br><span class="line">            s = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h1><p><a target="_blank" rel="noopener" href="https://programmercarl.com/0001.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C.html">代码随想录 两数之和</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum/description/">1. 两数之和 - 力扣（LeetCode）</a></p>
+<p>（用时：0.5小时）</p>
+<h2 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h2><p>这道题其实就是给定和，让我们在数组中查找能够让加法等式成立的元素。</p>
+<p>等式的和是确定的，当我们已知加数时，被加数是可以被计算出来的。那么这就意味着，我们可以在数组中从头进行遍历，每确定一个数为加数，就在数组中查看另外的数中是否有被加数。这个思路就是简单的暴力枚举方法。</p>
+<p>也可以用数组去记录值的出现情况，每次判断这个值是否有在这个数组中出现时通过“查表”即可，这里就是哈希表的方法。</p>
+<p>哈希表的结构有很多。target最大可以到10<sup>9</sup>，用哈希数组就不合适了。并且题目要求是要输出数组下标。</p>
+<p>卡哥将c++时用的是map，而c#我是用的是字典dictionary</p>
+<ul>
+<li>哈希表HashTable对于int,float这些值类型还需要进行装箱等操作，会非常耗时。</li>
+<li>字典Dictionary表示键和值的集合，它支持泛型,相对好一点。</li>
+</ul>
+<p>总结来说：</p>
+<ul>
+<li><p>整体是对数组进行遍历。</p>
+</li>
+<li><p>在遍历时，首先计算出当前元素下的被加数。</p>
+</li>
+<li><p>接着通过字典，查看被加数是否有出现在数组中。</p>
+<p>若出现了，则直接构建答案数组输出即可（题目提到可以假设只会有一个答案、同一元素的答案不会重复出现且可以按任意顺序返回答案）</p>
+<p>若未出现。若是字典中没有该数，值和下标加入字典，若有则不处理（数组可能是3，3，3的情况，元素值相同选一个即可。）</p>
+</li>
+</ul>
+<h2 id="重点-2"><a href="#重点-2" class="headerlink" title="重点"></a>重点</h2><ol>
+<li>注意两个if的顺序（即注意需要查找被加数是否出现和将加数进入字典这两个操作的先后顺序）</li>
+</ol>
+<p>个人理解如下：</p>
+<ul>
+<li><p><u>注意两个if的顺序</u></p>
+<p>在循环中，我们遍历数组，通过结果target可以求得在当前数组元素下的被加数，接着我们需要查找被加数是否出现、将加数进入字典。这里有一个顺序的问题，两个if的顺序本质上是先找被加数还是先增加加数进字典？</p>
+<p>如果先增加加数进字典，接着查找被加数是否出现，那么当被加数和加数数值相等时，就被被判定为已出现，那么就是会让数组的同一个元素在答案里重复出现，这不符合题意。</p>
+<p>先查找被加数再将加数加入字典，这样可以避免重复用一个元素的情况。</p>
+</li>
+</ul>
+<h2 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现"></a>代码实现</h2><p><strong>键值对数据结构实现：</strong></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 键值对数据结构实现</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;nums&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;target&quot;&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">int</span>[] <span class="title">TwoSum</span>(<span class="params"><span class="built_in">int</span>[] nums, <span class="built_in">int</span> target</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">int</span>[] ans = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">2</span>];</span><br><span class="line">    <span class="built_in">int</span> tempNum;</span><br><span class="line">    Dictionary&lt;<span class="built_in">int</span>, <span class="built_in">int</span>&gt; numberDic = <span class="keyword">new</span> Dictionary&lt;<span class="built_in">int</span>, <span class="built_in">int</span>&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;nums.Length;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        tempNum = target - nums[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (numberDic.ContainsKey(tempNum))</span><br><span class="line">        &#123;</span><br><span class="line">            ans[<span class="number">0</span>] = numberDic[tempNum];</span><br><span class="line">            ans[<span class="number">1</span>] = i;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!numberDic.ContainsKey(nums[i]))</span><br><span class="line">        &#123;</span><br><span class="line">            numberDic.Add(nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/assets/Head.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="/assets/Pay.jpg" />
+  </div>
+  <div class="like-text">“喜欢的话，请给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/2024/05/08/csharp%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9AHashSet/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>csharp数据结构：HashSet</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/05/07/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0day4/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      算法练习day4
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" class="post-tag">#数据结构 算法练习</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\18\算法练习day2\" title="算法练习day2" rel="bookmark">算法练习day2</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\18\算法练习day1补充\" title="算法练习day1补充" rel="bookmark">算法练习day1补充</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\19\算法练习day3\" title="算法练习day3" rel="bookmark">算法练习day3</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>

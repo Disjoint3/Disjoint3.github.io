@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        GAME101-Lecture06学习 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">GAME101-Lecture06学习</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6-GAME101/" class="post-tag">#计算机图形学 GAME101</a>
+
+
+          <span class="post-date">2024-05-08</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%89%8D%E8%A8%80"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%B5%B0%E6%A0%B7"><span class="post-toc-text">走样</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%87%87%E6%A0%B7%E4%BA%A7%E7%94%9F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="post-toc-text">采样产生的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8D%E8%B5%B0%E6%A0%B7%E7%9A%84%E5%81%9A%E6%B3%95"><span class="post-toc-text">反走样的做法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A2%91%E7%8E%87"><span class="post-toc-text">频率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A2%91%E7%8E%87%E4%B8%8E%E9%87%87%E6%A0%B7"><span class="post-toc-text">频率与采样</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A2%91%E7%8E%87%E4%B8%8E%E8%B5%B0%E6%A0%B7"><span class="post-toc-text">频率与走样</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A2%91%E7%8E%87%E4%B8%8E%E6%BB%A4%E6%B3%A2"><span class="post-toc-text">频率与滤波</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%BB%A4%E6%B3%A2%E4%B8%AD%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E5%BA%94%E7%94%A8"><span class="post-toc-text">滤波中傅里叶变换的应用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%BB%A4%E6%B3%A2%E4%B8%8E%E5%8D%B7%E7%A7%AF%E3%80%81%E5%B9%B3%E5%9D%87"><span class="post-toc-text">滤波与卷积、平均</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85"><span class="post-toc-text">知识补充</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0%E5%B1%95%E5%BC%80"><span class="post-toc-text">傅里叶级数展开</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="post-toc-text">傅里叶变换</span></a></li></ol></li></ol></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <p>5</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上节课主要讲的是三角形的光栅化。重要的思想是要利用像素的中心对三角形可见性的函数进行采样。</p>
+<p>这节课主要就是反走样。</p>
+<h1 id="走样"><a href="#走样" class="headerlink" title="走样"></a>走样</h1><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508211650.png" alt="image-20240508211643655"></p>
+<p>通过采样，得到的这个三角形和实际的三角形有很大的区别。这种效果叫做锯齿，学名叫走样（aliasing）</p>
+<h2 id="采样产生的问题"><a href="#采样产生的问题" class="headerlink" title="采样产生的问题"></a>采样产生的问题</h2><p>artifacts:表示图形学中一切看上去不太对的东西。</p>
+<p>采样会产生一系列问题，其本质都是信号（或者说采样的函数）变得太快了，以至于采样的速度跟不上它变化的速度。</p>
+<ul>
+<li>锯齿（aliasing）</li>
+<li>摩尔纹：将图像的奇数行和奇数列就可以产生</li>
+<li>车轮效应：生活中高速行驶的汽车，在视频中看上去的效果可能是倒着转的。人眼在时间中的采样出了问题。</li>
+</ul>
+<h2 id="反走样的做法"><a href="#反走样的做法" class="headerlink" title="反走样的做法"></a>反走样的做法</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508214248.png" alt="image-20240508214247976"></p>
+<p>在采样之前做一个模糊（滤波），可以进行反走样。（而先走样在模糊的话，无法达到效果。）</p>
+<p>如图在三角形采样前，做一遍模糊，然后再对这些像素点进行采样。</p>
+<h2 id="频率"><a href="#频率" class="headerlink" title="频率"></a>频率</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508214705.png" alt="image-20240508214705389"></p>
+<p>定义f为频率。</p>
+<p>用f即可定义波变化有多快，从而也能定义周期T。</p>
+<h3 id="频率与采样"><a href="#频率与采样" class="headerlink" title="频率与采样"></a>频率与采样</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508215406.png" alt="image-20240508215406543"></p>
+<ul>
+<li>低频信号:充分采样以进行合理的重构</li>
+<li>高频信号采样不足:重建错误地似乎是从一个低频信号</li>
+</ul>
+<p>傅里叶变换就是把函数变成不同的频率的段，然后把不同频率的段显示出来。</p>
+<p>如图，如果我们用同样的采样方法来对不同的波进行采样，采样的效果是不一样的。因此，我们需要让函数变化的频率和采样的频率匹配，才能让所有的采样都达到一个想要的效果。</p>
+<h3 id="频率与走样"><a href="#频率与走样" class="headerlink" title="频率与走样"></a>频率与走样</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508220013.png" alt="image-20240508220013124"></p>
+<ul>
+<li>高频信号采样不足：采样错误地表现为来自低频信号</li>
+<li>在给定的采样率下难以区分的两个频率称为“aliases”（走样）</li>
+</ul>
+<p>如图，首先让蓝色的函数根据图中白色点的方式进行采样。根据采样的点还原，可以得到黑色的这个函数。</p>
+<p>接着假设黑色线是待采样的函数，如果也用白色点的方式进行采样。还原后得到的依旧是这个黑色的这个函数。</p>
+<p>同样的一个采样方法，采用两种不同的频率的函数得到的结果，我们无法区分它们，这就叫做走样（用频率解释的走样）</p>
+<h3 id="频率与滤波"><a href="#频率与滤波" class="headerlink" title="频率与滤波"></a>频率与滤波</h3><p>滤波（filtering）：把某个特定频段（就是一个规定的范围内的频率）给删除，这个对应的信号是如何变化的，叫做滤波（即去掉一系列频率）</p>
+<h4 id="滤波中傅里叶变换的应用"><a href="#滤波中傅里叶变换的应用" class="headerlink" title="滤波中傅里叶变换的应用"></a>滤波中傅里叶变换的应用</h4><p>傅里叶变换可以把一个函数，从时域（空间和时间都称为时域）变为频域。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508220730.png" alt="image-20240508220729848"></p>
+<p>我们对左边的图进行一次傅里叶变换，从时域变为频域，就会得到右边的图。</p>
+<p>将右边图的中心定义为低频的区域，那么从中心到四周频率会越来越高。不同频率表示的信息多少，我们通过亮度来表示。</p>
+<p>右图中，图像的中心是最亮的，而前面我们定义了中心是低频，这就意味着左边的图像中，信息都集中在低频区域。</p>
+<p>右图中有一个十字的线。这是做傅里叶变换时会出现的现象。因为在分析一个信号时，会认为它是周期性重复的信号，但是大多数图都是不周期性重复的信号。</p>
+<ul>
+<li>可以将左图当作是一个周期，那么这个图的周期性重复就是类似桌面平铺的样子。左图在左右上下边界后就没有画像了，分析的时候看作将这张图左右上下叠了无数个，这就是无数个周期。</li>
+<li>此时有了一个问题，大多数图的左右边界是不一样的（即图左右的边缘不一样）。当我们让这幅图和左边重复的图衔接时，衔接处的像素会产生一个剧烈的变化（可以想象成右边界是黑的，但是用来衔接的旁边的左边界是白的，黑到白直接是一个突变），就会产生一个极高的高频。</li>
+</ul>
+<p>傅里叶变换能够让我们看到，左边的图像在不同频率长什么样子（即信号在不同频率长什么样，叫做频谱）。</p>
+<h5 id="高通滤波"><a href="#高通滤波" class="headerlink" title="高通滤波"></a>高通滤波</h5><p>将低频信号全部抹去，只剩下高频的信号的滤波叫高通滤波。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508223154.png" alt="image-20240508223154054"></p>
+<p>在傅里叶变换的基础上，将低频信号全部抹去，只剩下高频的信号，就是右图。将剩余的高频信号逆处理回去，就是左图。</p>
+<p>可以发现，高频的东西其实就是表示图像内容的边界（比如图中的袖口等）。</p>
+<p>边界可以理解成是突变比较大的“分水岭”，这个边界左右（或上下）发生了非常剧烈的变化，而图像信息变化快的地方频率就高。</p>
+<p>进一步可以认为，高频的地方图片信息变化非常大。</p>
+<h5 id="低通滤波"><a href="#低通滤波" class="headerlink" title="低通滤波"></a>低通滤波</h5><p>将所有高频信息抹掉，只剩下低频信息的滤波叫低通滤波。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508224503.png" alt="image-20240508224502926"></p>
+<p>在傅里叶变换的基础上，将所有高频信息抹掉，只剩下低频信息，可以发现所有的“边界”都去掉了，整个图像是一个模糊的样子。</p>
+<h5 id="特定频段滤波"><a href="#特定频段滤波" class="headerlink" title="特定频段滤波"></a>特定频段滤波</h5><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508224613.png" alt="image-20240508224613677"></p>
+<p>将高频和低频的信息都去掉，留下某一段特定频率的信息，此时提取到的是一些不那么明显的“边界”特征。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508224809.png" alt="image-20240508224809092"></p>
+<p>同样，如果左侧留下的光圈更加外边（更接近高频），那么这个“边界”特征会越明显。</p>
+<h4 id="滤波与卷积、平均"><a href="#滤波与卷积、平均" class="headerlink" title="滤波与卷积、平均"></a>滤波与卷积、平均</h4><p>平均（averag）操作：可以想象成低通滤波，造成模糊的效果。</p>
+<h5 id="卷积操作"><a href="#卷积操作" class="headerlink" title="卷积操作"></a>卷积操作</h5><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508225213.png" alt="image-20240508225213647"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508225457.png" alt="image-20240508225457436"></p>
+<p>假设滤波器（filter）是一个窗口，窗口中有若干个各自。将信号与滤波窗口进行点乘操作（第三行的式子），点乘的结果写回窗口的中心值。</p>
+<p>其实就是将某个原始的信号取其周围的信号进行加权求和，得到一个新的信号。任意一个数都是周围若干数的平均。</p>
+<p>将某一种滤波作用在一个信号上，进行<u>卷积操作</u>（点乘加权平均），得到一个新的信号。（这是图形学简化后的定义，不是数学上的定义）</p>
+<p>（这就是卷积能够提取特征的原因）</p>
+<h6 id="卷积定理"><a href="#卷积定理" class="headerlink" title="卷积定理"></a>卷积定理</h6><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508232831.png" alt="image-20240508232754543"></p>
+<p>对一个图像进行卷积操作，得到新的图像。它们对应的</p>
+<p>反走样</p>
+<h1 id="知识补充"><a href="#知识补充" class="headerlink" title="知识补充"></a>知识补充</h1><h3 id="傅里叶级数展开"><a href="#傅里叶级数展开" class="headerlink" title="傅里叶级数展开"></a>傅里叶级数展开</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508214954.png" alt="image-20240508214953961"></p>
+<p>任何一个周期函数都可以写成一系列正弦和余弦函数他们的线性组合以及他们的常数项，这就叫做傅里叶级数展开。</p>
+<h3 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h3><p>傅里叶变换和傅里叶级数展开并不是一个东西。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/08/20240508215229.png" alt="image-20240508215229531"></p>
+<p>给定任意一个函数f(x)，经过一系列操作变成另外一个函数F(x)。F(x)通过逆变换可以变回f(x)，这就叫做傅里叶变换或逆傅里叶变换。</p>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/assets/Head.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="/assets/Pay.jpg" />
+  </div>
+  <div class="like-text">“喜欢的话，请给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/2024/05/09/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0day7/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>算法练习day7</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/05/08/csharp%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9AHashSet/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      csharp数据结构：HashSet
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6-GAME101/" class="post-tag">#计算机图形学 GAME101</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\14\GAME101-Lecture01学习\" title="GAME101_Lecture01学习" rel="bookmark">GAME101_Lecture01学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\16\GAME101-Lecture02学习\" title="GAME101_Lecture02学习" rel="bookmark">GAME101_Lecture02学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\17\GAME101-Lecture03学习\" title="GAME101-Lecture03学习" rel="bookmark">GAME101-Lecture03学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
