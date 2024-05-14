@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        算法练习day8 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">算法练习day8</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" class="post-tag">#数据结构 算法练习</a>
+
+
+          <span class="post-date">2024-05-14</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="post-toc-text">反转字符串</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">代码实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2II"><span class="post-toc-text">反转字符串II</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%94%99%E8%AF%AF"><span class="post-toc-text">错误</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="post-toc-text">代码实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D"><span class="post-toc-text">翻转字符串里的单词</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%87%8D%E7%82%B9"><span class="post-toc-text">重点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%94%99%E8%AF%AF-1"><span class="post-toc-text">错误</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="post-toc-text">代码实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9B%BF%E6%8D%A2%E6%95%B0%E5%AD%97%EF%BC%88%E7%A9%BA%E6%A0%BC%EF%BC%89"><span class="post-toc-text">替换数字（空格）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3"><span class="post-toc-text">代码实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%B3%E6%97%8B%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="post-toc-text">右旋字符串</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-4"><span class="post-toc-text">代码实现</span></a></li></ol></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h1 id="反转字符串"><a href="#反转字符串" class="headerlink" title="反转字符串"></a>反转字符串</h1><p><a target="_blank" rel="noopener" href="https://programmercarl.com/0344.%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE">代码随想录 0344.反转字符串</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-string/description/">344. 反转字符串 - 力扣（LeetCode）</a></p>
+<p>（用时：0.05小时）</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题很简单也很经典。</p>
+<p>字符串的反转方法有很多，我这里是用for循环通过数组长度和下标计算来交换。</p>
+<p>写这道题时逻辑不难，后面涉及到指定区域的翻转后，脑子就跟不上了。。。后面就直接用双指针了。。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ReverseString</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ReverseStringFun</span>(<span class="params"><span class="built_in">char</span>[] s</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">char</span> temp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;s.Length/<span class="number">2</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            temp = s[i];</span><br><span class="line">            s[i] = s[s.Length<span class="number">-1</span>-i];</span><br><span class="line">            s[s.Length - <span class="number">1</span> - i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="反转字符串II"><a href="#反转字符串II" class="headerlink" title="反转字符串II"></a>反转字符串II</h1><p><a target="_blank" rel="noopener" href="https://programmercarl.com/0541.%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2II.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE">代码随想录 0541.反转字符串II</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-string-ii/description/">541. 反转字符串 II - 力扣（LeetCode）</a></p>
+<p>（用时：3小时）</p>
+<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>这道题主要是要理解题意。。</p>
+<p>题目要求我们按2K为一组，每组的前K个元素进行翻转。</p>
+<ul>
+<li><p>这意味着一般的情况应该是K个翻转K个不翻转</p>
+</li>
+<li><p>当元素无法达到2K时：</p>
+<p>若&gt;K，则翻转K个元素<br>若&lt;K，则翻转剩余所有的元素</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/14/20240514104421.png" alt="image-20240514104414238"></p>
+</li>
+</ul>
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p>这道题在交换指定区域的数组元素中卡住，对自己更无语了</p>
+<p>上一道题是用for循环，然后直接通过计算一下子秒掉了，但是这道题中，初始值和终点值有变化，<u>写多了看多了逻辑就混乱了</u>。。。。于是用回了while双指针。。。</p>
+<h2 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">char</span>[] <span class="title">ReserseChars</span>(<span class="params"><span class="built_in">int</span> start,<span class="built_in">int</span> end, <span class="built_in">char</span>[] chars</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">char</span> temp;</span><br><span class="line">    <span class="keyword">while</span>(start&lt;end)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = chars[start];</span><br><span class="line">        chars[start] = chars[end];</span><br><span class="line">        chars[end] = temp;</span><br><span class="line">        start++;</span><br><span class="line">        end--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> chars;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">ReverseStr</span>(<span class="params"><span class="built_in">string</span> s, <span class="built_in">int</span> k</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">char</span>[] ans =  s.ToArray&lt;<span class="built_in">char</span>&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;s.Length;i+=<span class="number">2</span>*k)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//剩余的少于k个</span></span><br><span class="line">        <span class="keyword">if</span> (i+k&gt;ans.Length)</span><br><span class="line">        &#123;</span><br><span class="line">            ans = ReserseChars(i, ans.Length<span class="number">-1</span>, ans);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//大于k个小于2k个</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ans = ReserseChars(i, i + k<span class="number">-1</span>, ans);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">string</span>(ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="翻转字符串里的单词"><a href="#翻转字符串里的单词" class="headerlink" title="翻转字符串里的单词"></a>翻转字符串里的单词</h1><p><a target="_blank" rel="noopener" href="https://programmercarl.com/0151.%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE">代码随想录 0151.翻转字符串里的单词</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-words-in-a-string/description/">151. 反转字符串中的单词 - 力扣（LeetCode）</a></p>
+<p>（用时：2小时）</p>
+<h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><p>这道题是对字符串中的单词翻转，意思就是单词的顺序翻转，单词本身里面的字母不要翻转。</p>
+<p>要实现有很多种方法，又看到一位大佬用了字典（键值对）。我刚开始也想着可以用分割字符串的方法。</p>
+<p>但训练算法时还是不要用这么多库函数。卡哥也要求我们在原字符串上操作。</p>
+<p>我们可以先将整体的字符串翻转，这样单词的顺序就达到了我们的效果。但是单词的字母也翻转了，我们逐一对单个单词再翻转一次即可。此外还要消减空格，让每个单词之间只有一个空格。</p>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><p>个人感觉这道题主要是思路上的问题。卡哥给的思路很清晰，所以实现起来没有出什么问题。</p>
+<p>但是自己想的时候是很混乱的，判断来判断去的。。。思路真的很重要啊！</p>
+<h2 id="错误-1"><a href="#错误-1" class="headerlink" title="错误"></a>错误</h2><p>写的过程中，犯了一些错误：</p>
+<ol>
+<li>去除空格和翻转单词的实现。</li>
+<li>最终输出的字符串，后面多余了很多重复的字母们。</li>
+<li>使用ReserseChars时数组越界</li>
+<li>分别在去除空格和翻转单词的for循环中，while循环的条件数组越界了。</li>
+</ol>
+<p>个人理解如下：</p>
+<ul>
+<li><p><u>去除空格和翻转单词的实现错误。</u></p>
+<p>这道题里，去除空格和翻转单词分开做比较好，这样不容易乱。</p>
+</li>
+<li><p><u>最终输出的字符串，后面多余了很多重复的字母们。</u></p>
+<p>后面重复的都是新字符串中无用的空间。因为新的字符串的长度没有记录下来，导致后面翻转单词时依旧遍历原本字符串的长度，把后面多余的“垃圾”也翻转，然后输出了。</p>
+</li>
+<li><p><u>使用ReserseChars时数组越界</u></p>
+<p>这是在输入begin和end的时候，fast此时在前面的while中，可能是&#x3D;len了，此时ans[fast]会越界。</p>
+<p>而且这个单词有效的范围也是slow到fast-1，fast本身停止的条件就是当fast指向不属于该单词的范围的时候（即越界或者遇到空格的单词结束。）</p>
+</li>
+<li><p><u>分别在去除空格和翻转单词的for循环中，while循环的条件数组越界了。</u></p>
+<p>这是因为在for中间，“擅自”让i&#x2F;fast向前探索，只有两种情况下会让它停下来：<br>一是找到指定要求的地方了（比如找到不属于单词的部分了）<br>二是到了末尾，这个单词刚好是最后一个。</p>
+<p>第一种情况用ans[fast或i]!&#x3D;’ ‘既可，但第二种情况下的ans是会越界的！因此要有一个判断其是否超出范围的条件，且这个条件要放在第一个条件前判断。</p>
+</li>
+</ul>
+<h2 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h2><p>这道题是剑指Offer的题目。力扣上已经下架了，卡哥的卡玛网上没有C#的检测，也没有专门去写C++的版本。。。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">char</span>[] <span class="title">ReserseChars</span>(<span class="params"><span class="built_in">int</span> start, <span class="built_in">int</span> end, <span class="built_in">char</span>[] chars</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">char</span> temp;</span><br><span class="line">    <span class="keyword">while</span> (start &lt; end)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = chars[start];</span><br><span class="line">        chars[start] = chars[end];</span><br><span class="line">        chars[end] = temp;</span><br><span class="line">        start++;</span><br><span class="line">        end--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> chars;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">Reserse</span>(<span class="params"><span class="built_in">string</span> s,<span class="built_in">int</span> k</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">char</span>[] ans = ReserseChars(<span class="number">0</span>, s.Length - <span class="number">1</span>, s.ToArray&lt;<span class="built_in">char</span>&gt;());</span><br><span class="line"></span><br><span class="line">    ans = ReserseChars(<span class="number">0</span>, k<span class="number">-1</span>, ans);</span><br><span class="line">    ans = ReserseChars(k - <span class="number">1</span>, s.Length - <span class="number">1</span>, ans);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">string</span>(ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="替换数字（空格）"><a href="#替换数字（空格）" class="headerlink" title="替换数字（空格）"></a>替换数字（空格）</h1><p><a target="_blank" rel="noopener" href="https://programmercarl.com/kamacoder/0054.%E6%9B%BF%E6%8D%A2%E6%95%B0%E5%AD%97.html#%E6%80%9D%E8%B7%AF">代码随想录 0054.替换数字</a></p>
+<p>（用时：1小时）</p>
+<p>这道题没有对字符串的翻转操作了，本题主要考察的是插入删除（个人感觉）。</p>
+<p>C#中对string的扩张不用库函数太麻烦了，因此就不写卡哥教的双指针的方法了，实现用了库函数。卡哥的方法有分析了一下，接下来二刷试试用C++实现吧。</p>
+<h2 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">Replace</span>(<span class="params"><span class="built_in">string</span> s</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">string</span> number = <span class="string">&quot;number&quot;</span>;</span><br><span class="line">    <span class="built_in">int</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(index&lt;s.Length)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[index]&gt;=<span class="string">&#x27;0&#x27;</span> &amp;&amp; s[index]&lt;=<span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s = s.Remove(index, <span class="number">1</span>);</span><br><span class="line">            s = s.Insert(index, number);</span><br><span class="line">        &#125;</span><br><span class="line">        index++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="右旋字符串"><a href="#右旋字符串" class="headerlink" title="右旋字符串"></a>右旋字符串</h1><p><a target="_blank" rel="noopener" href="https://programmercarl.com/kamacoder/0055.%E5%8F%B3%E6%97%8B%E5%AD%97%E7%AC%A6%E4%B8%B2.html">代码随想录 0055.右旋字符串</a></p>
+<p>（用时：1小时）</p>
+<p>只能说太牛了卡哥的思路！写完上一题过来还是没有想到这个想法：<strong>整体翻转+局部翻转</strong></p>
+<p>思路和翻转单词那里一样。</p>
+<p>同样也是剑指Offer。</p>
+<h2 id="代码实现-4"><a href="#代码实现-4" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">char</span>[] <span class="title">ReserseChars</span>(<span class="params"><span class="built_in">int</span> start, <span class="built_in">int</span> end, <span class="built_in">char</span>[] chars</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">char</span> temp;</span><br><span class="line">    <span class="keyword">while</span> (start &lt; end)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = chars[start];</span><br><span class="line">        chars[start] = chars[end];</span><br><span class="line">        chars[end] = temp;</span><br><span class="line">        start++;</span><br><span class="line">        end--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> chars;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">string</span> <span class="title">Reserse</span>(<span class="params"><span class="built_in">string</span> s,<span class="built_in">int</span> k</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">char</span>[] ans = ReserseChars(<span class="number">0</span>, s.Length - <span class="number">1</span>, s.ToArray&lt;<span class="built_in">char</span>&gt;());</span><br><span class="line"></span><br><span class="line">    ans = ReserseChars(<span class="number">0</span>, k<span class="number">-1</span>, ans);</span><br><span class="line">    ans = ReserseChars(k - <span class="number">1</span>, s.Length - <span class="number">1</span>, ans);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">string</span>(ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/assets/Head.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="/assets/Pay.jpg" />
+  </div>
+  <div class="like-text">“喜欢的话，请给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <div class="post-nav-item-left"></div>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/05/09/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0day7/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      算法练习day7
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" class="post-tag">#数据结构 算法练习</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\18\算法练习day2\" title="算法练习day2" rel="bookmark">算法练习day2</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\18\算法练习day1补充\" title="算法练习day1补充" rel="bookmark">算法练习day1补充</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\19\算法练习day3\" title="算法练习day3" rel="bookmark">算法练习day3</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
