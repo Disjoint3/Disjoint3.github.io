@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        GAME101-Lecture07学习 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">GAME101-Lecture07学习</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6-GAME101/" class="post-tag">#计算机图形学 GAME101</a>
+
+
+          <span class="post-date">2024-05-15</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%89%8D%E8%A8%80"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%85%89%E6%A0%85%E5%8C%96%E5%86%85%E5%AE%B9"><span class="post-toc-text">光栅化内容</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%94%BB%E5%AE%B6%E7%AE%97%E6%B3%95"><span class="post-toc-text">画家算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B7%B1%E5%BA%A6%E7%BC%93%E5%AD%98%EF%BC%88%E7%BC%93%E5%86%B2%EF%BC%89"><span class="post-toc-text">深度缓存（缓冲）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AE%97%E6%B3%95%EF%BC%88%E5%81%9A%E6%B3%95%EF%BC%89"><span class="post-toc-text">算法（做法）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="post-toc-text">复杂度</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE"><span class="post-toc-text">知识回顾</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%9D%80%E8%89%B2%EF%BC%88Shading%EF%BC%89"><span class="post-toc-text">着色（Shading）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Blinn-Phong%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">Blinn-Phong模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="post-toc-text">定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%BC%AB%E5%8F%8D%E5%B0%84-Diffuse-Reflection"><span class="post-toc-text">漫反射(Diffuse Reflection)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%83%BD%E9%87%8F%E7%9A%84%E6%8E%A5%E6%94%B6"><span class="post-toc-text">能量的接收</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%83%BD%E9%87%8F%E7%9A%84%E5%8F%91%E5%B0%84"><span class="post-toc-text">能量的发射</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%BC%AB%E5%8F%8D%E5%B0%84%E7%9A%84%E8%83%BD%E9%87%8F"><span class="post-toc-text">漫反射的能量</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天主要讲shading（着色）。在讲着色前，要先讲图形中三角形出现遮挡问题的方法（深度缓存或缓冲）。</p>
+<p>先采样再模糊错误：对信号的频谱进行翻译（在这期间会有频谱的混叠），采样就是对这个信号进行截断。此时会发现混叠的信号还是混叠的。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X7411F744/?p=7&spm_id_from=pageDriver&vd_source=6917f5c8bfecd60a5beb0fffbc41a920">Lecture 07 Shading 1 (Illumination, Shading and  Graphics Pipeline)_哔哩哔哩_bilibili</a></p>
+<h1 id="光栅化内容"><a href="#光栅化内容" class="headerlink" title="光栅化内容"></a>光栅化内容</h1><h2 id="画家算法"><a href="#画家算法" class="headerlink" title="画家算法"></a>画家算法</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515142333.png" alt="image-20240515142326687"></p>
+<p>先给远处的东西画好（做光栅化），然后再给近处的做。这样就可以得到一个处理了遮挡的结果的“画”。</p>
+<p>例如画一个正方体，按照后、左、下、右、上、前的顺序画，就可以得到一个正方体。</p>
+<p>但是如果画的顺序改一改，可能会出现不同的效果。这是因为左、下、右、上这几个面到我们眼睛的距离在我们看来都是差不多的（视点到面的距离，又叫“深度”）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515142424.png" alt="image-20240515142424665"></p>
+<ul>
+<li>需要深度排序(对于n个三角形为0(n log n))可以具有无法解析的深度顺序</li>
+</ul>
+<p>因此实际中，不能用画家算法。</p>
+<h2 id="深度缓存（缓冲）"><a href="#深度缓存（缓冲）" class="headerlink" title="深度缓存（缓冲）"></a>深度缓存（缓冲）</h2><p>由于不能使用画家算法，因此引入深度缓存的算法。</p>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515142619.png" alt="image-20240515142619909"></p>
+<ul>
+<li><p>这是最终胜出的算法。</p>
+</li>
+<li><p>idea：</p>
+<p>存储当前最小值。</p>
+<p>每个样本的Z值(像素)需要一个额外的缓冲区用于深度值</p>
+<p>​	-帧缓冲存储器存储颜色值<br>​	-深度缓冲区(z缓冲区)存储深度</p>
+</li>
+<li><p>重要:为简单起见，我们假设Z总是正数<br>(较小的z-&gt;更近，较大的z-&gt;更远)</p>
+</li>
+</ul>
+<p>图形学中，在渲染成品的图像时，会额外生成一个深度图&#x2F;深度缓存（只存任何一个像素他所看到的最浅的深度信息）</p>
+<h3 id="算法（做法）"><a href="#算法（做法）" class="headerlink" title="算法（做法）"></a>算法（做法）</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515143326.png" alt="image-20240515143326188"></p>
+<p>一开始我们认为所有记录深度的点都是无限远的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515143429.png" alt="image-20240515143429228"></p>
+<p>数字越小代表越近，近的会把远的遮挡。</p>
+<h4 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515143700.png" alt="image-20240515143700551"></p>
+<ul>
+<li>以不同的顺序画三角形?</li>
+<li>最重要的可见性算法：在所有GPU的硬件中实现</li>
+</ul>
+<p>我们认为每个三角形中有常数个像素，然后又n个三角形，那么复杂度就是0(n)（个人认为这里就有点离谱了，算法的复杂度要是这么算的话，那就所有都是On了。。。。。不过闫老师补充了下一般一个三角形会覆盖100个左右的像素，那就也行）</p>
+<p>假设不会出现两个不同的三角形在一个像素上有同样的深度（在图形学中，这些数字大多都是用浮点型来表示，这意味着总会有些误差，这也因此浮点型的判断相同十分困难，尤其时两个经过运算得来的浮点型更加不可能相同），紫色和红色三角形画的<strong>顺序不一样，结果也是一样的</strong>。</p>
+<h1 id="知识回顾"><a href="#知识回顾" class="headerlink" title="知识回顾"></a>知识回顾</h1><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515144717.png" alt="image-20240515144717270"></p>
+<p>到目前为止，我们的学习到的内容：模型变换-&gt;坐标系变换-&gt;投影变换-&gt;视口变换-&gt;光栅化</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515144931.png" alt="image-20240515144931248"></p>
+<h1 id="着色（Shading）"><a href="#着色（Shading）" class="headerlink" title="着色（Shading）"></a>着色（Shading）</h1><p>对不同的物体有不同的材质。</p>
+<h2 id="Blinn-Phong模型"><a href="#Blinn-Phong模型" class="headerlink" title="Blinn-Phong模型"></a>Blinn-Phong模型</h2><p>Blinn-Phong反色模型是一款着色模型。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515151410.png" alt="image-20240515151409991"></p>
+<ul>
+<li>镜面高光</li>
+<li>漫反射</li>
+<li>环境照明</li>
+</ul>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515151557.png" alt="image-20240515151557873"></p>
+<ul>
+<li>在特定阴影点处反射到摄像机的计算机光</li>
+<li>输入：<br>观察者方向，v<br>表面法向，n<br>光的方向，I(为许多光的每一个)<br>表面参数(颜色、光泽度等)</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515151740.png" alt="image-20240515151740156"></p>
+<p>目前所说的着色不考虑物体的存在，先不考虑关系打在物体后环境的变化（即没有阴影），只看光找过来物体表面的情况。着色具有着色性。</p>
+<h2 id="漫反射-Diffuse-Reflection"><a href="#漫反射-Diffuse-Reflection" class="headerlink" title="漫反射(Diffuse Reflection)"></a>漫反射(Diffuse Reflection)</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515152143.png" alt="image-20240515152143011"></p>
+<ul>
+<li>光均匀地向各个方向散射</li>
+<li>所有观看方向的表面颜色相同</li>
+</ul>
+<p><strong>当一个光线会到达某个点，然后这个光线会被均匀的反射出去，这就叫漫反射。</strong></p>
+<h3 id="能量的接收"><a href="#能量的接收" class="headerlink" title="能量的接收"></a>能量的接收</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515152224.png" alt="image-20240515152224381"></p>
+<ul>
+<li>但是接收到多少光(能量)呢?<br>一朗伯余弦定律</li>
+<li>立方体的顶面接受一定量的光</li>
+<li>60°旋转立方体的顶面拦截了一半的光线</li>
+<li>一般来说，单位面积的光与cos 0&#x3D;l·n成正比（<strong>朗伯余弦定律</strong>）</li>
+</ul>
+<p>其实就是光通量。</p>
+<p>此时就可以算出，这个着色点接收到的光的能量。</p>
+<h3 id="能量的发射"><a href="#能量的发射" class="headerlink" title="能量的发射"></a>能量的发射</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515153204.png" alt="image-20240515153203920"></p>
+<p>假设一个点光源。任何时刻，点光源辐射到四面八方。</p>
+<p>一个单位的距离上，光的强度为I。那么在距离为r时，强度为I&#x2F;r<sup>2</sup></p>
+<p>光传播的能量和距离成反比。</p>
+<p>此时就可以通过物体距点光源的距离，算出来点光源发送到该物体表面的光的能量。</p>
+<h3 id="漫反射的能量"><a href="#漫反射的能量" class="headerlink" title="漫反射的能量"></a>漫反射的能量</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515154037.png" alt="image-20240515154037796"></p>
+<ul>
+<li>L<sub>d</sub>：漫反射光</li>
+<li>k<sub>d</sub>：传播系数（颜色)</li>
+<li>(I&#x2F;r<sup>2</sup>)：能量到达阴影点</li>
+<li>max(0,n·l)：阴影点接收的能量</li>
+</ul>
+<p>向量点乘(n·l)&lt;0时，表示这个光线从下面打向了物体的表面，此时是没有任何物理意义的（也可以认为我们一般是不会考虑物体内部有光源向外的），因此不考虑。所以这里要用max。</p>
+<p>这个shadingPoint是会吸收一部分的光&#x2F;颜色，它会有一定的吸收率，我们就定义一个系数k<sub>d</sub>。<br><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/05/15/20240515154805.png" alt="image-20240515154805217"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本节课讲的东西比起前面来说，难度直线下降！</p>
+<p>今天主要讲着色，讲着色前补充了前面光栅化深度缓存的知识。</p>
+<p>光栅化内容中，首先讲解了画家算法的思想。由于画家算法无法很好的满足计算机图形学的需求，因此引入深度缓存的概念。</p>
+<ul>
+<li>每个导出的图像都有一张对应的深度图，这个深度图记录着所有像素的深度信息。</li>
+<li>此外还讲了深度缓存算法的实现方法，其本质就是一个双重循环。</li>
+</ul>
+<p>着色部分通过Blinn-Phong反色模型引入漫反射、高光等显示中光照的效果情况。</p>
+<ul>
+<li>主要讲了物体漫反射中，光的能量问题。</li>
+<li>着色点平面与光发现的角度可以得到着色点对光能量接收的情况。</li>
+<li>光源与物体的距离可以得到着色点处光能量的发射状况。</li>
+<li>通过光能量的接收和发射状况，我们就可以量化漫反射的能量。</li>
+</ul>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/assets/Head.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="/assets/Pay.jpg" />
+  </div>
+  <div class="like-text">“喜欢的话，请给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <div class="post-nav-item-left"></div>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/05/15/git%E7%9A%84%E4%BD%BF%E7%94%A8/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      git的使用
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6-GAME101/" class="post-tag">#计算机图形学 GAME101</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\14\GAME101-Lecture01学习\" title="GAME101_Lecture01学习" rel="bookmark">GAME101_Lecture01学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\16\GAME101-Lecture02学习\" title="GAME101_Lecture02学习" rel="bookmark">GAME101_Lecture02学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\17\GAME101-Lecture03学习\" title="GAME101-Lecture03学习" rel="bookmark">GAME101-Lecture03学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
