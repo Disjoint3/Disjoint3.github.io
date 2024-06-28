@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <title>
       
-        unity游戏中测量结果归一化处理 | 渔人的小小世界
+        unity ScriptableObject案例学习 | 渔人的小小世界
       
     </title>
     <meta name="description" content="" />
@@ -146,23 +146,17 @@
     <div class="body">
       
   <article class="post-content">
-    <div class="post-inner--toc">
+    <div class="post-inner">
       <div class="post-content__head">
-        <div class="post-title">unity游戏中测量结果归一化处理</div>
+        <div class="post-title">unity ScriptableObject案例学习</div>
         <div class="post-info">
           
-  <a href="/tags/unity/" class="post-tag">#unity</a>
+  
 
 
-          <span class="post-date">2024-04-18</span>
+          <span class="post-date">2024-06-25</span>
         </div>
       </div>
-      
-        <aside class="toc-outer">
-          <div class="toc-title">目录</div>
-          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="post-toc-text">需求分析</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E5%85%AC%E5%BC%8F"><span class="post-toc-text">归一化公式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">代码实现</span></a></li></ol>
-          <a href="#" class="toc-top">回到顶部</a>
-        </aside>
       
       <div class="post-content__body">
         
@@ -170,21 +164,79 @@
             
           </div>
         
-        <h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><p>在UGUI下，提前知道两点（设为A、B）之间的距离，以及他们的屏幕坐标。</p>
-<p>现在想要实现，鼠标从A点出发移动的偏移值映射到两点之间距离的区间中（即将鼠标相对A点的偏移数据处理到AB距离的范围内，以达到模拟真实测量的效果。</p>
-<p>（例如：让玩家点击A点后出现，从A点延申到鼠标上有一条线，通过拉线来实现测量的效果。）</p>
-<p>时间有点紧迫，也没有细想这样实现的可用性啥的。真诚希望有大佬指教！</p>
-<h1 id="归一化公式"><a href="#归一化公式" class="headerlink" title="归一化公式"></a>归一化公式</h1><p>使用的公式出处：<a target="_blank" rel="noopener" href="https://blog.csdn.net/irober/article/details/115601223">将数据归一化到任意区间范围的方法_数据 处理到 指定范围内-CSDN博客</a></p>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p><strong>归一化函数：</strong></p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 将测量结果归一化</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;min&quot;&gt;</span>样本数据的最小值<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;max&quot;&gt;</span>样本数据的最大值<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;left&quot;&gt;</span>区间的左边界<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;right&quot;&gt;</span>区间的有边界<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;value&quot;&gt;</span>需要归一化的测量结果<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">float</span> <span class="title">MeasureNormalization</span>(<span class="params"><span class="built_in">float</span> min,<span class="built_in">float</span> max,<span class="built_in">float</span> left,<span class="built_in">float</span> right,<span class="built_in">float</span> <span class="keyword">value</span></span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">float</span> temp;</span><br><span class="line">    <span class="keyword">if</span> (min&gt;max)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = min;</span><br><span class="line">        min = max;</span><br><span class="line">        max = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (left&gt;right)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = left;</span><br><span class="line">        left = right;</span><br><span class="line">        right = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> left + (right - left) / (max - min) * (<span class="keyword">value</span> - min);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>调用举例：</strong></p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将鼠标的坐标转为屏幕坐标系的坐标</span></span><br><span class="line">RectTransformUtility.ScreenPointToLocalPointInRectangle( UI的画布RectTransform, 鼠标自己坐标系下的当前坐标, <span class="literal">null</span>, <span class="keyword">out</span> 接收鼠标在屏幕坐标系下的坐标的变量);</span><br><span class="line"></span><br><span class="line"><span class="comment">//归一化后的结果</span></span><br><span class="line">ans = MeasureNormalization( <span class="number">0</span>, AB点屏幕坐标下的距离, <span class="number">0</span>, AB点认为规定要测量出来的距离, 鼠标在屏幕坐标系下的坐标);</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+        <h2 id="案例来源"><a href="#案例来源" class="headerlink" title="案例来源"></a>案例来源</h2><p>案例是老师在教学时提供的，应该是官方的案例。项目名为Game Architecture with Scriptable Objects。</p>
+<h2 id="粒子效果播放"><a href="#粒子效果播放" class="headerlink" title="粒子效果播放"></a>粒子效果播放</h2><h3 id="播放效果"><a href="#播放效果" class="headerlink" title="播放效果"></a>播放效果</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854.gif" alt="GIF 2024-6-25 10-57-50"></p>
+<p>这个粒子效果的播放是SO（ScriptableObject）管理事件播放的案例。</p>
+<h3 id="层次结构"><a href="#层次结构" class="headerlink" title="层次结构"></a>层次结构</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-1.png" alt="image-20240625105957783"></p>
+<h4 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-2.png" alt="image-20240625110033778"></p>
+<ul>
+<li>Button单击事件调取的是GameEvent脚本生成的OnButtonPressed（ScriptableObject）。</li>
+</ul>
+<h4 id="EventListener"><a href="#EventListener" class="headerlink" title="EventListener"></a>EventListener</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-3.png" alt="image-20240625110112367"></p>
+<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><h4 id="GameEventListener"><a href="#GameEventListener" class="headerlink" title="GameEventListener"></a>GameEventListener</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-4.png" alt="image-20240625110432728"></p>
+<h4 id="GameEvent"><a href="#GameEvent" class="headerlink" title="GameEvent"></a>GameEvent</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-5.png" alt="image-20240625110232218"></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>GameEventListener和GameEvent两者都相互引用，直接看脚本是有些困难的，要结合他场景的用法来。</p>
+<ul>
+<li><p>GameEvent可以认为是事件的“播放器”。其继承了ScriptableObject，<strong>不用传统的Mono实现，而是直接生成SO。</strong></p>
+</li>
+<li><p><strong>GameEvent中只有一个GameEventListener的List参数，可以认为，这个List是GameEvent的“播放列表”。</strong></p>
+</li>
+<li><p>GameEventListener可以认为是事件的监听器，说白了就是在某个条件下，要做什么都添加到这里面。这里的层次结构设计也对应了这个想法：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-6.png" alt="image-20240625111244546"></p>
+<p>这个EventListener挂载了GameEventListener，监听其子物体的播放事件。</p>
+<p>比如这个粒子系统，要播放粒子效果，就直接将粒子效果的播放函数拖入即可（粒子系统提供的调用函数）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-7.png" alt="image-20240625111039690"></p>
+</li>
+<li><p>GameEventListener里面还有一个参数是GameEvent类型。OnButtonPressed是GameEvent类型（SO）。</p>
+</li>
+<li><p>可以认为，<strong>GameEventListener里的GameEvent参数是用来播放的播放器。GameEventListener生成使用时，只需要向播放器注册（增加）自己的播放事件。在失活&#x2F;销毁时，只需要让播放器取消自己的播放事件。</strong>而这个OnButtonPressed就是GameEventListener选择的“播放器”。</p>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>运行时，GameEventListener下的子物体的函数全部记录在GameEventListener中。GameEventListener再将需要执行的事件注册到OnButtonPressed的播放列表中。场景中的Button调用OnButtonPressed中的播放函数，播放事件。</p>
+<h2 id="正方体（物体）管理"><a href="#正方体（物体）管理" class="headerlink" title="正方体（物体）管理"></a>正方体（物体）管理</h2><p>这个案例中，也有用到前面的GameEvent和GameEventListener，这里就不多加解释了。</p>
+<h3 id="播放效果-1"><a href="#播放效果-1" class="headerlink" title="播放效果"></a>播放效果</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-8.gif" alt="GIF 2024-6-25 12-19-36"></p>
+<p>效果有两个：随机失活一个正方体、失活所有正方体。</p>
+<h3 id="层次结构-1"><a href="#层次结构-1" class="headerlink" title="层次结构"></a>层次结构</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-9.png" alt="image-20240625122347858"></p>
+<p>这里的层次结构很简单，五个正方体是直接放在了场景里的。</p>
+<h3 id="脚本-1"><a href="#脚本-1" class="headerlink" title="脚本"></a>脚本</h3><h4 id="RuntimeSet"><a href="#RuntimeSet" class="headerlink" title="RuntimeSet"></a>RuntimeSet</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-10.png" alt="image-20240625122436528"></p>
+<ul>
+<li>抽象类RuntimeSet其实是给所有XX物体的一个“模板”，List参数就是管理所有物体的物体列表。</li>
+</ul>
+<h4 id="ThingRuntimeSet"><a href="#ThingRuntimeSet" class="headerlink" title="ThingRuntimeSet"></a>ThingRuntimeSet</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-11.png" alt="image-20240625122506294"></p>
+<ul>
+<li>ThingRuntimeSet就是正方体管理器，其可以生成SO。</li>
+<li>调用这个生成的SO，就可以对其注册在列表中的正方体进行处理。</li>
+</ul>
+<h4 id="Thing"><a href="#Thing" class="headerlink" title="Thing"></a>Thing</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-12.png" alt="image-20240625123145143"></p>
+<ul>
+<li>Thing挂载在每个正方体上。</li>
+<li>ThingRuntimeSet类型的参数就是正方体们的管理器。</li>
+<li>每一个正方体都可以在正方体管理器里注册和移除自己。</li>
+</ul>
+<h4 id="ThingDisabler"><a href="#ThingDisabler" class="headerlink" title="ThingDisabler"></a>ThingDisabler</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625132854-13.png" alt="image-20240625123535421"></p>
+<ul>
+<li>ThingDisabler是在MonoBehaviour主程序运行的脚本。</li>
+<li>通过绑定的正方体管理器，就可以对注册在列表中的正方体进行一些操作。</li>
+</ul>
+<h2 id="剪刀石头布"><a href="#剪刀石头布" class="headerlink" title="剪刀石头布"></a>剪刀石头布</h2><h3 id="播放效果-2"><a href="#播放效果-2" class="headerlink" title="播放效果"></a>播放效果</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625134024.gif" alt="GIF 2024-6-25 13-40-10"></p>
+<p>运行前都是一样的元素，运行后分配元素。</p>
+<p>石头剪刀布的规则就不多说。败的元素消失。</p>
+<h3 id="层次结构-2"><a href="#层次结构-2" class="headerlink" title="层次结构"></a>层次结构</h3><p>场景里放了六个一样的物体，每个物体中都有挂载Elemental脚本。这里就懒得放了。</p>
+<h3 id="脚本-2"><a href="#脚本-2" class="headerlink" title="脚本"></a>脚本</h3><h4 id="AttackElement"><a href="#AttackElement" class="headerlink" title="AttackElement"></a>AttackElement</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625134809.png" alt="image-20240625134809681"></p>
+<p>其SO：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625135406.gif" alt="GIF 2024-6-25 13-53-48"></p>
+<ul>
+<li>AttackElement表示元素，不同元素会有与其相对应的一些其他元素。比如这里的List变量DefeatedElements，就是用来记录与其比较会失败&#x2F;输的元素。案例提供的是石头剪刀布，那么就互相只有一个。用List主要是方便后续拓展。</li>
+</ul>
+<h4 id="Elemental"><a href="#Elemental" class="headerlink" title="Elemental"></a>Elemental</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/06/25/20240625134803.png" alt="image-20240625134803896"></p>
+<ul>
+<li>AttackElement生成SO，记录了静态的元素之间的关系信息。Elemental脚本在Mono主循环中，实现动态的元素直接关系的变化处理。</li>
+</ul>
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>Scriptable Object其实最主要是要抓住它“静态数据”的特点。</li>
+<li>个人理解中，“静态”和“动态”是相对于Mono主循环而言的。动态数据是指其能够自己在主循环中变化的，而静态则相反。</li>
+<li>所有的案例研究下来就会发现，Scriptable Object最主要的优点就是它的“静态”和省内存。除此之外，Scriptable Object的脚本也是独立开其他动态脚本的，更加适合团队协作的样子。</li>
+</ul>
 
       </div>
     </div>
@@ -228,23 +280,11 @@
     
     <div class="post-nav">
   
-    <a class="post-nav-item-left" href="/2024/04/18/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0day1%E8%A1%A5%E5%85%85/">
-      <div class="text-align">
-        <svg t="1670570876164"
-             class="icon"
-             viewBox="0 0 1024 1024"
-             width="16"
-             height="16">
-          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
-        </svg>
-        <span class="text-small">上一篇</span>
-      </div>
-      <div>算法练习day1补充</div>
-    </a>
+    <div class="post-nav-item-left"></div>
   
   <div class="vhr"></div>
   
-    <a class="post-nav-item-right" href="/2024/04/18/unity%E4%B8%AD%E9%BC%A0%E6%A0%87%E4%B8%8E%E7%89%A9%E4%BD%93%E7%9A%84%E4%BA%A4%E4%BA%92/">
+    <a class="post-nav-item-right" href="/2024/06/25/unity%20animator%E5%88%B6%E4%BD%9C%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%8A%A8%E6%80%81UI/">
       <div class="text-align">
         <span class="text-small">下一篇</span>
         <svg t="1670570876164"
@@ -256,7 +296,7 @@
           <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
         </svg>
       </div>
-      unity中鼠标与物体的交互
+      unity animator制作音乐播放动态UI
     </a>
   
 </div>
@@ -264,12 +304,12 @@
     
       <div class="related-post">
   <div class="related__head">
-  <a href="/tags/unity/" class="post-tag">#unity</a>
+  
 
 </div>
   <div class="realated__body">
     
-      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\18\unity中鼠标与物体的交互\" title="unity中鼠标与物体的交互" rel="bookmark">unity中鼠标与物体的交互</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\06\25\unity animator制作音乐播放动态UI\" title="unity animator制作音乐播放动态UI" rel="bookmark">unity animator制作音乐播放动态UI</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\前言\" title="前言" rel="bookmark">前言</a></div></div></div>
     
   </div>
 </div>
