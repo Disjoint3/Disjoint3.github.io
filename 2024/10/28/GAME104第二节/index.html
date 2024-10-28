@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <title>
       
-        面试准备 | 渔人的小小世界
+        GAME104第二节 | 渔人的小小世界
       
     </title>
     <meta name="description" content="" />
@@ -146,17 +146,23 @@
     <div class="body">
       
   <article class="post-content">
-    <div class="post-inner">
+    <div class="post-inner--toc">
       <div class="post-content__head">
-        <div class="post-title">面试准备</div>
+        <div class="post-title">GAME104第二节</div>
         <div class="post-info">
           
-  
+  <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%AF%BC%E8%AE%BA-GAME104/" class="post-tag">#游戏引擎导论 GAME104</a>
 
 
-          <span class="post-date">2024-10-10</span>
+          <span class="post-date">2024-10-28</span>
         </div>
       </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9F%BA%E7%A1%80%E4%BA%94%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="post-toc-text">基础五层架构</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9E%B6%E6%9E%84%E5%AE%9E%E7%8E%B0%E6%A6%82%E8%BF%B0"><span class="post-toc-text">架构实现概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B5%84%E6%BA%90%E5%B1%82"><span class="post-toc-text">资源层</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8A%9F%E8%83%BD%E5%B1%82"><span class="post-toc-text">功能层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tick"><span class="post-toc-text">tick</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="post-toc-text">多线程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%9A%E6%A0%B8%E5%B9%B6%E8%A1%8C"><span class="post-toc-text">多核并行</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%B8%E5%BF%83%E5%B1%82"><span class="post-toc-text">核心层</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B9%B3%E5%8F%B0%E5%B1%82"><span class="post-toc-text">平台层</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B7%A5%E5%85%B7%E5%B1%82"><span class="post-toc-text">工具层</span></a></li></ol></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
       
       <div class="post-content__body">
         
@@ -164,8 +170,54 @@
             
           </div>
         
-        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Edward_Asia/article/details/121419975">【数据结构】八大排序(超详解+附动图+源码)_数据结构排序-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://wangjunicode.com/2017/03/09/CSharp%E9%9B%86%E5%90%88/">C#中常用容器的使用与底层数据结构 | 相信一万小时定律 (wangjunicode.com)</a></p>
+        <p>视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12Z4y1B7th?spm_id_from=333.788.videopod.sections&vd_source=6917f5c8bfecd60a5beb0fffbc41a920">02.引擎架构分层 | GAMES104-现代游戏引擎：从入门到实践_哔哩哔哩_bilibili</a></p>
+<h1 id="基础五层架构"><a href="#基础五层架构" class="headerlink" title="基础五层架构"></a>基础五层架构</h1><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/28/20241028095936.png" alt="image-20241028095936406"></p>
+<p>最基础的五层架构，由上到下：</p>
+<ol>
+<li><strong>工具层：</strong>提供编辑环境，方便可视化快速的进行游戏开发。</li>
+<li><strong>功能层：</strong>玩家、NPC运动交互等，游戏中的玩法行为。一些游戏的基础功能，能够让世界能够动起来、玩起来。</li>
+<li><strong>资源层：</strong>Resource、负责加载管理资源</li>
+<li><strong>核心层：</strong>各种功能处理模块的内核。</li>
+<li><strong>平台层：</strong>硬件设备的输入输出设备兼容，游戏平台的发布导出兼容。</li>
+</ol>
+<p>第三方库：通过集成到引擎中，或者通过文件类型的交换，进行使用。</p>
+<p>游戏引擎分层原因：</p>
+<ul>
+<li>解耦和降低复杂性、以不变应万变。</li>
+<li>越底层越不要动，越往上越灵活、越往下越稳定。</li>
+<li>一般上层调下层。</li>
+</ul>
+<h1 id="架构实现概述"><a href="#架构实现概述" class="headerlink" title="架构实现概述"></a>架构实现概述</h1><p>假设练习：让一个角色动起来。从练习进行讲解。</p>
+<h2 id="资源层"><a href="#资源层" class="headerlink" title="资源层"></a>资源层</h2><p>资源层将数据引擎化（变成资产）resource—&gt;assess，并且管理所有资产的生命周期。</p>
+<p>现代游戏最重要的是数据之间的关联（reference）。</p>
+<p>guid：每个资产的唯一识别号</p>
+<p>Runtime Asset Manager 实时资产管理：一个通过路径引用加载&#x2F;制载资产的虚拟文件系统，通过handle system管理所有资产的生命周期。</p>
+<p>handle system：处理和提供资产使用寿命的系统</p>
+<p>GC 垃圾回收、延迟下载</p>
+<h2 id="功能层"><a href="#功能层" class="headerlink" title="功能层"></a>功能层</h2><p>功能层简单来说就是让游戏动起来。</p>
+<h3 id="tick"><a href="#tick" class="headerlink" title="tick"></a>tick</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/28/20241028101829.png" alt="image-20241028101829532"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/28/20241028101047.png" alt="image-20241028101047457"></p>
+<p>tick函数：tickLogic和tickRender。</p>
+<p>一般是先tickLogic再tickRender，先模拟（逻辑）再渲染。</p>
+<p>人是靠视觉残留去感知一个世界。</p>
+<h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/28/20241028101836.png" alt="image-20241028101836349"></p>
+<p>多线程：比如把logic和render分到不同核处理。</p>
+<p>现代引擎有将物理、动画分散处理。</p>
+<h3 id="多核并行"><a href="#多核并行" class="headerlink" title="多核并行"></a>多核并行</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/28/20241028101841.png" alt="image-20241028101841046"></p>
+<p>未来引擎架构（多核并行）：将所有任务变成job（原子），哪个核空着就把job放入这其中。</p>
+<h2 id="核心层"><a href="#核心层" class="headerlink" title="核心层"></a>核心层</h2><p>数学库主要涉及线性代数。</p>
+<p>Quake3引擎案例：1&#x2F;根号x—&gt;求近似值，然后牛顿迭代快速逼近真实值。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/28/20241028102237.png" alt="image-20241028102237290"></p>
+<p>SIMD：一项技术、思想，CPU厂商提出用一个LRU（计算逻辑单元）即一条指令将矩阵（比如四个数）与矩阵的计算全部做完。引擎的库中广泛使用这个技术。</p>
+<p>SSE：可以认为是SIMD的技术实现，是一个指令集。主要用来进行向量运算，比直接调用浮点数效率高。</p>
+<p>数据结构：在核心层需要自己重做一套自己的数据结构，减少游戏中内存的碎片，提高效率。</p>
+<p>内存管理：<u>相邻、有序、批次处理</u>内存数据，能够提高效率。</p>
+<h2 id="平台层"><a href="#平台层" class="headerlink" title="平台层"></a>平台层</h2><p>兼容所有平台（超级难！！），游戏引擎效率之间的分水岭。</p>
+<p>RHI（Render HardWare Interface 渲染硬件接口）：重新定义一次Render的API，然后将各个硬件的SDK区别封装起来。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/28/20241028103147.png" alt="image-20241028103147384"></p>
+<h2 id="工具层"><a href="#工具层" class="headerlink" title="工具层"></a>工具层</h2><p>工具层主要是允许他人去创造游戏内容。</p>
+<p>DCC Digital Content Creation 数字内容创建：别人生产的资产工具，比如blender、maya等。</p>
+<p>Asset Conditioning Pipeline 资源管线：各种导出导入器。</p>
 
       </div>
     </div>
@@ -209,23 +261,11 @@
     
     <div class="post-nav">
   
-    <a class="post-nav-item-left" href="/2024/10/28/GAME104%E7%AC%AC%E4%B8%80%E8%8A%82/">
-      <div class="text-align">
-        <svg t="1670570876164"
-             class="icon"
-             viewBox="0 0 1024 1024"
-             width="16"
-             height="16">
-          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
-        </svg>
-        <span class="text-small">上一篇</span>
-      </div>
-      <div>GAME104第一节</div>
-    </a>
+    <div class="post-nav-item-left"></div>
   
   <div class="vhr"></div>
   
-    <a class="post-nav-item-right" href="/2024/10/10/Unity%E4%B8%ADCSharp%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%8F%8A%E5%85%B6%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0/">
+    <a class="post-nav-item-right" href="/2024/10/28/GAME104%E7%AC%AC%E4%B8%80%E8%8A%82/">
       <div class="text-align">
         <span class="text-small">下一篇</span>
         <svg t="1670570876164"
@@ -237,7 +277,7 @@
           <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
         </svg>
       </div>
-      Unity中CSharp常用的数据结构及其底层实现
+      GAME104第一节
     </a>
   
 </div>
@@ -245,12 +285,12 @@
     
       <div class="related-post">
   <div class="related__head">
-  
+  <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%AF%BC%E8%AE%BA-GAME104/" class="post-tag">#游戏引擎导论 GAME104</a>
 
 </div>
   <div class="realated__body">
     
-      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\前言\" title="前言" rel="bookmark">前言</a></div></div></div>
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\10\28\GAME104第一节\" title="GAME104第一节" rel="bookmark">GAME104第一节</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
     
   </div>
 </div>
