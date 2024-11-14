@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        GAME104第八节 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">GAME104第八节</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%AF%BC%E8%AE%BA-GAME104/" class="post-tag">#游戏引擎导论 GAME104</a>
+
+
+          <span class="post-date">2024-11-06</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8A%A8%E7%94%BB%E6%8A%80%E6%9C%AF%E7%AE%80%E4%BB%8B"><span class="post-toc-text">动画技术简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2D%E5%8A%A8%E7%94%BB"><span class="post-toc-text">2D动画</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sprite-animation"><span class="post-toc-text">Sprite animation</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Live2D"><span class="post-toc-text">Live2D</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3D%E5%8A%A8%E7%94%BB"><span class="post-toc-text">3D动画</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6DoF"><span class="post-toc-text">6DoF</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Rigid-Hierarchical-Animation"><span class="post-toc-text">Rigid Hierarchical Animation</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#per-vertex-Animation"><span class="post-toc-text">per-vertex Animation</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Morph-Target-Animation"><span class="post-toc-text">Morph Target Animation</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3D-Skinned-Animation"><span class="post-toc-text">3D Skinned Animation</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2D-Skinned-Animation"><span class="post-toc-text">2D Skinned Animation</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Physics-based-Animation"><span class="post-toc-text">Physics-based Animation</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Animation-Creation"><span class="post-toc-text">Animation Creation</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%92%99%E7%9A%AE%E5%8A%A8%E7%94%BB"><span class="post-toc-text">蒙皮动画</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AE%A9Mesh%E5%8A%A8%E8%B5%B7%E6%9D%A5"><span class="post-toc-text">让Mesh动起来</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="post-toc-text">坐标系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%AA%A8%E9%AA%BC%E6%9E%84%E5%BB%BA"><span class="post-toc-text">骨骼构建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bone%E5%92%8CJoint"><span class="post-toc-text">Bone和Joint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%9E%E9%99%85%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%9A%84%E9%AA%A8%E9%AA%BC"><span class="post-toc-text">实际游戏中的骨骼</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%AD%A6%E5%99%A8%E9%AA%A8%E9%AA%BC"><span class="post-toc-text">武器骨骼</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Root-Joint"><span class="post-toc-text">Root Joint</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bind-Animation"><span class="post-toc-text">Bind Animation</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bind-Pose"><span class="post-toc-text">Bind Pose</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Skeleton-Pose"><span class="post-toc-text">Skeleton Pose</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86"><span class="post-toc-text">三维旋转的数学原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%AE%9A%E5%90%91%E6%95%B0%E5%AD%A6"><span class="post-toc-text">二维定向数学</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E7%BB%B4%E7%9A%84%E5%AE%9A%E5%90%91%E6%95%B0%E5%AD%A6"><span class="post-toc-text">三维的定向数学</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%AC%A7%E6%8B%89%E8%A7%92"><span class="post-toc-text">欧拉角</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Yaw-Roll-Pitch"><span class="post-toc-text">Yaw-Roll-Pitch</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Gimbal-Lock-%E4%B8%87%E5%90%91%E9%94%81"><span class="post-toc-text">Gimbal Lock 万向锁</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="post-toc-text">存在的问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0"><span class="post-toc-text">四元数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%AC%A7%E6%8B%89%E8%A7%92%E8%BD%AC%E5%9B%9B%E5%85%83%E6%95%B0"><span class="post-toc-text">欧拉角转四元数</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%92%99%E7%9A%AE%E5%8A%A8%E7%94%BB%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">蒙皮动画的实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Joint%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%A4%84%E7%90%86"><span class="post-toc-text">Joint的表达处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%8B%E8%BD%AC%E5%8F%98%E5%8C%96"><span class="post-toc-text">旋转变化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B9%B3%E7%A7%BB%E5%8F%98%E5%8C%96"><span class="post-toc-text">平移变化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%94%BE%E7%BC%A9%E5%8F%98%E5%8C%96"><span class="post-toc-text">放缩变化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Affine-Matrix-%E4%BB%BF%E5%B0%84%E7%9F%A9%E9%98%B5"><span class="post-toc-text">Affine Matrix 仿射矩阵</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Joint%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="post-toc-text">Joint数据存储</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Skinning-Matrix-%E5%8A%A8%E7%94%BB%E7%9F%A9%E9%98%B5"><span class="post-toc-text">Skinning Matrix 动画矩阵</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%9A%E5%85%B3%E8%8A%82%E8%92%99%E7%9A%AE%E5%8A%A8%E7%94%BB"><span class="post-toc-text">多关节蒙皮动画</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A4%9A%E5%85%B3%E8%8A%82%E8%92%99%E7%9A%AE%E6%B7%B7%E5%90%88"><span class="post-toc-text">多关节蒙皮混合</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8F%92%E5%80%BC"><span class="post-toc-text">插值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AE%A1%E9%81%93%E6%B8%B2%E6%9F%93"><span class="post-toc-text">管道渲染</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8A%A8%E7%94%BB%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9"><span class="post-toc-text">动画数据压缩</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="post-toc-text">动画制作流程</span></a></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h1 id="动画技术简介"><a href="#动画技术简介" class="headerlink" title="动画技术简介"></a>动画技术简介</h1><p>挑战1</p>
+<ul>
+<li>互动性和动态性。</li>
+<li>动画系统必须能够实时响应玩家的操作和环境的变化。</li>
+<li>动画系统需要与其他游戏系统（如物理引擎、AI系统等）紧密合作。</li>
+</ul>
+<p><strong>挑战2</strong></p>
+<ul>
+<li>游戏动画需要在实时环境中每帧计算，这对性能提出了要求。</li>
+<li>动画数据量巨大，包括模型、纹理和动画数据，需要有效的管理和优化以减少对磁盘和内存的占用。</li>
+</ul>
+<p><strong>挑战3</strong></p>
+<ul>
+<li>游戏动画追求更生动的表情和更真实的体验，这要求动画具有更高的细节和复杂性。</li>
+<li>动画技术如面部动画、布娃娃物理（Ragdoll Physics）和动作匹配（Motion Matching）被用来增强游戏的真实感和玩家的沉浸感。</li>
+</ul>
+<h1 id="2D动画"><a href="#2D动画" class="headerlink" title="2D动画"></a>2D动画</h1><h2 id="Sprite-animation"><a href="#Sprite-animation" class="headerlink" title="Sprite animation"></a>Sprite animation</h2><p>把动画中每一帧的动画记录播放。</p>
+<p>doom用2D的方式做3D的动画。</p>
+<p>特效系统中用到了序列帧的方式。</p>
+<h2 id="Live2D"><a href="#Live2D" class="headerlink" title="Live2D"></a>Live2D</h2><p>把角色所有的元素（比如眼睛、头发）全部变成一个个小的图源，把图源拼在一起变成一个大资源。</p>
+<p>每个图源通过旋转、放缩、warning（仿射变换）。</p>
+<p>对图源设置深度，可以实现出现还是不出现。</p>
+<p>对图源生成控制网格，拥有控制点。通过控制点，就可以调节不同的样式。</p>
+<h1 id="3D动画"><a href="#3D动画" class="headerlink" title="3D动画"></a>3D动画</h1><p>动画就是基于对刚体运动、刚体自由度的一个表达。</p>
+<h2 id="6DoF"><a href="#6DoF" class="headerlink" title="6DoF"></a>6DoF</h2><p>DoF Degress of Freedom：自由度，指一个物体可以在多少个维度进行变化。</p>
+<p>对于刚体来说，在整个空间中运动的自由度就是6个自由度。</p>
+<p>刚体有平移的3个自由度，3DoF。</p>
+<p>刚体可以沿着x、y、z轴为中心，沿着其转，这里就是3个自由度3DoF。</p>
+<h2 id="Rigid-Hierarchical-Animation"><a href="#Rigid-Hierarchical-Animation" class="headerlink" title="Rigid Hierarchical Animation"></a>Rigid Hierarchical Animation</h2><p>刚体层次动画。</p>
+<p>最基础的动画系统。</p>
+<h2 id="per-vertex-Animation"><a href="#per-vertex-Animation" class="headerlink" title="per-vertex Animation"></a>per-vertex Animation</h2><p>顶点动画。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106144956.png" alt="image-20241106144949138"></p>
+<p>比如旗帜。</p>
+<p>对一个顶点每一帧的变换存储下来。</p>
+<p>基本上是先模拟出动画，然后存储下来变成texture，在实际中就直接使用。</p>
+<h2 id="Morph-Target-Animation"><a href="#Morph-Target-Animation" class="headerlink" title="Morph Target Animation"></a>Morph Target Animation</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106145207.png" alt="image-20241106145207042"></p>
+<p>顶点影响权重。</p>
+<p>每个顶点之间的权重会进行插值。</p>
+<p>主要用于人脸中。实际中比如游戏中的捏脸系统。</p>
+<h2 id="3D-Skinned-Animation"><a href="#3D-Skinned-Animation" class="headerlink" title="3D Skinned Animation"></a>3D Skinned Animation</h2><p>3D的蒙皮动画。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106145341.png" alt="image-20241106145341340"></p>
+<p>每一个顶点都受到多个骨骼同时作用。</p>
+<h2 id="2D-Skinned-Animation"><a href="#2D-Skinned-Animation" class="headerlink" title="2D Skinned Animation"></a>2D Skinned Animation</h2><p>2D和3D中的原理是一致的。</p>
+<h2 id="Physics-based-Animation"><a href="#Physics-based-Animation" class="headerlink" title="Physics-based Animation"></a>Physics-based Animation</h2><p>布娃娃系统。</p>
+<p>衣料。</p>
+<p>IK 反向动力学。</p>
+<h2 id="Animation-Creation"><a href="#Animation-Creation" class="headerlink" title="Animation Creation"></a>Animation Creation</h2><p>编辑器中动画师手K（K Free）动画。</p>
+<p>动捕。</p>
+<h1 id="蒙皮动画"><a href="#蒙皮动画" class="headerlink" title="蒙皮动画"></a>蒙皮动画</h1><h2 id="让Mesh动起来"><a href="#让Mesh动起来" class="headerlink" title="让Mesh动起来"></a>让Mesh动起来</h2><ol>
+<li><strong>创建绑定姿态的网格</strong>：首先，你需要一个网格模型，它处于一个标准的姿态，这样便于后续的动画制作。</li>
+<li><strong>为网格创建绑定骨骼</strong>：然后，你要给这个网格模型添加一个骨骼结构，骨骼是用来控制模型动作的基础。</li>
+<li><strong>分配蒙皮权重</strong>：接下来，你要为网格上的每个顶点分配权重，这些权重决定了顶点如何随骨骼移动。</li>
+<li><strong>骨骼动画化</strong>：之后，你可以通过移动和旋转骨骼来制作动画，让角色或对象动起来。</li>
+<li><strong>通过骨骼和权重动画化蒙皮顶点</strong>：最后，当骨骼移动时，网格上的顶点会根据之前分配的权重跟着移动，这样就完成了整个动画过程。</li>
+</ol>
+<h2 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106150529.png" alt="image-20241106150529314"></p>
+<p>World Space：世界坐标系。</p>
+<p>Model Space：以模型自己为中心的坐标系。</p>
+<p>Local Space：局部坐标系。动画中的每一个骨骼自己的坐标系。</p>
+<h2 id="骨骼构建"><a href="#骨骼构建" class="headerlink" title="骨骼构建"></a>骨骼构建</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106150931.png" alt="image-20241106150931465"></p>
+<ul>
+<li>Humanoid Skeleton 类人形：树状结构，七点在人的胯部（脊椎的最后一个骨头）</li>
+<li>No-humanoid Skeleton 四足动物</li>
+</ul>
+<h3 id="Bone和Joint"><a href="#Bone和Joint" class="headerlink" title="Bone和Joint"></a>Bone和Joint</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106151050.png" alt="image-20241106151050193"></p>
+<p>游戏引擎中，骨骼（Bone）实际存储的是肘关节（Joint）的数据。</p>
+<h3 id="实际游戏中的骨骼"><a href="#实际游戏中的骨骼" class="headerlink" title="实际游戏中的骨骼"></a>实际游戏中的骨骼</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106151233.png" alt="image-20241106151233137"></p>
+<p>可能考虑到眼睛眉毛，人身上的变形（武器、翅膀）等等。</p>
+<h3 id="武器骨骼"><a href="#武器骨骼" class="headerlink" title="武器骨骼"></a>武器骨骼</h3><p>一般来讲武器是在人物的主骨骼上有一个武器的骨骼，一般是绑在手上的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106151337.png" alt="image-20241106151337183"></p>
+<p>包括人在骑乘时，也有一个骑乘的骨骼。</p>
+<h3 id="Root-Joint"><a href="#Root-Joint" class="headerlink" title="Root Joint"></a>Root Joint</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106151452.png" alt="image-20241106151452565"></p>
+<p>一般定在两腿之间。</p>
+<p>当决定角色的移速、跳跃的高度等，都是用Root Joint来处理。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106151655.png" alt="image-20241106151655950"></p>
+<p>如果是非人骨骼，那么其Pelvis Joint骨骼放在马的尾椎处，而Root Joint则放在马肚子下面。</p>
+<h3 id="Bind-Animation"><a href="#Bind-Animation" class="headerlink" title="Bind Animation"></a>Bind Animation</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106151953.png" alt="image-20241106151953938"></p>
+<p>人播放人的动画，马播放马的动画。</p>
+<p>人上面有一个Bind Joint和马的Bind Joint重合在一起，这个Bind Joint空间、旋转等数值都是重合的。</p>
+<h3 id="Bind-Pose"><a href="#Bind-Pose" class="headerlink" title="Bind Pose"></a>Bind Pose</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106152202.png" alt="image-20241106152202174"></p>
+<p>T-Pose角色的肩膀部分是被挤压的，需要做精细的肩胛处的变形的动画时，精度就不够。因此现在的3A会用站的比较自然的A-Pose。</p>
+<h3 id="Skeleton-Pose"><a href="#Skeleton-Pose" class="headerlink" title="Skeleton Pose"></a>Skeleton Pose</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106152357.png" alt="image-20241106152357124"></p>
+<p>把很多的Pose连在一起时，会变成一个动画。</p>
+<p>真正表达动画的Pose时，有九个自由度（9DoFs），还有个放缩。</p>
+<p>放缩比如有人脸的变形、角色弹性变化时会用到。</p>
+<h1 id="三维旋转的数学原理"><a href="#三维旋转的数学原理" class="headerlink" title="三维旋转的数学原理"></a>三维旋转的数学原理</h1><h2 id="二维定向数学"><a href="#二维定向数学" class="headerlink" title="二维定向数学"></a>二维定向数学</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106152605.png" alt="image-20241106152605460"></p>
+<p>普通的θ或者笛卡尔坐标系。</p>
+<h2 id="三维的定向数学"><a href="#三维的定向数学" class="headerlink" title="三维的定向数学"></a>三维的定向数学</h2><h3 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106152748.png" alt="image-20241106152748823"></p>
+<p>绕着任意轴旋转。分别沿着x、y、z旋转角度，叠加后可以得到一个旋转的矩阵（图中那个R方程）。</p>
+<p>把任何一个空间上的点带入之后，就可以得到一个欧拉角。</p>
+<h4 id="Yaw-Roll-Pitch"><a href="#Yaw-Roll-Pitch" class="headerlink" title="Yaw-Roll-Pitch"></a>Yaw-Roll-Pitch</h4><p>Yaw-Roll-Pitch就是欧拉角的另一种表达</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106153002.png" alt="image-20241106153002442"></p>
+<ul>
+<li>Yaw：航向角</li>
+<li>Pitch：公角</li>
+<li>Roll：翻滚角</li>
+</ul>
+<h4 id="Gimbal-Lock-万向锁"><a href="#Gimbal-Lock-万向锁" class="headerlink" title="Gimbal Lock 万向锁"></a>Gimbal Lock 万向锁</h4><p>Gimbal Lock 万向节（万向锁）</p>
+<p>相机的“稳定器”、无人机、“微云台”、陀螺仪</p>
+<h4 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h4><p><strong>问题1：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106153430.png" alt="image-20241106153430048"></p>
+<p>计算是顺序依赖的。（旋转的顺序不同，得到的结果就不同）</p>
+<p>使用欧拉角时，得提前定义旋转顺序。</p>
+<p><strong>问题2：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106154019.png" alt="image-20241106154019602"></p>
+<p>沿着y轴转了90°之后（β&#x3D;90°），z轴实际是和x轴共轴了，那这时沿着z轴做的任何旋转实际上都没有意义。只有两个旋转之间（α和γ之间的差值）才有意义）</p>
+<p><strong>问题3：</strong></p>
+<p>比如有(α<sub>1</sub>,β<sub>1</sub>,γ<sub>1</sub>)和(α<sub>2</sub>,β<sub>2</sub>,γ<sub>2</sub>)。</p>
+<p>这里非常难以得到差值，这两个的差值不能简单地在线性上加减得出来。</p>
+<p><strong>问题4：</strong></p>
+<p>如果要对一个物体先做一个(α<sub>1</sub>,β<sub>1</sub>,γ<sub>1</sub>)，再叠加一个(α<sub>2</sub>,β<sub>2</sub>,γ<sub>2</sub>)，这时的表达不能简单的用α<sub>1</sub>,β<sub>1</sub>,γ<sub>1</sub>,α<sub>2</sub>,β<sub>2</sub>,γ<sub>2</sub>这六个值加在一起就能表达出来。</p>
+<p><strong>问题5：</strong></p>
+<p>欧拉角通过xyz三轴的旋转来表达，但是实际中物体并不是严格的按照空间上的xyz去做的。</p>
+<p>给定一个定轴时（定轴运算），就会非常难。</p>
+<h3 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h3><p>只有在三维空间中，才能用四元数。（群论的东西，但是看不懂，老师也看不懂。。。）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106155650.png" alt="image-20241106155650176"></p>
+<p>定义了三个虚部：i j k（对应3个单位轴），对于任意一个旋转，可以尝试用一套公式去表达（q的那个方程）。</p>
+<p>乘法就是单位轴向量在做叉乘。</p>
+<p>逆就是表示旋转的逆。</p>
+<h4 id="欧拉角转四元数"><a href="#欧拉角转四元数" class="headerlink" title="欧拉角转四元数"></a>欧拉角转四元数</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106160230.png" alt="image-20241106160230367"></p>
+<h1 id="蒙皮动画的实现"><a href="#蒙皮动画的实现" class="headerlink" title="蒙皮动画的实现"></a>蒙皮动画的实现</h1><h2 id="Joint的表达处理"><a href="#Joint的表达处理" class="headerlink" title="Joint的表达处理"></a>Joint的表达处理</h2><h3 id="旋转变化"><a href="#旋转变化" class="headerlink" title="旋转变化"></a>旋转变化</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106161535.png" alt="image-20241106161535831"></p>
+<p>大多数的动画中，都只有旋转的变化，是动画中最核心的。</p>
+<h3 id="平移变化"><a href="#平移变化" class="headerlink" title="平移变化"></a>平移变化</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106161556.png" alt="image-20241106161556497"></p>
+<p>站立和蹲下时，pelvis root（尾椎的那个骨骼）会发生变化。</p>
+<p>表情动画、特殊的机械动画等都有平移动画。</p>
+<h3 id="放缩变化"><a href="#放缩变化" class="headerlink" title="放缩变化"></a>放缩变化</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106161746.png" alt="image-20241106161746872"></p>
+<p>面部表情中可能会用到，一般来说都不会用。</p>
+<h3 id="Affine-Matrix-仿射矩阵"><a href="#Affine-Matrix-仿射矩阵" class="headerlink" title="Affine Matrix 仿射矩阵"></a>Affine Matrix 仿射矩阵</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106162005.png" alt="image-20241106162005116"></p>
+<h3 id="Joint数据存储"><a href="#Joint数据存储" class="headerlink" title="Joint数据存储"></a>Joint数据存储</h3><p>动画的数据一般是存在local space中，即只会存储相对于“父亲”的变化。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106162628.png" alt="image-20241106162627993"></p>
+<ul>
+<li>当动画全部存在model space中，做差值时，骨头会一会边长一会变短（如图中右侧那样）</li>
+</ul>
+<p>对于骨骼来说，只需要知道其父骨骼和父骨骼在local space长什么样。</p>
+<p>local space—&gt;model space：从根节点开始，一个骨骼一个骨骼算下来。</p>
+<h3 id="Skinning-Matrix-动画矩阵"><a href="#Skinning-Matrix-动画矩阵" class="headerlink" title="Skinning Matrix 动画矩阵"></a>Skinning Matrix 动画矩阵</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106173553.png" alt="image-20241106173553721"></p>
+<ul>
+<li>没听懂。反正好像这个恒等式很重要。</li>
+</ul>
+<p>大概的理解：通过这些矩阵的计算后，每个骨骼（joint）会一个自己的skinning matrix。这些在存储时，是由专门的数据结构来存储的：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106173831.png" alt="image-20241106173831949"></p>
+<p>然后在GPU中，为了用在shader中，又有一个公式去计算，算出一个skinning matrix palette：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106173954.png" alt="image-20241106173954689"></p>
+<h2 id="多关节蒙皮动画"><a href="#多关节蒙皮动画" class="headerlink" title="多关节蒙皮动画"></a>多关节蒙皮动画</h2><p>多关节蒙皮动画允许单个顶点与多个骨骼相关联，特别是当模型的某一部分需要由多个骨骼共同影响时。</p>
+<p>例如，一个角色的上臂可能同时受肩膀和肘部的影响。</p>
+<h2 id="多关节蒙皮混合"><a href="#多关节蒙皮混合" class="headerlink" title="多关节蒙皮混合"></a>多关节蒙皮混合</h2><p>蒙皮混合是多关节蒙皮动画中的一种技术，它通过计算顶点在不同骨骼影响下的位置，然后根据权重进行插值计算出最终位置。</p>
+<p>这种方法可以避免模型出现不自然的变形</p>
+<h2 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h2><p>后面这里讲了一堆的插值，应该是动画系统中实际的一些处理，实在是没听懂。。。。跳过了。</p>
+<h2 id="管道渲染"><a href="#管道渲染" class="headerlink" title="管道渲染"></a>管道渲染</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106170056.png" alt="image-20241106170056433"></p>
+<p>大量动画的clip，存在角色的各个pose（frame）。</p>
+<p>差值算出真正的pose，转换到model pose中。</p>
+<p>然后将每个骨骼算成自己的skinning matrix palette，接着就是GPU运算每一个顶点动起来。</p>
+<h1 id="动画数据压缩"><a href="#动画数据压缩" class="headerlink" title="动画数据压缩"></a>动画数据压缩</h1><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/06/20241106170323.png" alt="image-20241106170323336"></p>
+<ul>
+<li>大部分的骨骼放缩都是1，位移其实也可能是不变的，大量的数据是旋转。</li>
+</ul>
+<p>对于不变的数据，直接只存一个值。</p>
+<p>对于rotation，引入keyframe（关键帧）的概念，通过关键帧之间的插值可以算出。</p>
+<h1 id="动画制作流程"><a href="#动画制作流程" class="headerlink" title="动画制作流程"></a>动画制作流程</h1><p>构建mesh。</p>
+<p>制作骨骼骨架，增加一些物体的骨骼，root等。</p>
+<p>蒙皮骨骼刷权重。</p>
+<p>制作动画（制作关键帧）</p>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/assets/Head.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="/assets/Pay.jpg" />
+  </div>
+  <div class="like-text">“喜欢的话，请给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/2024/11/07/GAME104%E7%AC%AC%E4%B9%9D%E8%8A%82/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>GAME104第九节</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/11/04/GAME104%E7%AC%AC%E4%B8%83%E8%8A%82/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      GAME104第七节
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%AF%BC%E8%AE%BA-GAME104/" class="post-tag">#游戏引擎导论 GAME104</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\10\28\GAME104第一节\" title="GAME104第一节" rel="bookmark">GAME104第一节</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\10\28\GAME104第二节\" title="GAME104第二节" rel="bookmark">GAME104第二节</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\10\28\GAME104第三节\" title="GAME104第三节" rel="bookmark">GAME104第三节</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>

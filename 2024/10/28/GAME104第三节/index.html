@@ -175,9 +175,9 @@
 <p>现代游戏引擎将所有的东西抽象为GameOject GO 游戏对象。</p>
 <h2 id="属性和行为"><a href="#属性和行为" class="headerlink" title="属性和行为"></a>属性和行为</h2><p>假设目前有一个无人机对象，现在需要增加一种可以开火的无人机。</p>
 <p>最初的方式使用派生继承的方式</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028141339859.png" alt="image-20241028141339859"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/08/20241108213915.png" alt="image-20241028141339859"></p>
 <p>但是游戏世界没有完美的分类。因此现代的解决方案是把行为变成组件。</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028140454675.png" alt="image-20241028140454675"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/08/20241108213922.png" alt="image-20241028140454675"></p>
 <ul>
 <li>UObject类似C#里的object</li>
 </ul>
@@ -190,7 +190,7 @@
 </ul>
 <p><strong>Tick的优化：每个GO的Tick进行一遍—&gt;每个系统的Tick进行一遍</strong></p>
 <h2 id="对象间互动"><a href="#对象间互动" class="headerlink" title="对象间互动"></a>对象间互动</h2><p>对象自行检测在其周围的对象，“告知”其做出“反馈”。这样直接的写被称为hardcode：</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028142035676.png" alt="image-20241028142035676"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/08/20241108213922-1.png" alt="image-20241028142035676"></p>
 <p>现代引擎中，对象过多时，Hardcode的方式会出问题。因此使用了Events机制。</p>
 <p><strong>对象间互动优化：Hardcode–（解耦合）–&gt;Events</strong></p>
 <h1 id="游戏对象管理"><a href="#游戏对象管理" class="headerlink" title="游戏对象管理"></a>游戏对象管理</h1><p>当发生事件时，需要在成千上万个GO中通知到指定的GO，因此需要去管理游戏对象。</p>
@@ -199,18 +199,18 @@
 <h3 id="不划分管理"><a href="#不划分管理" class="headerlink" title="不划分管理"></a>不划分管理</h3><p>最简单的场景管理方式。</p>
 <p>直接遍历每一个对象进行逻辑处理。</p>
 <p>问题：每个GO都有可能和其他GO进行交互，每一次要遍历一遍另外的物体，那么场景里有可能出现n(n-1)≈n方。当GO过多，就会爆炸。</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028144659251.png" alt="image-20241028144659251"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/08/20241108213922-2.png" alt="image-20241028144659251"></p>
 <h3 id="画格子管理"><a href="#画格子管理" class="headerlink" title="画格子管理"></a>画格子管理</h3><p>场景分布均匀、不大时，可以采用。</p>
 <p>问题：场景不均匀、非常大时，会出问题。而现代游戏场景不均匀、非常大。</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028144954009.png" alt="image-20241028144954009"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/08/20241108213922-3.png" alt="image-20241028144954009"></p>
 <h3 id="层级结构管理"><a href="#层级结构管理" class="headerlink" title="层级结构管理"></a>层级结构管理</h3><p>Hierarchical segmentation。</p>
 <p>类似地址的写法。</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028145252006.png" alt="image-20241028145252006"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/08/20241108213922-4.png" alt="image-20241028145252006"></p>
 <h4 id="四叉树划分"><a href="#四叉树划分" class="headerlink" title="四叉树划分"></a>四叉树划分</h4><p>按对象集划分，分层分割。</p>
 <p>当每一块区域GO数量很多，那就不停的划分，就会形成树状的结构。</p>
 <p>当任何一个事件发生时，发生的GO会知道自己所在节点的位置，当其需要寻找周边时直接查找父节点或者兄弟节点即可</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028145325556.png" alt="image-20241028145325556"></p>
-<h3 id="空间数据结构"><a href="#空间数据结构" class="headerlink" title="空间数据结构"></a>空间数据结构</h3><p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028150257166.png" alt="image-20241028150257166"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/08/20241108213922-5.png" alt="image-20241028145325556"></p>
+<h3 id="空间数据结构"><a href="#空间数据结构" class="headerlink" title="空间数据结构"></a>空间数据结构</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/08/20241108213922-6.png" alt="image-20241028150257166"></p>
 <p>空间数据结构是场景管理的核心，实际引擎会有不同的数据结构使用。</p>
 <p>Octree 八叉树 </p>
 <p>BVH ：现代游戏引擎比较常用</p>

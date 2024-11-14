@@ -177,7 +177,7 @@
 <p>4.cpu的带宽和使用内存不能太多，存在一定的限制</p>
 <h1 id="渲染系统的工作"><a href="#渲染系统的工作" class="headerlink" title="渲染系统的工作"></a>渲染系统的工作</h1><p>Rendring 最基础的过程：很多空间的顶点组成一个面，通过投影矩阵投影到屏幕上。接着将面光栅化成一个个小的像素点，在每个小像素点上找到其对应的材质、纹理，然后渲染出来。</p>
 <p>投影光栅化、着色（绘制）</p>
-<h1 id="渲染硬件GPU"><a href="#渲染硬件GPU" class="headerlink" title="渲染硬件GPU"></a>渲染硬件GPU</h1><h2 id="SIMD和SIMT"><a href="#SIMD和SIMT" class="headerlink" title="SIMD和SIMT"></a>SIMD和SIMT</h2><p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028180403322.png" alt="image-20241028180403322"></p>
+<h1 id="渲染硬件GPU"><a href="#渲染硬件GPU" class="headerlink" title="渲染硬件GPU"></a>渲染硬件GPU</h1><h2 id="SIMD和SIMT"><a href="#SIMD和SIMT" class="headerlink" title="SIMD和SIMT"></a>SIMD和SIMT</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/29/20241029112651.png" alt="image-20241028180403322"></p>
 <p>SIMD Single Instruction Multiple Data 单指令多数据</p>
 <ul>
 <li>描述具有多个处理元件的计算机，这些处理元件可同时在多个数据点上执行相同的操作</li>
@@ -214,7 +214,7 @@
 <p>眼睛看到的材质，确定物体的外观以及物体如何与光相互作用。</p>
 <p>Materials和Physics Materials 物理材质（摩擦系数）不是一个东西。</p>
 <h3 id="Textures"><a href="#Textures" class="headerlink" title="Textures"></a>Textures</h3><p>Textures 纹理</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028182341935.png" alt="image-20241028182341935"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/29/20241029112651-1.png" alt="image-20241028182341935"></p>
 <ul>
 <li>Albedo 反照率纹理 ：定义了物体表面的颜色和基本反射特性，影响光照和颜色表现。</li>
 <li>Normal 法线纹理 ：定义了物体表面的凹凸细节，通过模拟表面法线方向增强细节，无需增加几何复杂度。</li>
@@ -229,11 +229,11 @@
 <p>现代引擎非常常用的概念。</p>
 <p>子网格是模型内部的独立网格部分。</p>
 <p>在游戏引擎中，模型可以被划分为多个子网格，每个子网格可以有自己的材质和渲染设置。</p>
-<h2 id="单个模型渲染不同纹理"><a href="#单个模型渲染不同纹理" class="headerlink" title="单个模型渲染不同纹理"></a>单个模型渲染不同纹理</h2><p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028165701783.png" alt="image-20241028165701783"></p>
+<h2 id="单个模型渲染不同纹理"><a href="#单个模型渲染不同纹理" class="headerlink" title="单个模型渲染不同纹理"></a>单个模型渲染不同纹理</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/29/20241029112651-2.png" alt="image-20241028165701783"></p>
 <h2 id="多对象渲染"><a href="#多对象渲染" class="headerlink" title="多对象渲染"></a>多对象渲染</h2><p>Resource Pool 资源池</p>
 <p>对于多个人，他们用的都是同一个材质、shader等。</p>
 <p>现代引擎习惯将shader、Mesh等放入各自的一个Pool，多个人直接是在Pool中引用。</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028165820109.png" alt="image-20241028165820109"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/29/20241029112651-3.png" alt="image-20241028165820109"></p>
 <p>通过submesh把每个对象、物体、mesh按照材质进行切分，接着将相同的材质、相同的纹理、相同的mesh等各自归类到一起，用Pool管理。绘制每一个对象时，直接引用就好。这里就是instance 实例化。</p>
 <p>现在游戏引擎，尽可能将绘制交给GPU。</p>
 <h1 id="Visibility-Culling-可见性裁剪"><a href="#Visibility-Culling-可见性裁剪" class="headerlink" title="Visibility Culling 可见性裁剪"></a>Visibility Culling 可见性裁剪</h1><p>Bounding Box 包围盒：</p>
@@ -242,7 +242,7 @@
 <li>简单来说，包围盒就像是物体的“安全距离”，确保物体在移动或旋转时不会与其他物体发生意外的交互</li>
 </ul>
 <p>包围盒时很多运算的基础。</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028171522101.png" alt="image-20241028171522101"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/29/20241029112651-4.png" alt="image-20241028171522101"></p>
 <ul>
 <li>Sphere 球体：最简单的包围体，适合圆形或近似圆形的物体，计算成本低，但可能不够紧凑。</li>
 <li>AABB 轴对齐包围盒：与坐标轴对齐的盒子，计算简单，易于实现，但可能不如OBB紧凑。</li>
@@ -253,7 +253,7 @@
 <p>BVH用的很多，动态做Culling很快。</p>
 <h2 id="Potential-Visibility-Set"><a href="#Potential-Visibility-Set" class="headerlink" title="Potential Visibility Set"></a>Potential Visibility Set</h2><p>PVS算法&#x2F;思想。</p>
 <p>把空间分成一个个小方块。在每个房子中时，通过闷&#x2F;窗，最多可以看到哪几个房间，就渲染哪几个房间。</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028170741157.png" alt="image-20241028170741157"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/29/20241029112651-5.png" alt="image-20241028170741157"></p>
 <p>假设把一个个世界当成一个zone，相当于前面的房间。那这里就可以看成处理场景资源的加载。</p>
 <h2 id="GPU-Culling"><a href="#GPU-Culling" class="headerlink" title="GPU Culling"></a>GPU Culling</h2><p>显卡处理能够帮助得到其是否看得到。</p>
 <p>early z&#x2F;high z 思想： 先把场景深度绘制一遍，只要其他物体的深度更加深，那么这个像素甚至整个物体就可以跳掉。</p>
@@ -269,7 +269,7 @@
 <p>Blender、3dMax、MAYA</p>
 <p>zBrash 雕刻</p>
 <p>Scanning 扫描</p>
-<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20241028173118437.png" alt="image-20241028173118437"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/10/29/20241029112651-6.png" alt="image-20241028173118437"></p>
 <h1 id="现代管道模型"><a href="#现代管道模型" class="headerlink" title="现代管道模型"></a>现代管道模型</h1><p>游戏引擎的绘制技术一直在前进。</p>
 <h2 id="Cluster-Based-Mesh-Pipeline"><a href="#Cluster-Based-Mesh-Pipeline" class="headerlink" title="Cluster-Based Mesh Pipeline"></a>Cluster-Based Mesh Pipeline</h2><p>新的模型表达的渲染管线：Cluster-Based Mesh Pipeline </p>
 <ul>
@@ -326,7 +326,19 @@
     
     <div class="post-nav">
   
-    <div class="post-nav-item-left"></div>
+    <a class="post-nav-item-left" href="/2024/10/31/GAME104%E7%AC%AC%E4%BA%94%E8%8A%82/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>GAME104第五节</div>
+    </a>
   
   <div class="vhr"></div>
   

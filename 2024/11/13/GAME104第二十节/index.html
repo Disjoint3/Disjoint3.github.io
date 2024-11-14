@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        GAME104第二十节 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">GAME104第二十节</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%AF%BC%E8%AE%BA-GAME104/" class="post-tag">#游戏引擎导论 GAME104</a>
+
+
+          <span class="post-date">2024-11-13</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%B9%B6%E8%A1%8C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80"><span class="post-toc-text">并行编程基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">任务模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B9%B6%E8%A1%8C%E5%8C%96%E5%BC%80%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="post-toc-text">并行化开发的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#lock-free%E7%BC%96%E7%A8%8B"><span class="post-toc-text">lock-free编程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wait-free%E7%BC%96%E7%A8%8B"><span class="post-toc-text">wait-free编程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%86%85%E5%AD%98%E9%87%8D%E6%8E%92%E4%BC%98%E5%8C%96"><span class="post-toc-text">内存重排优化</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%B9%B6%E8%A1%8C%E6%9E%B6%E6%9E%84"><span class="post-toc-text">游戏引擎并行架构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Fixed-Multi-thread"><span class="post-toc-text">Fixed Multi-thread</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Thread-Fork-join"><span class="post-toc-text">Thread Fork-join</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Task-graph"><span class="post-toc-text">Task graph</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E7%B3%BB%E7%BB%9F"><span class="post-toc-text">任务系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Coroutine"><span class="post-toc-text">Coroutine</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Fiber-based-Job-System"><span class="post-toc-text">Fiber-based Job System</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Job-Scheduler"><span class="post-toc-text">Job Scheduler</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-text">优缺点</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F"><span class="post-toc-text">编程范式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#POP-%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E7%BC%96%E7%A8%8B"><span class="post-toc-text">POP 面向过程编程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OOP-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="post-toc-text">OOP 面向对象编程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A1%AC%E4%BB%B6%E7%9F%A5%E8%AF%86%E5%82%A8%E5%A4%87"><span class="post-toc-text">硬件知识储备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DOP-%E9%9D%A2%E5%90%91%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A8%8B"><span class="post-toc-text">DOP 面向数据编程</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%A7%E8%83%BD%E6%95%8F%E6%84%9F%E7%BC%96%E7%A8%8B"><span class="post-toc-text">性能敏感编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%A8%8B%E5%BA%8F%E5%88%86%E6%94%AF%E5%A4%84%E7%90%86"><span class="post-toc-text">程序分支处理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%A7%E8%83%BD%E6%95%8F%E6%84%9F%E6%95%B0%E6%8D%AE%E7%BB%84%E7%BB%87"><span class="post-toc-text">性能敏感数据组织</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Array-of-Structure-AOS"><span class="post-toc-text">Array of Structure AOS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Structure-of-Array-SOA"><span class="post-toc-text">Structure of Array SOA</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ECS%E6%9E%B6%E6%9E%84"><span class="post-toc-text">ECS架构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="post-toc-text">基本结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#unity-dots%E6%A1%88%E4%BE%8B"><span class="post-toc-text">unity dots案例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Unity-ECS"><span class="post-toc-text">Unity ECS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Archetype"><span class="post-toc-text">Archetype</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#System"><span class="post-toc-text">System</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Job-System"><span class="post-toc-text">Job System</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Burst-Compiler"><span class="post-toc-text">Burst Compiler</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UE-Mass%E6%A1%88%E4%BE%8B"><span class="post-toc-text">UE Mass案例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-text">总结</span></a></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <p>代码执行并不像看上去那么简单</p>
+<p>代码是在特定的硬件和操作系统上执行的</p>
+<p>如果我们想写一个高性能的程序，硬件和操作系统是必须考虑的。</p>
+<h1 id="并行编程基础"><a href="#并行编程基础" class="headerlink" title="并行编程基础"></a>并行编程基础</h1><p>游戏引擎对算力的要求非常高。</p>
+<p>线程会共享很多的空间。</p>
+<h2 id="任务模型"><a href="#任务模型" class="headerlink" title="任务模型"></a>任务模型</h2><p>抢占式：</p>
+<ul>
+<li>当前正在执行的任务可以在调度器决定的时间中断</li>
+<li>调度员确定下一步要执行的任务应用于大多数操作系统</li>
+</ul>
+<p>非抢占式：</p>
+<ul>
+<li>必须对任务进行明确的编程以实现控制</li>
+<li>任务必须配合才能使调度方案发挥作用</li>
+<li>目前很多实时操作系统(RTOS)也支持这种调度方式</li>
+</ul>
+<h2 id="并行化开发的问题"><a href="#并行化开发的问题" class="headerlink" title="并行化开发的问题"></a>并行化开发的问题</h2><p>线程之间的切换时非常贵的。</p>
+<p><strong>问题1：</strong>并行任务之间通信的依赖性或需求很少或根本不存在。并行任务之间需要沟通。</p>
+<p><strong>问题2：</strong>同一个数据，当一个线程在读，另一个线程在改</p>
+<p>阻断时的并行编程：可能会死锁。</p>
+<h2 id="lock-free编程"><a href="#lock-free编程" class="headerlink" title="lock-free编程"></a>lock-free编程</h2><p>至少有一个线程能够持续取得进展，但可能有些线程会因为其他线程的操作而暂时无法取得进展。</p>
+<ul>
+<li>Lock-free算法不使用传统的锁机制（如互斥锁或信号量）来控制对共享数据的访问，而是通过原子操作（如CAS，即Compare-And-Swap）来保证数据的一致性</li>
+</ul>
+<h2 id="wait-free编程"><a href="#wait-free编程" class="headerlink" title="wait-free编程"></a>wait-free编程</h2><p>每个线程都能在有限步骤内完成其操作，无论其他线程如何操作。</p>
+<ul>
+<li>保证无论操作系统如何调度线程，每个线程都能在有限的步骤内完成其操作。</li>
+<li>即使在最坏情况下，每个线程都能保证在一定步骤后取得进展，而不会被无限期地阻塞。</li>
+<li>Wait-free算法通常比lock-free算法更难实现，因为它们需要确保在任何情况下，所有线程都能在有限步骤内完成操作。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113122214.png" alt="image-20241113122214482"></p>
+<h2 id="内存重排优化"><a href="#内存重排优化" class="headerlink" title="内存重排优化"></a>内存重排优化</h2><p>这是并行编程的难点。</p>
+<p>现代CPU的原理：要从内存中反复读取各种指令，CPU速度很快，总是会饥饿的等待数据。所以CPU有的时候不会一条条的等着你的执行，他把一大段函数随意切成好几块，然后同时执行，相当于指令和数据同时运行。</p>
+<p>游戏中，debug版和release版不同。</p>
+<h1 id="游戏引擎并行架构"><a href="#游戏引擎并行架构" class="headerlink" title="游戏引擎并行架构"></a>游戏引擎并行架构</h1><h2 id="Fixed-Multi-thread"><a href="#Fixed-Multi-thread" class="headerlink" title="Fixed Multi-thread"></a>Fixed Multi-thread</h2><p>Fixed Multi-thread 固定多线程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113122436.png" alt="image-20241113122436637"></p>
+<ul>
+<li>每项任务分到一个线程。</li>
+<li>有些thread很快，有些thread很慢，木桶效应。</li>
+</ul>
+<h2 id="Thread-Fork-join"><a href="#Thread-Fork-join" class="headerlink" title="Thread Fork-join"></a>Thread Fork-join</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113122521.png" alt="image-20241113122521685"></p>
+<ul>
+<li>thread会分成很多的小的fork join。</li>
+<li>使用线程池来防止频繁的线程创建&#x2F;破坏</li>
+<li>实际上还是有很多的工作产生很多的空隙。</li>
+</ul>
+<h2 id="Task-graph"><a href="#Task-graph" class="headerlink" title="Task graph"></a>Task graph</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113122723.png" alt="image-20241113122723304"></p>
+<ul>
+<li>将所有的任务创建成树的结构。</li>
+<li>task树的构建不透明。动态增加节点时，非常复杂。</li>
+<li>实际任务中，任务工作是有顺序的。早期的版本，没有实现做到一半等其他东西昨晚继续走的东西。</li>
+</ul>
+<h1 id="任务系统"><a href="#任务系统" class="headerlink" title="任务系统"></a>任务系统</h1><p>Job System 任务系统 </p>
+<h2 id="Coroutine"><a href="#Coroutine" class="headerlink" title="Coroutine"></a>Coroutine</h2><p>协例程序是一种轻量级的执行上下文</p>
+<p>线程是调取硬件的中断，成本非常高。协程是程序自己定义，一般在一个thread里面，可以好几个协程来回切换。</p>
+<p>Stackful Coroutine 有状态的协程：</p>
+<ul>
+<li>功能更强大，支持从嵌套堆栈框架中输出</li>
+<li>需要更多的内存来为每个协例预留堆栈</li>
+<li>协例上下文切换需要更多时间</li>
+</ul>
+<p>Stackless Coroutine 无状态的协程：</p>
+<ul>
+<li>无法从子例程中出价</li>
+<li>如果没有堆栈来保留数据，就更难使用</li>
+<li>协例栈不需要额外的内存</li>
+<li>更快的上下文切换</li>
+</ul>
+<h2 id="Fiber-based-Job-System"><a href="#Fiber-based-Job-System" class="headerlink" title="Fiber-based Job System"></a>Fiber-based Job System</h2><p>架构一个非常高速的进程管道，放很多高速的task，task里可以进行很多自由的coroutine的切换。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113123120.png" alt="image-20241113123120186"></p>
+<ul>
+<li>Fiber和Coroutine类似，由Job Scheduler管理。</li>
+<li>thread 线程是执行单元，fiber是上下文</li>
+<li>每个处理器核心有一个线程，以最大限度地减少上下文切换开销</li>
+<li>job是在fiber环境中执行的</li>
+</ul>
+<p>同时注意，尽可能一个thread对应一个core（一般是逻辑盒）。</p>
+<ul>
+<li>单个核心的多个工作线程仍然存在上下文切换问题。</li>
+<li>每个核心都有一个工作线程可以消除上下文切换</li>
+<li><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113123232.png" alt="image-20241113123232696"></li>
+</ul>
+<h3 id="Job-Scheduler"><a href="#Job-Scheduler" class="headerlink" title="Job Scheduler"></a>Job Scheduler</h3><p>Job Scheduler是一个系统，负责管理和调度 Job（工作单元）</p>
+<p>Global Job：Job Scheduler中的一个组成部分，专门处理那些可以全局调度的任务。</p>
+<p>LIFO和FIFO</p>
+<ul>
+<li>一般来讲用LIFO。</li>
+<li>（很多时候这个job执行的时候发现会需要另一个job，而另一个job也可能会需要那个job。）</li>
+</ul>
+<p>Job Dependency：</p>
+<ul>
+<li>确保任务按照正确的顺序执行，维护数据的一致性和完整性。</li>
+</ul>
+<p>Job Stealing：</p>
+<ul>
+<li>通过动态重新分配任务来提高多线程程序的效率和处理器资源的利用率。</li>
+</ul>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>优点：</p>
+<ul>
+<li>易于实施的任务计划</li>
+<li>易于处理任务依赖关系</li>
+<li>作业堆栈是孤立的</li>
+<li>避免频率上下文切换</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>C++原生不支持</li>
+<li>操作系统之间的实现是不同的</li>
+<li>有一些限制(thread local无效)</li>
+</ul>
+<h1 id="编程范式"><a href="#编程范式" class="headerlink" title="编程范式"></a>编程范式</h1><h2 id="POP-面向过程编程"><a href="#POP-面向过程编程" class="headerlink" title="POP 面向过程编程"></a>POP 面向过程编程</h2><p>遵循循序渐进的方法，通过一系列指令将任务分解为变量和例程(或子例程)的集合。</p>
+<h2 id="OOP-面向对象编程"><a href="#OOP-面向对象编程" class="headerlink" title="OOP 面向对象编程"></a>OOP 面向对象编程</h2><ul>
+<li>问题1：会有很多的二义性（人攻击怪物还是怪物被人攻击）</li>
+<li>问题2：实际上是一个非常深的继承树，继承树中的方法继承，很难知道哪个父类有方法实现</li>
+<li>问题3：基类做的非常的杂乱</li>
+<li>问题4：性能很低，不稳定</li>
+<li>问题5：可测试性低（要测试一个小模块，就要把整个游戏创建出来）</li>
+</ul>
+<h2 id="硬件知识储备"><a href="#硬件知识储备" class="headerlink" title="硬件知识储备"></a>硬件知识储备</h2><p>CPU发展速度很快，把内存的访问速度拉开了很多。</p>
+<p><strong>cache机制：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113103633.png" alt="image-20241113103626082"></p>
+<ul>
+<li>添加缓存以加快数据读取。</li>
+<li>L1:范围在 256KB 到不超过 1MB之间，但即使这样也足够了</li>
+<li>L2:通常是几个兆字节，可以达到10兆字节。</li>
+<li>L3:比L1和L2大，容量从 16MB到64MB不等，在所有内核之间共享。</li>
+</ul>
+<p><strong>局部性原则：</strong>在短时间内重复访问同一组存储器位置，让所有数据尽可能在同一块地方。</p>
+<p><strong>SIMD：</strong>硬件加速的方法，一次性的读写4个空间。</p>
+<p><strong>LRU：</strong>cache一旦满了以后，把最近常用的东西留下，不常用的扔掉。采用随机的扔掉。</p>
+<p><strong>cache line 高速缓存行：</strong></p>
+<ul>
+<li>数据以固定大小的块(通常为64字节)在内存和缓存之间传输，这些块被称为cache line 缓存行&#x2F;缓存块。</li>
+<li>缓存只能容纳有限的行数，这取决于缓存大小，例如，64千字节的64字节缓存有1024条缓存行。</li>
+<li>每次加载任何内存时，都是在加载一个字节的完整缓存行</li>
+</ul>
+<p><strong>cache miss：</strong>处理器尝试从缓存中获取数据时，但所需数据不在缓存中的情况</p>
+<h2 id="DOP-面向数据编程"><a href="#DOP-面向数据编程" class="headerlink" title="DOP 面向数据编程"></a>DOP 面向数据编程</h2><p>强调以数据为中心来组织和优化代码，特别是在性能敏感型应用中，如游戏开发和高性能计算。</p>
+<p>将代码和数据紧密存储在内存中，保持代码和数据的小型化，并在可能时分批处理</p>
+<h1 id="性能敏感编程"><a href="#性能敏感编程" class="headerlink" title="性能敏感编程"></a>性能敏感编程</h1><p>cache 逐行读取比逐列快。</p>
+<p>DOP中认为，所有世界的表达都是数据，包括代码也是一块数据。</p>
+<p>尽可能减少cache miss，包括代码的cache miss，可以大大提高性能。</p>
+<p>数据和代码看成一个整体，在内存中可能分开，在cpu中要一起。</p>
+<h2 id="程序分支处理"><a href="#程序分支处理" class="headerlink" title="程序分支处理"></a>程序分支处理</h2><p>Branch prediction 分支预测：</p>
+<p>CPU将提前获取指令和数据，使用分支预测技术来决定预取什么。</p>
+<p>分支机构误报：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113105947.png" alt="image-20241113105947708"></p>
+<ul>
+<li>大于10和小于10不同的代码</li>
+<li>一会大于一会小于，doFunc1和doFunc2来回调用，系统性能就会非常的低。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113110109.png" alt="image-20241113110109178"></p>
+<ul>
+<li>对数据排序</li>
+<li>排序的时间不算，整个性能会提高很多</li>
+</ul>
+<h1 id="性能敏感数据组织"><a href="#性能敏感数据组织" class="headerlink" title="性能敏感数据组织"></a>性能敏感数据组织</h1><h2 id="Array-of-Structure-AOS"><a href="#Array-of-Structure-AOS" class="headerlink" title="Array of Structure AOS"></a>Array of Structure AOS</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113111638.png" alt="image-20241113111638649"></p>
+<h2 id="Structure-of-Array-SOA"><a href="#Structure-of-Array-SOA" class="headerlink" title="Structure of Array SOA"></a>Structure of Array SOA</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113111654.png" alt="image-20241113111654207"></p>
+<p>超高速处理基本使用SOA。</p>
+<h1 id="ECS架构"><a href="#ECS架构" class="headerlink" title="ECS架构"></a>ECS架构</h1><h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><p>component-based 用oo的方式去处理，会很慢。整个调度是无序的。</p>
+<p>ECS是一种理论框架，一种模式，用于以面向数据的方式构建游戏代码，以实现最高的性能。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113112107.png" alt="image-20241113112107888"></p>
+<p>Entity 实体:ID指一组组件</p>
+<p>Component 组件:系统要处理的数据，<strong>完全没有逻辑</strong>（和oop的component不一样）</p>
+<p>System 系统:逻辑发生的地方，读&#x2F;写组件数据</p>
+<h2 id="unity-dots案例"><a href="#unity-dots案例" class="headerlink" title="unity dots案例"></a>unity dots案例</h2><p>ecs、jobsystem、burst compiler</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113125236.png" alt="image-20241113125236302"></p>
+<h3 id="Unity-ECS"><a href="#Unity-ECS" class="headerlink" title="Unity ECS"></a>Unity ECS</h3><h4 id="Archetype"><a href="#Archetype" class="headerlink" title="Archetype"></a>Archetype</h4><p>Archetype 原型</p>
+<p>组件的特定组合，实体被分成原型（可以认为是type of go 很多种类型的go）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113112434.png" alt="image-20241113112434121"></p>
+<p>原型中的相同组件被紧密集成块，以便于缓存块是固定大小的内存块，即16KB</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113112507.png" alt="image-20241113112507791"></p>
+<p>如果是把所有的同一类型的组件（比如transform）放在一起，数据量非常大，实际上也不符合局部性的原则。</p>
+<p>archetype实际是想让这一块要处理的数据&#x2F;代码刚好能塞进system中，每次system处理一边，直接换一块chunk即可。</p>
+<h4 id="System"><a href="#System" class="headerlink" title="System"></a>System</h4><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113112708.png" alt="image-20241113112708842"></p>
+<p>system直接从chunk中拿来做运算。</p>
+<h3 id="Job-System"><a href="#Job-System" class="headerlink" title="Job System"></a>Job System</h3><p>原生容器：</p>
+<p>一种可在作业内部访问的共享内存类型。</p>
+<p>如果没有本地容器，作业无法输出结果</p>
+<p>如果整个系统用C#写，那么申请数据结构处理时在硬件上对应什么是一个黑盒（因为脚本语言实际是跑在虚拟机上的）。但现在高性能编程是和硬件1v1对抗，需要的是原生语言的东西。</p>
+<p>安全系统：</p>
+<p>在job system层，确保所有的需要无用的资源全部释放掉。</p>
+<h3 id="Burst-Compiler"><a href="#Burst-Compiler" class="headerlink" title="Burst Compiler"></a>Burst Compiler</h3><p>需要有一个工具，将使用的C#脚本语言编译成底层的语言，并完成必要的检查。</p>
+<h2 id="UE-Mass案例"><a href="#UE-Mass案例" class="headerlink" title="UE Mass案例"></a>UE Mass案例</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113125253.png" alt="image-20241113125253831"></p>
+<p>Entity</p>
+<ul>
+<li>FMassEntityHandle是作为ECS实体的纯ID。</li>
+<li>索引指示 FMassEntityManager中的实体数组中的索引</li>
+</ul>
+<p>Component：</p>
+<ul>
+<li>和unity一样，每种类型的实体都有一个原型</li>
+<li>Fragments and tags 片段和标记 是实体的组件</li>
+<li>标签是常量布尔组件，用于筛选不必要的处理</li>
+</ul>
+<p>Systems：</p>
+<ul>
+<li>MassEntity中的ECS系统是源自UMassProcessor的处理器。</li>
+<li>两个重要的接口：ConfigureQueries() Execute()</li>
+</ul>
+<p>Fragment Query：</p>
+<ul>
+<li>当处理器初始化时，InterfaceConfigureQueries()运行。</li>
+<li>使用FMassEntity Query过滤满足系统要求的实体类型。</li>
+<li>FMassEntityQuery 将过滤后的类型缓存起来，以加速未来的执行。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113125403.png" alt="image-20241113125403144"></li>
+</ul>
+<p>Execute</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>实战性游戏中OOP和DOP共存</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/13/20241113120249.png" alt="image-20241113120249492"></p>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/assets/Head.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="/assets/Pay.jpg" />
+  </div>
+  <div class="like-text">“喜欢的话，请给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <div class="post-nav-item-left"></div>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/11/12/GAME104%E7%AC%AC%E5%8D%81%E4%BA%94%E8%8A%82/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      GAME104第十五节
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%AF%BC%E8%AE%BA-GAME104/" class="post-tag">#游戏引擎导论 GAME104</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\10\28\GAME104第一节\" title="GAME104第一节" rel="bookmark">GAME104第一节</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\10\28\GAME104第二节\" title="GAME104第二节" rel="bookmark">GAME104第二节</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\10\28\GAME104第三节\" title="GAME104第三节" rel="bookmark">GAME104第三节</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>

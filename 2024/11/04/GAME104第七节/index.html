@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        GAME104第七节 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">GAME104第七节</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%AF%BC%E8%AE%BA-GAME104/" class="post-tag">#游戏引擎导论 GAME104</a>
+
+
+          <span class="post-date">2024-11-04</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%8E%AF%E5%A2%83%E5%85%89%E9%81%AE%E8%94%BD%E6%95%88%E6%9E%9C-AO"><span class="post-toc-text">环境光遮蔽效果 AO</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SSAO"><span class="post-toc-text">SSAO</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SSAO-1"><span class="post-toc-text">SSAO+</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HBAO"><span class="post-toc-text">HBAO</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GTAO"><span class="post-toc-text">GTAO</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%9B%BE%E6%95%88-Fog"><span class="post-toc-text">雾效 Fog</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Depth-Fog"><span class="post-toc-text">Depth Fog</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Height-Fog"><span class="post-toc-text">Height Fog</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Voxel-based-Volumetric-Fog"><span class="post-toc-text">Voxel-based Volumetric Fog</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%8A%97%E9%94%AF%E9%BD%BF-AA"><span class="post-toc-text">抗锯齿 AA</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SSAA"><span class="post-toc-text">SSAA</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MSAA"><span class="post-toc-text">MSAA</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FXAA"><span class="post-toc-text">FXAA</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TAA"><span class="post-toc-text">TAA</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%90%8E%E5%A4%84%E7%90%86"><span class="post-toc-text">后处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bloom"><span class="post-toc-text">Bloom</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tone-Mapping"><span class="post-toc-text">Tone Mapping</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Filmic"><span class="post-toc-text">Filmic</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ACES"><span class="post-toc-text">ACES</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Color-Grading"><span class="post-toc-text">Color Grading</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%B8%B2%E6%9F%93%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93"><span class="post-toc-text">渲染系统总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="post-toc-text">渲染管线</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Forward-Rendering"><span class="post-toc-text">Forward Rendering</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Deferred-Rendering"><span class="post-toc-text">Deferred Rendering</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tile-based-Rendering"><span class="post-toc-text">Tile-based Rendering</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Forward-Rendering-1"><span class="post-toc-text">Forward+ Rendering</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Cluster-based-Rendering"><span class="post-toc-text">Cluster-based Rendering</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Visibility-Buffer"><span class="post-toc-text">Visibility Buffer</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Frame-Graph"><span class="post-toc-text">Frame Graph</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%98%BE%E7%A4%BA%E6%8A%80%E6%9C%AF"><span class="post-toc-text">显示技术</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Screen-Tearing"><span class="post-toc-text">Screen Tearing</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#V-Sync"><span class="post-toc-text">V-Sync</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#VRR"><span class="post-toc-text">VRR</span></a></li></ol></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h1 id="环境光遮蔽效果-AO"><a href="#环境光遮蔽效果-AO" class="headerlink" title="环境光遮蔽效果 AO"></a>环境光遮蔽效果 AO</h1><p>AO Ambient Occlusion 环境光遮蔽</p>
+<h2 id="SSAO"><a href="#SSAO" class="headerlink" title="SSAO"></a>SSAO</h2><p>SSAO Screen Space Ambient Occlusion</p>
+<p>Real-time最简单的方法。目前使用的非常少。</p>
+<p>通过分析场景中的深度值缓冲来实现环境光遮蔽效果，增强场景的深度感和真实感</p>
+<p>具体做法：以眼睛射出的射线为基准，对屏幕上的像素进行局部采样，来估算这个物体目前被遮挡的情况。</p>
+<h2 id="SSAO-1"><a href="#SSAO-1" class="headerlink" title="SSAO+"></a>SSAO+</h2><p>SSAO+是对SSAO的增强</p>
+<p>通过在法线导向的半球面上进行更精确的遮挡计算，提供了更高质量的环境光遮蔽效果。</p>
+<p>适用于需要更真实阴影和细节的高质量实时渲染场景。</p>
+<h2 id="HBAO"><a href="#HBAO" class="headerlink" title="HBAO"></a>HBAO</h2><p>HBAO Horizon-based Ambient cclusion</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104093722.png" alt="image-20241104093715867"></p>
+<p>在屏幕空间内对每个像素点进行处理，计算该点在特定角度范围内的遮挡情况，从而生成环境光遮蔽效果</p>
+<p>具体实施：假设AO出现在山谷里，从山谷里射出一束光，计算其仰角要多高能够让光射到山脊。</p>
+<p>缺点：没有考虑天顶角不同（不同角度下），对光的贡献不同。</p>
+<h2 id="GTAO"><a href="#GTAO" class="headerlink" title="GTAO"></a>GTAO</h2><p>GTAO Ground Truth-based Ambient Occlusion</p>
+<p>通过考虑光线的入射角度和多次散射效应，提供了更真实的环境光遮蔽效果。</p>
+<p>在屏幕空间中对每个像素的周围环境进行分析，以确定该点是否被其他物体遮挡。</p>
+<h1 id="雾效-Fog"><a href="#雾效-Fog" class="headerlink" title="雾效 Fog"></a>雾效 Fog</h1><p>Fog</p>
+<h2 id="Depth-Fog"><a href="#Depth-Fog" class="headerlink" title="Depth Fog"></a>Depth Fog</h2><p>视线的远近来计算Fog的效果</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104094937.png" alt="image-20241104094937619"></p>
+<h2 id="Height-Fog"><a href="#Height-Fog" class="headerlink" title="Height Fog"></a>Height Fog</h2><p>fog其实是气溶胶，它实际会很容易沉淀在低处。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104095015.png" alt="image-20241104095014989"></p>
+<h2 id="Voxel-based-Volumetric-Fog"><a href="#Voxel-based-Volumetric-Fog" class="headerlink" title="Voxel-based Volumetric Fog"></a>Voxel-based Volumetric Fog</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104095502.png" alt="image-20241104095502320"></p>
+<p>根据视锥，根据视平面来进行切分，离你近的切的比较密，离你远的切的比较远。进行一个规则的、不均匀的切分计算。</p>
+<p>基本就是和大气、云的方法一致。</p>
+<p>现代fog常用的。</p>
+<h1 id="抗锯齿-AA"><a href="#抗锯齿-AA" class="headerlink" title="抗锯齿 AA"></a>抗锯齿 AA</h1><p>Anti-aliasing 抗锯齿（反走样）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104100141.png" alt="image-20241104100141514"></p>
+<p>多采样几次，将采样变化的值去取平均。</p>
+<p>SSAA、MSAA是经典算法，目前常用的是FXAA、TAA。</p>
+<h2 id="SSAA"><a href="#SSAA" class="headerlink" title="SSAA"></a>SSAA</h2><p>SSAA Super-sample AA（Anti-aliasing）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104100539.png" alt="image-20241104100539646"></p>
+<p>把图片原本要采样的尺寸变成原来的两倍，这时候整个图像就是4X倍大小。</p>
+<p>eg：1024*798—&gt;2048*（798*2）</p>
+<h2 id="MSAA"><a href="#MSAA" class="headerlink" title="MSAA"></a>MSAA</h2><p>MSAA Multi-sample AA（Anti-aliasing）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104100633.png" alt="image-20241104100633205"></p>
+<p>三角形中间的点，实际不需要多采样。问题实际是出在边界。</p>
+<p>做sharding，去看一个格子中的四个采样点中，如果采样点都不是同样结果的话，就对这个格子再进行处理。</p>
+<p>问题：现代游戏的几何密度很高</p>
+<h2 id="FXAA"><a href="#FXAA" class="headerlink" title="FXAA"></a>FXAA</h2><p>FXAA Fast Approximate Anti-aliasing</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104101122.png" alt="image-20241104101122200"></p>
+<p>边缘是颜色的跳变，进行边缘检测。</p>
+<h2 id="TAA"><a href="#TAA" class="headerlink" title="TAA"></a>TAA</h2><p>TAA Temporal Anti-aliasing</p>
+<p>在时间轴上找数据。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104120056.png" alt="image-20241104115757466"></p>
+<h1 id="后处理"><a href="#后处理" class="headerlink" title="后处理"></a>后处理</h1><h2 id="Bloom"><a href="#Bloom" class="headerlink" title="Bloom"></a>Bloom</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104120056-1.png" alt="image-20241104120023920"></p>
+<p>用于模拟高亮区域的光晕扩散现象，这种效果在真实世界的摄影中也会出现。</p>
+<p>通常用来增强图像的视觉效果，特别是在模拟明亮光源时</p>
+<p>Airy disk 艾里圆盘：</p>
+<ul>
+<li>光通过圆形孔径（如镜头光圈）后形成的衍射图样</li>
+<li>当光线通过镜头时，由于衍射效应，焦点周围会形成一个中心亮斑，周围逐渐变暗的圆盘状图案，这就是艾里圆盘。</li>
+<li>这个现象在Bloom效果中被模拟出来，以增加图像的真实感。</li>
+</ul>
+<h2 id="Tone-Mapping"><a href="#Tone-Mapping" class="headerlink" title="Tone Mapping"></a>Tone Mapping</h2><p>Tone Mapping</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104103230.png" alt="image-20241104103230563"></p>
+<p>HDR渲染：阳光直射的地方亮度高，阴影亮度低。</p>
+<p>原始的HDR处理，会出现色偏的现象。这时用一个Tone Mapping处理。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104103756.png" alt="image-20241104103756608"></p>
+<h3 id="Filmic"><a href="#Filmic" class="headerlink" title="Filmic"></a>Filmic</h3><p>顽皮狗提出的一个曝光曲线，对每个颜色数值进行新的映射。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104103421.png" alt="image-20241104103421107"></p>
+<h3 id="ACES"><a href="#ACES" class="headerlink" title="ACES"></a>ACES</h3><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104103522.png" alt="image-20241104103522450"></p>
+<p>美国电影协会提出的曲线。</p>
+<p>优点：</p>
+<ul>
+<li>考虑到了HDR、SDR不同显示器的颜色映射的问题。</li>
+<li>考虑到了不同环境下，比如普通环境和电影院里等，颜色映射的问题。</li>
+</ul>
+<h2 id="Color-Grading"><a href="#Color-Grading" class="headerlink" title="Color Grading"></a>Color Grading</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104120321.png" alt="image-20241104120321380"></p>
+<p>Color Grading又叫Lookup Table（LUT），原始颜色和需求的效果颜色的映射。</p>
+<p>涉及调整和优化图像的色彩平衡、对比度、饱和度和色调，以达到特定的视觉效果或情感表达</p>
+<h1 id="渲染系统总结"><a href="#渲染系统总结" class="headerlink" title="渲染系统总结"></a>渲染系统总结</h1><p>mesh材质用sharding绘制，然后还要裁剪。</p>
+<p>shadowing、global lllumination比较难，PBR材质统一天下。</p>
+<p>世界难以表达的地形、天空和云，通过一些积分方程等模拟这个世界。</p>
+<p>AO表达世界凹凸有致，Fog让世界有层次感，AA让世界的效果更加平滑。接着要对时间美颜，Bloom一个光晕的效果，Tone Mapping进行正确的曝光，Color Grading魔法科技能够把整个游戏调节成</p>
+<h1 id="渲染管线"><a href="#渲染管线" class="headerlink" title="渲染管线"></a>渲染管线</h1><p>一个画面中，基本是几十种上百种算法在工作。需要进行管理。</p>
+<h2 id="Forward-Rendering"><a href="#Forward-Rendering" class="headerlink" title="Forward Rendering"></a>Forward Rendering</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/11/04/20241104104845.png" alt="image-20241104104845428"></p>
+<p>直接计算场景中每个物体（网格）与每个光源的光照效果，并将结果输出到屏幕上。</p>
+<p>最简单的Pipeline思想。</p>
+<p>Transparenting：透明物绘制。</p>
+<p>透明物要放在不透明物的后面来绘制。</p>
+<h2 id="Deferred-Rendering"><a href="#Deferred-Rendering" class="headerlink" title="Deferred Rendering"></a>Deferred Rendering</h2><p>Deferred Rendering 延迟渲染</p>
+<p>现代游戏光及其丰富。</p>
+<p><strong>处理过程：</strong></p>
+<ul>
+<li>把所有的东西渲染一遍，和光的关系放在最后算，先算材质，比如roughness、depth等，全部丢到一个buffer中，一般称为G-buffer。</li>
+<li>这时一块一块的光到屏幕上时，就只用算光的部分，每一个像素的sharding运算只会去算一次。</li>
+</ul>
+<p>好处：对光的处理非常方便</p>
+<p>问题：Gbuffer实际上效率是非常低的，这个问题在移动端中</p>
+<h2 id="Tile-based-Rendering"><a href="#Tile-based-Rendering" class="headerlink" title="Tile-based Rendering"></a>Tile-based Rendering</h2><p>移动端对发热非常敏感，存储芯片最容易发热。</p>
+<p>在java的层面，把画面切成一小块一小块来渲染。减少对G-buffer的读写。</p>
+<h2 id="Forward-Rendering-1"><a href="#Forward-Rendering-1" class="headerlink" title="Forward+ Rendering"></a>Forward+ Rendering</h2><p>就是用Forward Rendering，一个一个小块来渲染。</p>
+<h2 id="Cluster-based-Rendering"><a href="#Cluster-based-Rendering" class="headerlink" title="Cluster-based Rendering"></a>Cluster-based Rendering</h2><p>将场景空间划分成多个三维的集群，每个集群对应于屏幕上的一组像素。</p>
+<p>通过在三维空间中对光源进行裁剪，仅对那些与光源相交的集群进行光照计算，从而提高渲染效率</p>
+<h2 id="Visibility-Buffer"><a href="#Visibility-Buffer" class="headerlink" title="Visibility Buffer"></a>Visibility Buffer</h2><p>现代渲染管线的发展方向，目前是作为一个辅助。</p>
+<p>Deferred Rendering中，G-buffer中存储的材质的全属性，Visibility Buffer存的是几何的全属性，通过几何的属性可以反向查到材质。</p>
+<h2 id="Frame-Graph"><a href="#Frame-Graph" class="headerlink" title="Frame Graph"></a>Frame Graph</h2><p>描述了在单个帧中渲染过程中各个渲染通道（passes）和资源（resources）之间的依赖关系。</p>
+<p>unity中URP、HDRP下面用SRP定义。</p>
+<h1 id="显示技术"><a href="#显示技术" class="headerlink" title="显示技术"></a>显示技术</h1><h2 id="Screen-Tearing"><a href="#Screen-Tearing" class="headerlink" title="Screen Tearing"></a>Screen Tearing</h2><p>Screen Tearing 屏幕撕裂</p>
+<p>屏幕撕裂是一种显示问题，当显示器的刷新率和GPU的帧率不同步时发生</p>
+<h2 id="V-Sync"><a href="#V-Sync" class="headerlink" title="V-Sync"></a>V-Sync</h2><p> V-Sync 垂直同步</p>
+<p>用于显卡和显示器之间帧率同步的技术</p>
+<p>目标是在保持游戏画面流畅、避免画面撕裂的同时，提供更为均匀、成熟的游戏视觉体验。</p>
+<h2 id="VRR"><a href="#VRR" class="headerlink" title="VRR"></a>VRR</h2><p>VRR Variable Refresh Rate 可变刷新率</p>
+<p>显示器根据实时需要来动态调整刷新率的技术</p>
+<p>可以减少或消除屏幕撕裂和图像延迟等问题，提高游戏和视频的流畅度和质量</p>
+<p>VRR技术包括FreeSync和G-Sync。</p>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/assets/Head.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="/assets/Pay.jpg" />
+  </div>
+  <div class="like-text">“喜欢的话，请给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/2024/11/06/GAME104%E7%AC%AC%E5%85%AB%E8%8A%82/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>GAME104第八节</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/11/01/GAME104%E7%AC%AC%E5%85%AD%E8%8A%82/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      GAME104第六节
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%AF%BC%E8%AE%BA-GAME104/" class="post-tag">#游戏引擎导论 GAME104</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\10\28\GAME104第一节\" title="GAME104第一节" rel="bookmark">GAME104第一节</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\10\28\GAME104第二节\" title="GAME104第二节" rel="bookmark">GAME104第二节</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\10\28\GAME104第三节\" title="GAME104第三节" rel="bookmark">GAME104第三节</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
