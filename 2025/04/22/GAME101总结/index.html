@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        GAME101总结 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">GAME101总结</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6-GAME101/" class="post-tag">#计算机图形学 GAME101</a>
+
+
+          <span class="post-date">2025-04-22</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86%E5%82%A8%E5%A4%87"><span class="post-toc-text">数学知识储备</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%91%E9%87%8F"><span class="post-toc-text">向量</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%82%B9%E4%B9%98"><span class="post-toc-text">点乘</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%89%E4%B9%98"><span class="post-toc-text">叉乘</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BA%94%E7%94%A8%E6%A1%88%E4%BE%8B"><span class="post-toc-text">应用案例</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9F%A9%E9%98%B5"><span class="post-toc-text">矩阵</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82%E6%80%BB%E7%BB%93"><span class="post-toc-text">第二节总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%98%E6%8D%A2"><span class="post-toc-text">变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2D%EF%BC%88%E4%BA%8C%E7%BB%B4%EF%BC%89%E5%8F%98%E6%8D%A2"><span class="post-toc-text">2D（二维）变换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3D%E5%8F%98%E6%8D%A2"><span class="post-toc-text">3D变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%AC%A7%E6%8B%89%E8%A7%92"><span class="post-toc-text">欧拉角</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9B%9B%E5%85%83%E6%95%B0"><span class="post-toc-text">四元数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%87%E5%90%91%E9%94%81%E3%80%81%E6%AC%A7%E6%8B%89%E8%A7%92%E3%80%81%E5%9B%9B%E5%85%83%E6%95%B0"><span class="post-toc-text">万向锁、欧拉角、四元数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82%E6%80%BB%E7%BB%93"><span class="post-toc-text">第三节总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AC%AC%E5%9B%9B%E8%8A%82%E6%80%BB%E7%BB%93"><span class="post-toc-text">第四节总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E7%BB%B4%E4%B8%89%E7%BB%B4%E8%A1%A5%E5%85%85"><span class="post-toc-text">二维三维补充</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%8C%E7%BB%B4"><span class="post-toc-text">二维</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%89%E7%BB%B4"><span class="post-toc-text">三维</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%A7%82%E6%B5%8B%E5%8F%98%E6%8D%A2"><span class="post-toc-text">观测变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A7%86%E5%9B%BE%E5%8F%98%E6%8D%A2"><span class="post-toc-text">视图变换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8A%95%E5%BD%B1%E5%8F%98%E6%8D%A2"><span class="post-toc-text">投影变换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2"><span class="post-toc-text">正交变换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2"><span class="post-toc-text">透视变换</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%94%E8%8A%82%E6%80%BB%E7%BB%93"><span class="post-toc-text">第五节总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AC%AC%E5%85%AD%E8%8A%82%E6%80%BB%E7%BB%93"><span class="post-toc-text">第六节总结</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A2%91%E7%8E%87%E3%80%81%E9%A2%91%E8%B0%B1"><span class="post-toc-text">频率、频谱</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%BB%A4%E6%B3%A2"><span class="post-toc-text">滤波</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF"><span class="post-toc-text">卷积</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%A2%91%E5%9F%9F%E4%B8%AD%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="post-toc-text">频域中的定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="post-toc-text">反走样</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%83%E8%8A%82%E6%80%BB%E7%BB%93"><span class="post-toc-text">第七节总结</span></a></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h1 id="数学知识储备"><a href="#数学知识储备" class="headerlink" title="数学知识储备"></a>数学知识储备</h1><h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h2><p>来自：<a target="_blank" rel="noopener" href="https://www.yuque.com/u21084722/hmh07m/ypaui9#AJ7GZ">02_Review Of Linear Algebra (yuque.com)</a></p>
+<h3 id="点乘"><a href="#点乘" class="headerlink" title="点乘"></a>点乘</h3><p>点乘在图形学中的应用</p>
+<ul>
+<li><p>找到两个方向之间的夹角</p>
+<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20250423103615421.png" alt="image-20250423103615421"></p>
+</li>
+<li><p>找到一个向量投影到另一个向量上是哪样的</p>
+</li>
+<li><p>计算两个向量的方向(是接近还是远离)——<strong>向量相向还是远离</strong></p>
+<p>判定高光范围，从1(重合)-0(垂直)–1(完全远离)</p>
+</li>
+<li><p>关于前与后</p>
+</li>
+</ul>
+<h3 id="叉乘"><a href="#叉乘" class="headerlink" title="叉乘"></a>叉乘</h3><ul>
+<li><p>找到两个方向之间的夹角</p>
+<p><img src="C:/Users/14638/AppData/Roaming/Typora/typora-user-images/image-20250423103623645.png" alt="image-20250423103623645"></p>
+</li>
+<li><p>判断向量a在向量b的左右</p>
+</li>
+<li><p>判断点在三角形的内侧还是外侧</p>
+</li>
+</ul>
+<h3 id="应用案例"><a href="#应用案例" class="headerlink" title="应用案例"></a>应用案例</h3><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2445016">Unity精华☀️点乘、叉乘终极教程：用《小小梦魇》讲解这个面试题~-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><h1 id="第二节总结"><a href="#第二节总结" class="headerlink" title="第二节总结"></a>第二节总结</h1><p>这节课主要是对线性代数中向量和矩阵的复习，总体来说难度不大。</p>
+<p>1.向量主要是其点乘和叉乘的两种乘法。</p>
+<ul>
+<li>点乘能够用于计算向量之间的投影和向量之间的夹角，能够判断两向量是否相近（菲涅尔效果）</li>
+<li>而向量投影主要能测量两个方向的距离、分解向量以及确定向前&#x2F;向后等，这些特性能够运用到确定直角坐标系上（即确定基坐标，就是确定一个基准的感觉）</li>
+<li>叉乘能够用于确定向量之间的位置关系，左右、内外等。</li>
+<li>确定内外在后续光栅化用的会很多，而确定左右的方向好像没有提及运用？？后续有涉及到的话在回来补坑。</li>
+</ul>
+<p>2.矩阵则是其乘法计算的一些计算方法。</p>
+<ul>
+<li>计算机的图形信息基本都是用矩阵存储的，信息与信息的计算后续也会涉及。这里闫老师主要是稍微复习了一下。</li>
+</ul>
+<h1 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h1><h2 id="2D（二维）变换"><a href="#2D（二维）变换" class="headerlink" title="2D（二维）变换"></a>2D（二维）变换</h2><p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2025/04/24/20250424174923.png" alt="image-20240417225121008"></p>
+<p>缩放变换中，没有平移，因此最后一列头两个数是00。</p>
+<p>旋转变换中，平移和缩放同理。</p>
+<p>平移变换中，没有经过线性变换，左上角是单位矩阵1001，有平移因此最后一列头两个数是tx ty。</p>
+<h2 id="3D变换"><a href="#3D变换" class="headerlink" title="3D变换"></a>3D变换</h2><p>三维空间的变换，可以类比二维的。</p>
+<p>注意区别，三维的点和向量增加一个数（升维）后，并不是四元数，四元数是专门用来表示旋转的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Disjoint3/ImgHost@main/Img/2024/04/17/20240417231500.png" alt="image-20240417231500879"></p>
+<ul>
+<li>再次使用齐次坐标</li>
+</ul>
+<h3 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h3><p>任意的一个旋转，都可以写成绕x、y、z旋转的组合。</p>
+<p>三个轴旋转的旋转角，称为欧拉角。</p>
+<h3 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h3><p>四元数是为了给旋转做差值才引入的。</p>
+<ul>
+<li>假设一个旋转矩阵是旋转15°，另一个是旋转25°。如果将两个矩阵加起来求平均，结果并不是20°。</li>
+<li>这是因为旋转矩阵不适合做差值。</li>
+</ul>
+<h3 id="万向锁、欧拉角、四元数"><a href="#万向锁、欧拉角、四元数" class="headerlink" title="万向锁、欧拉角、四元数"></a>万向锁、欧拉角、四元数</h3><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2445017">Unity精华☀️一、从旋转到万向锁之：Unity的旋转-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2445018">Unity精华☀️二、到底是什么原因导致“万向锁”？旋转翻车的终极解析！-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2445019">Unity精华☀️三、四元数（Quaternion）解决万向锁-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<h1 id="第三节总结"><a href="#第三节总结" class="headerlink" title="第三节总结"></a>第三节总结</h1><p>今天讲的是各种变换，前面所有的变换都是以2D为例的，3D其实也是同理。</p>
+<p>缩放、对称、旋转等这些变换，能够直接用矩阵乘以向量的形式表示，称为线性变换。</p>
+<p>平移不能以矩阵乘以向量表示，并不是平移变换。其形式是矩阵乘以向量加上一个矩阵，可以称之为仿射变换。</p>
+<p>如果将平移看作特殊的变化，那又太过麻烦。为了让所有的变换具有统一性，引入了齐次坐标的知识。</p>
+<p>齐次坐标能够通过加一个数（升维）的方式，通过齐次坐标来表示仿射变换。其次坐标也可以表示线性变换。</p>
+<p>因此，能够用齐次坐标的方式，将所有的变换转变成矩阵与向量的形式。</p>
+<p>将单一的变换累加，就是组合变换。组合变换中，变换的顺序很重要。</p>
+<p>在组合变换中发现，先将所有的变换矩阵相乘，还是能得到一个矩阵，这说明任何复杂的变换都能用一个矩阵来表示。</p>
+<h1 id="第四节总结"><a href="#第四节总结" class="headerlink" title="第四节总结"></a>第四节总结</h1><h2 id="二维三维补充"><a href="#二维三维补充" class="headerlink" title="二维三维补充"></a>二维三维补充</h2><p>今天先是对之前缩放、平移和旋转等这些变换在二维、三维上的一些补充。</p>
+<h3 id="二维"><a href="#二维" class="headerlink" title="二维"></a>二维</h3><p>二维上是对旋转矩阵的补充。</p>
+<ul>
+<li>求物体旋转-θ时的旋转矩阵，发现R<sub>-θ</sub> &#x3D; R<sub>θ</sub><sup>-T</sup></li>
+<li>这里引出性质（理论上二维三维都通用）：<strong>在旋转里，旋转θ的旋转矩阵的转置 等于 旋转θ的旋转矩阵的逆</strong>。（数学上的正交矩阵）</li>
+</ul>
+<h3 id="三维"><a href="#三维" class="headerlink" title="三维"></a>三维</h3><p>三维上时对缩放、平移和旋转变换的补充。</p>
+<ul>
+<li>三维的缩放和平移变换很简单，原理和二维的一致。</li>
+<li>三维的旋转变换，其会有绕x、y、z轴三个方向旋转的情况，对应的旋转矩阵都会不一样。</li>
+<li>x和z的旋转矩阵分析方法一致。</li>
+<li>绕y轴的旋转矩阵比较特殊，其值是x 、y的旋转矩阵的负值。这是因为在右手系下，x叉乘y是-z。</li>
+<li>此外，还提及了四元数。由于矩阵不适合做差值，因此会用四元数。</li>
+</ul>
+<h2 id="观测变换"><a href="#观测变换" class="headerlink" title="观测变换"></a>观测变换</h2><p>课上的重点是观测变换。观测变换有模型、视图、投影三种（简称MVP变换）</p>
+<p>个人理解模型变换像是“建模”这种，这里就不需要讨论。</p>
+<h3 id="视图变换"><a href="#视图变换" class="headerlink" title="视图变换"></a>视图变换</h3><p>视图变换的主要原因是摄像机的摆放问题，抽象上来看，就是坐标系的建立和转换的问题。</p>
+<ul>
+<li>通过定义，我们规定了一套标准的坐标系。但是摄像机自身的坐标系并不一定与标准坐标系重合，这个时候我们需要进行坐标系的转换（视图变换）。</li>
+<li>视图变换时，要将视图（定义的摄像机的前后上下，原点，在Y上，看-Z）坐标轴通过平移、旋转等变换回到标准坐标系上。</li>
+<li>视图坐标的X轴是通过y和z叉乘得到，要将一个叉乘旋转比较麻烦。因此可以反过来，让标准坐标系旋转到视图坐标系上。接着通过前面的正交矩阵性质（在旋转里，旋转θ的旋转矩阵的转置 等于 旋转θ的旋转矩阵的逆），能够求出旋转矩阵。</li>
+<li>平移矩阵很简单，直接是原点的移动就可以得到</li>
+<li>视图变换是先旋转，再平移。通过旋转矩阵和平移矩阵，就可以算出视图矩阵。</li>
+</ul>
+<h3 id="投影变换"><a href="#投影变换" class="headerlink" title="投影变换"></a>投影变换</h3><p>投影变换是将三维的画面投影到一张二维图像上，有正交和透视两种方式。</p>
+<h4 id="正交变换"><a href="#正交变换" class="headerlink" title="正交变换"></a>正交变换</h4><p>正交投影比较简单，平移变换加上缩放变换即可得到。同理正交矩阵也是通过平移矩阵和缩放矩阵就可以算出。</p>
+<h4 id="透视变换"><a href="#透视变换" class="headerlink" title="透视变换"></a>透视变换</h4><p>透视投影比较复杂。</p>
+<ul>
+<li>透视变换中为了不涉及坐标系之间的变换，引入了“挤压”的想法。透视投影做“挤压”投影，再做正交投影，就可以得到一张二维二维画像。</li>
+<li>“挤压”投影的“挤压”矩阵推导起来比较复杂，后半节课都在干这个事情。</li>
+<li>总的来说，就是先利用相似三角形、变换点和原始点之间的关系和齐次方程的特性，得到出第三行以外的“挤压”矩阵值。</li>
+<li>第三行通过观察到的两个信息（挤压时近平面和远平面点的关系），带入特殊值解方程推出来的。</li>
+<li>算出“挤压”矩阵后，根据前面的正交矩阵，就能得到透视矩阵。</li>
+</ul>
+<h1 id="第五节总结"><a href="#第五节总结" class="headerlink" title="第五节总结"></a>第五节总结</h1><p>今天主要讲的是光栅化的知识。</p>
+<p>在上节课中，通过观测变换（视图变换和投影变换），可以将三维的物体转化成二维的图像数据信息。</p>
+<p>这节课就是需要将这个信息“画”出来，这就叫做光栅化。</p>
+<p>理论上无论是怎样的图形，通过光栅化都能“画”在屏幕中。任何图形都可以分解成由三角形组成，因此课上主要以三角形为例，讲了三角形的光栅化。</p>
+<p>三角形光栅化中，最简单的方式就是采样。采样简单来说就是通过一个函数，将图形的位置信息传入，即可得到函数值，这个函数值个人理解就是在计算机中用于“画”的像素信息。</p>
+<p>但在实际应用中，光栅化会出现锯齿、走样的问题，下节课的主要目的，就是抗锯齿、防走样。</p>
+<h1 id="第六节总结"><a href="#第六节总结" class="headerlink" title="第六节总结"></a>第六节总结</h1><p>前提：图形学中将一幅图像看成一个二维函数。</p>
+<h2 id="频率、频谱"><a href="#频率、频谱" class="headerlink" title="频率、频谱"></a>频率、频谱</h2><p><strong>频率</strong>用来表示波变化的快慢。</p>
+<p>一个函数（图像）经过傅里叶变换后，能够得到其频谱。</p>
+<ul>
+<li>函数f通过变换能够变成另一个函数F，f通过逆变换也能够变回F。变换过程就叫做傅里叶变换或逆傅里叶变换。</li>
+<li><strong>频谱</strong>是图像（信号）在不同频率的样子，是频率的分布曲线。</li>
+<li>在频谱中，每间隔一段就取一个数据点，这个取点的过程叫做<strong>采样</strong>。</li>
+<li>同样的一个采样方法，采用两种不同的频率的函数得到的结果，我们无法区分它们，这叫做<strong>走样</strong></li>
+</ul>
+<h2 id="滤波"><a href="#滤波" class="headerlink" title="滤波"></a>滤波</h2><p>将某一范围内的特定频率去掉的过程称为<strong>滤波</strong>。</p>
+<p>个人理解滤波其实就是一个函数，将图像（信号、函数）与这个滤波函数叠加，就能实现实现滤波的效果。</p>
+<p><strong>高通滤波</strong>就是能够去掉低频频段的函数（信号）。图像增加高频滤波后，图像边界将变得明显。</p>
+<p>同理，<strong>低通滤波</strong>就是去掉高频频段的函数（信号）。</p>
+<p>除此之外还有一些特定频段的滤波。图像增加低频滤波后，图像将变得模糊。</p>
+<h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><p><strong>卷积</strong>在图形学中就是加权求平均。</p>
+<p><strong>卷积操作就是一个低通滤波器</strong>。</p>
+<ul>
+<li>将某一种滤波作用在一个信号上，进行<u><strong>卷积操作</strong></u>（点乘加权平均），得到一个新的信号。</li>
+<li><u>这是图形学简化后的定义，不是数学上的定义</u></li>
+</ul>
+<p>卷积定理主要是证明了<strong>时域的卷积 &#x3D; 频域的乘积，反之亦然。</strong></p>
+<ul>
+<li>从例子上看，就是一个图像进行卷积操作后得到新的图像，在频域中就是一个频谱乘以卷积操作的频域得到一个新的频谱。</li>
+</ul>
+<p><strong>卷积盒可以看作是一个滤波器</strong>。</p>
+<ul>
+<li>卷积盒box越大，边界越少，图像信息越来越少，图像越来越模糊。</li>
+</ul>
+<h2 id="频域中的定义"><a href="#频域中的定义" class="headerlink" title="频域中的定义"></a>频域中的定义</h2><p><strong>采样在频域中就是将频谱复制粘贴。</strong></p>
+<ul>
+<li>时域上函数相乘变成一系列的点。</li>
+<li>对应到频域上，就是把原始的函数的频谱复制粘贴。</li>
+</ul>
+<p><strong>复制粘贴的频谱之间的间隔越小，频谱重叠在了一起（信号混在了一起）就是走样。</strong></p>
+<p>采样的越稀疏，采样的频率越小，对应频谱上就越密集（时域上的信号就会叠在一起）。</p>
+<h2 id="反走样"><a href="#反走样" class="headerlink" title="反走样"></a>反走样</h2><p>在采样之前做一个模糊（滤波）可以达到反走样的效果。</p>
+<ul>
+<li>需要模糊的话需要做低通滤波。去掉高频，在频域的体现就是频谱覆盖的面会小，防止频谱重叠。</li>
+</ul>
+<p>MSAA、FXAA和TAA都是做模糊一些技术。</p>
+<ul>
+<li>MSAA是增加像素的采样点，近似合理的覆盖率，从而达到模糊的效果。</li>
+<li>FXAA则是先采样，形成图像后，再利用图像匹配找到锯齿的部分，模糊处理后替换锯齿部分（但是会违背采样之前做一个模糊的理论，这样达不到很好的效果，优点是很快）</li>
+<li>TAA则是会复用上一帧的感知结果，相当于将MSAA的样本分布在时间上。</li>
+</ul>
+<h1 id="第七节总结"><a href="#第七节总结" class="headerlink" title="第七节总结"></a>第七节总结</h1><p>本节课讲的东西比起前面来说，难度直线下降！</p>
+<p>今天主要讲着色，讲着色前补充了前面光栅化深度缓存的知识。</p>
+<p>光栅化内容中，首先讲解了画家算法的思想。由于画家算法无法很好的满足计算机图形学的需求，因此引入深度缓存的概念。</p>
+<ul>
+<li>每个导出的图像都有一张对应的深度图，这个深度图记录着所有像素的深度信息。</li>
+<li>此外还讲了深度缓存算法的实现方法，其本质就是一个双重循环。</li>
+</ul>
+<p>着色部分通过Blinn-Phong反色模型引入漫反射、高光等显示中光照的效果情况。</p>
+<ul>
+<li>主要讲了物体漫反射中，光的能量问题。</li>
+<li>着色点平面与光发现的角度可以得到着色点对光能量接收的情况。</li>
+<li>光源与物体的距离可以得到着色点处光能量的发射状况。</li>
+<li>通过光能量的接收和发射状况，我们就可以量化漫反射的能量。</li>
+</ul>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/assets/Head.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="/assets/Pay.jpg" />
+  </div>
+  <div class="like-text">“喜欢的话，请给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/2025/04/24/GAME104%E6%80%BB%E7%BB%93/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>GAME104总结</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2024/11/13/GAME104%E7%AC%AC%E4%BA%8C%E5%8D%81%E8%8A%82/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      GAME104第二十节
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6-GAME101/" class="post-tag">#计算机图形学 GAME101</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\14\GAME101-Lecture01学习\" title="GAME101_Lecture01学习" rel="bookmark">GAME101_Lecture01学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\16\GAME101-Lecture02学习\" title="GAME101_Lecture02学习" rel="bookmark">GAME101_Lecture02学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\17\GAME101-Lecture03学习\" title="GAME101-Lecture03学习" rel="bookmark">GAME101-Lecture03学习</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
