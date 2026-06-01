@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        个人计划制定系统需求记录 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">个人计划制定系统需求记录</div>
+        <div class="post-info">
+          
+  <a href="/tags/%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3-%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A/" class="post-tag">#需求文档 计划制定</a>
+
+
+          <span class="post-date">2026-06-01</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%AA%E4%BA%BA%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A%E7%B3%BB%E7%BB%9F%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%EF%BC%88%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%89"><span class="post-toc-text">个人计划制定系统需求文档（完整版）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E6%80%BB%E4%BD%93%E5%8E%9F%E5%88%99"><span class="post-toc-text">1. 总体原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%90%84%E5%B1%82%E7%BA%A7%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%81%8C%E8%B4%A3"><span class="post-toc-text">2. 各层级定义与职责</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E8%AF%A6%E7%BB%86%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="post-toc-text">3. 详细操作流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-%E5%B9%B4%E5%BA%A6-%E5%AD%A3%E5%BA%A6%E8%AE%A1%E5%88%92%EF%BC%88%E6%88%98%E7%95%A5%E5%B1%82%EF%BC%89"><span class="post-toc-text">3.1 年度 &#x2F; 季度计划（战略层）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-%E6%9C%88%E5%BA%A6%E8%AE%A1%E5%88%92%EF%BC%88%E6%8B%86%E8%A7%A3%E5%B1%82%EF%BC%89"><span class="post-toc-text">3.2 月度计划（拆解层）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-%E5%91%A8%E5%BA%A6%E8%AE%A1%E5%88%92%EF%BC%88%E6%89%A7%E8%A1%8C%E5%B1%82%EF%BC%89"><span class="post-toc-text">3.3 周度计划（执行层）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-4-%E6%97%A5%E5%BA%A6%E8%AE%A1%E5%88%92%EF%BC%88%E7%81%B5%E6%B4%BB%E6%89%A7%E8%A1%8C%E5%B1%82%EF%BC%89"><span class="post-toc-text">3.4 日度计划（灵活执行层）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E5%B1%82%E7%BA%A7%E9%97%B4%E4%BC%A0%E9%80%92%E5%85%B3%E7%B3%BB%E5%9B%BE"><span class="post-toc-text">4. 层级间传递关系图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E6%9E%84"><span class="post-toc-text">5. 必备工具与模板结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-%E5%B9%B4%E5%BA%A6-%E5%AD%A3%E5%BA%A6%E9%A1%B5"><span class="post-toc-text">5.1 年度&#x2F;季度页</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2-%E6%9C%88%E5%BA%A6%E9%A1%B5"><span class="post-toc-text">5.2 月度页</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-3-%E5%91%A8%E5%BA%A6%E9%A1%B5"><span class="post-toc-text">5.3 周度页</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-4-%E6%97%A5%E5%BA%A6%E9%A1%B5%EF%BC%88%E6%88%96%E6%AF%8F%E6%97%A5%E5%8D%A1%E7%89%87%EF%BC%89"><span class="post-toc-text">5.4 日度页（或每日卡片）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-%E5%85%B3%E9%94%AE%E5%BF%83%E6%B3%95%E4%B8%8E%E7%A6%81%E5%BF%8C"><span class="post-toc-text">6. 关键心法与禁忌</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-%E9%A2%86%E5%9F%9F%E5%B9%B3%E8%A1%A1%E6%9C%BA%E5%88%B6%EF%BC%88%E8%A7%A3%E5%86%B3%E5%81%8F%E7%A7%91%E9%97%AE%E9%A2%98%EF%BC%89"><span class="post-toc-text">7. 领域平衡机制（解决偏科问题）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-1-%E9%A2%86%E5%9F%9F%E5%AE%9A%E4%B9%89"><span class="post-toc-text">7.1 领域定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-2-%E6%88%98%E7%95%A5%E5%B1%82%EF%BC%88%E5%B9%B4-%E5%AD%A3%EF%BC%89%E8%A7%84%E5%88%99"><span class="post-toc-text">7.2 战略层（年&#x2F;季）规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-3-%E6%9C%88%E5%BA%A6%E5%B1%82%E8%A7%84%E5%88%99"><span class="post-toc-text">7.3 月度层规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-4-%E5%91%A8-%E6%97%A5%E5%B1%82%E8%A7%84%E5%88%99"><span class="post-toc-text">7.4 周&#x2F;日层规则</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-5-%E2%80%9C%E5%85%B4%E8%B6%A3%E6%B1%A0%E2%80%9D%E7%AE%A1%E7%90%86"><span class="post-toc-text">7.5 “兴趣池”管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-6-%E5%A4%8D%E7%9B%98%E6%97%B6%E7%9A%84%E9%A2%86%E5%9F%9F%E6%A3%80%E6%9F%A5"><span class="post-toc-text">7.6 复盘时的领域检查</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-%E5%AE%8C%E6%95%B4%E6%A1%88%E4%BE%8B"><span class="post-toc-text">8. 完整案例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-1-%E5%AD%A3%E5%BA%A6%E7%9B%AE%E6%A0%87%EF%BC%88Q2%EF%BC%89"><span class="post-toc-text">8.1 季度目标（Q2）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-2-%E6%9C%88%E5%BA%A6%EF%BC%885%E6%9C%88%EF%BC%89"><span class="post-toc-text">8.2 月度（5月）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-3-%E5%91%A8%E5%BA%A6%EF%BC%88%E6%9F%90%E5%91%A8%EF%BC%89"><span class="post-toc-text">8.3 周度（某周）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-4-%E6%97%A5%E5%BA%A6%EF%BC%88%E6%9F%90%E5%91%A8%E4%BA%8C%EF%BC%89"><span class="post-toc-text">8.4 日度（某周二）</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-%E6%9C%80%E5%90%8E%E4%B8%80%E6%9D%A1%E5%BB%BA%E8%AE%AE"><span class="post-toc-text">9. 最后一条建议</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-%E6%96%87%E6%A1%A3%E7%89%88%E6%9C%AC%E4%B8%8E%E6%9B%B4%E6%96%B0"><span class="post-toc-text">10. 文档版本与更新</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v1-1"><span class="post-toc-text">v1.1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v1-0"><span class="post-toc-text">v1.0</span></a></li></ol></li></ol></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h1 id="个人计划制定系统需求文档（完整版）"><a href="#个人计划制定系统需求文档（完整版）" class="headerlink" title="个人计划制定系统需求文档（完整版）"></a>个人计划制定系统需求文档（完整版）</h1><h2 id="1-总体原则"><a href="#1-总体原则" class="headerlink" title="1. 总体原则"></a>1. 总体原则</h2><ul>
+<li><strong>层级分工</strong>：不同时间单位关注不同维度的优先级，不把同一套判断反复用在所有层级。</li>
+<li><strong>由远及近</strong>：年&#x2F;季定方向 → 月&#x2F;周拆解 → 日执行。</li>
+<li><strong>动态可控</strong>：日计划允许调整，但调整有规则，不破坏周&#x2F;月目标。</li>
+<li><strong>少即是多</strong>：每个层级只保留最关键的任务，砍掉不重要的事。</li>
+<li><strong>领域平衡</strong>：战略层保证各领域都有目标，执行层不分类，避免偏科。</li>
+</ul>
+<hr>
+<h2 id="2-各层级定义与职责"><a href="#2-各层级定义与职责" class="headerlink" title="2. 各层级定义与职责"></a>2. 各层级定义与职责</h2><table>
+<thead>
+<tr>
+<th>层级</th>
+<th>周期</th>
+<th>核心职责</th>
+<th>关注的优先级维度</th>
+<th>是否使用四象限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>年度</td>
+<td>年</td>
+<td>确定长期方向与重要目标</td>
+<td>重要性（不考虑紧急）</td>
+<td>否</td>
+</tr>
+<tr>
+<td>季度</td>
+<td>季</td>
+<td>承接年度目标，设定季度关键结果</td>
+<td>重要性</td>
+<td>否</td>
+</tr>
+<tr>
+<td>月度</td>
+<td>月</td>
+<td>将季度目标拆解为月度可执行块，识别潜在紧急事项</td>
+<td>重要性 + 粗略紧急性</td>
+<td>轻量使用（只关注一、二象限）</td>
+</tr>
+<tr>
+<td>周度</td>
+<td>周</td>
+<td>平衡重要且紧急与重要不紧急的任务，设置周目标</td>
+<td>重要且紧急 vs 重要不紧急</td>
+<td>完整使用（四象限）</td>
+</tr>
+<tr>
+<td>日度</td>
+<td>日</td>
+<td>灵活执行，根据当天精力和突发变化做最终排序</td>
+<td>真实紧急度 + 当日精力</td>
+<td>否（改用简单优先级 P0&#x2F;P1&#x2F;P2）</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="3-详细操作流程"><a href="#3-详细操作流程" class="headerlink" title="3. 详细操作流程"></a>3. 详细操作流程</h2><h3 id="3-1-年度-季度计划（战略层）"><a href="#3-1-年度-季度计划（战略层）" class="headerlink" title="3.1 年度 &#x2F; 季度计划（战略层）"></a>3.1 年度 &#x2F; 季度计划（战略层）</h3><p><strong>时间节点</strong>：  </p>
+<ul>
+<li>年度计划：12 月末或 1 月初制定；  </li>
+<li>季度计划：每季度最后一天制定下一季度计划，同时复盘本季度。</li>
+</ul>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>思考未来一年&#x2F;一季度最重要的 <strong>3～5 个长期目标</strong>（例如：职业发展、健康、学习、财务等）。</li>
+<li>只问一个问题：<strong>这件事对我长期价值有多大？</strong>  <ul>
+<li>不问“紧急不紧急”，因为长期目标本质上都是“重要不紧急”。</li>
+</ul>
+</li>
+<li>按个人价值观排序，产出《季度目标清单》（重要性顺序）。</li>
+</ol>
+<p><strong>产出示例</strong>：</p>
+<blockquote>
+<p>Q2 最重要 3 件事：  </p>
+<ol>
+<li>完成 XX 项目核心模块  </li>
+<li>每周运动 3 次，减重 3kg  </li>
+<li>读完 4 本专业书籍并输出笔记</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="3-2-月度计划（拆解层）"><a href="#3-2-月度计划（拆解层）" class="headerlink" title="3.2 月度计划（拆解层）"></a>3.2 月度计划（拆解层）</h3><p><strong>时间节点</strong>：上月最后一天（或次月第 1 天），先复盘上月，再制定下月计划。</p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>将每个季度目标拆解为 <strong>1～3 个本月关键结果</strong>（可量化、可完成）。</li>
+<li>识别 <strong>“潜在紧急”事项</strong>：那些如果本月不做，下个月就会变成火烧眉毛的事（如签证到期、下月要交的申请材料）。</li>
+<li>将上述所有条目放入一个轻量级四象限中（只需快速分类）：<ul>
+<li>第一象限（重要且紧急）：已在眼前且不做有严重后果的事  </li>
+<li>第二象限（重要不紧急）：从季度目标拆解来的主要任务  </li>
+<li>第三、四象限（不重要）：<strong>直接删除或授权</strong>，不要列入月度计划</li>
+</ul>
+</li>
+<li>最终月度清单只保留第一、二象限的内容。</li>
+</ol>
+<p><strong>产出示例</strong>：</p>
+<blockquote>
+<p>五月任务：  </p>
+<ul>
+<li>重要且紧急：23 日前提交项目中期报告  </li>
+<li>重要不紧急：完成运动计划 12 次；读完 1 本书；学习 Figma 基础</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="3-3-周度计划（执行层）"><a href="#3-3-周度计划（执行层）" class="headerlink" title="3.3 周度计划（执行层）"></a>3.3 周度计划（执行层）</h3><p><strong>时间节点</strong>：上周最后一天（或周一早上），先复盘上周，再制定下周计划。</p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>从本月任务中，将下周应推进的任务<strong>平摊</strong>到各个周。</li>
+<li>增加下周确定的<strong>硬性截止任务</strong>（例如周三会议前需准备的资料）。</li>
+<li>使用<strong>完整四象限</strong>对下周每个任务打标签：<ul>
+<li><strong>第一象限（重要且紧急）</strong>：有固定死线，不做会影响周目标或他人</li>
+<li><strong>第二象限（重要不紧急）</strong>：无死线，但完成后对长期有益</li>
+<li><strong>第三象限（紧急不重要）</strong>：尽量不排入周计划，若出现则当天快速处理或拒绝</li>
+<li><strong>第四象限（不重要不紧急）</strong>：直接删除</li>
+</ul>
+</li>
+<li>设定<strong>周目标</strong>：通常 1～2 件第一象限 + 2～3 件第二象限的事。完成这些即算成功的一周。</li>
+<li>将选定的任务<strong>大致排布到每一天</strong>，并标记每个任务的建议截止日（DDL）。</li>
+</ol>
+<p><strong>产出示例</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>象限</th>
+<th>任务</th>
+<th>计划日</th>
+<th>DDL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一象限</td>
+<td>准备周三汇报 PPT</td>
+<td>周二</td>
+<td>周三 10:00</td>
+</tr>
+<tr>
+<td>第一象限</td>
+<td>回复客户合同修改意见</td>
+<td>周四</td>
+<td>周五 12:00</td>
+</tr>
+<tr>
+<td>第二象限</td>
+<td>完成第 3 章读书笔记</td>
+<td>周一、周三</td>
+<td>周日</td>
+</tr>
+<tr>
+<td>第二象限</td>
+<td>运动 3 次</td>
+<td>周一、周三、周五</td>
+<td>周日</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="3-4-日度计划（灵活执行层）"><a href="#3-4-日度计划（灵活执行层）" class="headerlink" title="3.4 日度计划（灵活执行层）"></a>3.4 日度计划（灵活执行层）</h3><p><strong>时间节点</strong>：</p>
+<ul>
+<li>上周最后一天已做“大致排布到每天”。</li>
+<li>每天早晨（或前一晚）根据当日情况<strong>微调</strong>当日清单。</li>
+</ul>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>从周计划的“计划日”中取出今天应做的任务，并考虑是否有新增的<strong>真正紧急且重要</strong>的事。</li>
+<li>使用<strong>简单优先级</strong>（P0 &#x2F; P1 &#x2F; P2）标记：<ul>
+<li><strong>P0</strong>：今天必须完成，否则会影响周目标或造成严重后果</li>
+<li><strong>P1</strong>：今天最好完成，但挪到明天也可以（通常是第二象限任务）</li>
+<li><strong>P2</strong>：有余力再做（零碎琐事、优化类工作）</li>
+</ul>
+</li>
+<li>当日清单中 <strong>P0 + P1 任务不超过 3 个</strong>。如果超过，说明周计划排太满，需要调整周计划。</li>
+<li>按 <strong>P0 → P1 → P2</strong> 的顺序执行，优先保证 P0 完成。</li>
+</ol>
+<p><strong>日计划的调整规则</strong>：</p>
+<ul>
+<li>允许调整，但只允许<strong>降级</strong>，不允许<strong>无序插入</strong>。</li>
+<li>如果早晨临时出现一个真正的紧急且重要事件（例如服务器宕机、突发急事），可以把原定 P0 降为 P1，先处理突发事件。</li>
+<li>如果只是一个<strong>紧急但不重要</strong>的打扰（如促销消息、非紧急电话），<strong>不要插入当日清单</strong>，放进“待办池”留到明天评估是否进周计划。</li>
+</ul>
+<p><strong>产出示例（每日清单）</strong>：</p>
+<blockquote>
+<p>2025-06-02 周一<br>P0：准备周三汇报 PPT 大纲<br>P0：回复客户 A 的报价邮件（ddl 今天 17:00）<br>P1：运动 30 分钟（可挪到周二）<br>P2：整理桌面</p>
+</blockquote>
+<hr>
+<h2 id="4-层级间传递关系图"><a href="#4-层级间传递关系图" class="headerlink" title="4. 层级间传递关系图"></a>4. 层级间传递关系图</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">年度目标</span><br><span class="line">   ↓</span><br><span class="line">季度目标（重要性排序）</span><br><span class="line">   ↓ 拆解 + 识别潜在紧急</span><br><span class="line">月度任务（只保留第一、二象限）</span><br><span class="line">   ↓ 平摊 + 加硬性死线</span><br><span class="line">周度任务（四象限分类，设定周目标）</span><br><span class="line">   ↓ 排布到天</span><br><span class="line">日度任务（简单优先级 P0/P1/P2，灵活微调）</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-必备工具与模板结构"><a href="#5-必备工具与模板结构" class="headerlink" title="5. 必备工具与模板结构"></a>5. 必备工具与模板结构</h2><p>你可以根据以下结构创建自己的计划文档（建议使用电子表格或笔记软件的双向链接）。</p>
+<h3 id="5-1-年度-季度页"><a href="#5-1-年度-季度页" class="headerlink" title="5.1 年度&#x2F;季度页"></a>5.1 年度&#x2F;季度页</h3><ul>
+<li>年度目标列表（重要性排序）</li>
+<li>季度目标列表（每个目标附带关键结果）</li>
+<li>季度复盘区域（完成度、问题、下季度调整）</li>
+</ul>
+<h3 id="5-2-月度页"><a href="#5-2-月度页" class="headerlink" title="5.2 月度页"></a>5.2 月度页</h3><ul>
+<li>本月任务表格（分为“重要且紧急”“重要不紧急”两栏）</li>
+<li>月度日历视图（标记关键死线日）</li>
+<li>月末复盘</li>
+</ul>
+<h3 id="5-3-周度页"><a href="#5-3-周度页" class="headerlink" title="5.3 周度页"></a>5.3 周度页</h3><ul>
+<li>本周四象限任务表（四个格子）</li>
+<li>周目标（2～4 项关键结果）</li>
+<li>每日计划列（预填任务到周一～周日）</li>
+<li>周末复盘</li>
+</ul>
+<h3 id="5-4-日度页（或每日卡片）"><a href="#5-4-日度页（或每日卡片）" class="headerlink" title="5.4 日度页（或每日卡片）"></a>5.4 日度页（或每日卡片）</h3><ul>
+<li>日期、星期</li>
+<li>今日 P0（最多 2 个）</li>
+<li>今日 P1（最多 1 个）</li>
+<li>今日 P2（可选）</li>
+<li>执行记录（完成打勾）</li>
+<li>备注（调整原因）</li>
+</ul>
+<hr>
+<h2 id="6-关键心法与禁忌"><a href="#6-关键心法与禁忌" class="headerlink" title="6. 关键心法与禁忌"></a>6. 关键心法与禁忌</h2><table>
+<thead>
+<tr>
+<th>层级</th>
+<th>核心心法</th>
+<th>禁忌</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>年&#x2F;季</td>
+<td>只看重不重要，不看急不急</td>
+<td>把紧急的事当成重要目标</td>
+</tr>
+<tr>
+<td>月</td>
+<td>提前识别“会变紧急的事”</td>
+<td>把不重要的任务塞进月度计划</td>
+</tr>
+<tr>
+<td>周</td>
+<td>平衡“救火”与“防火”</td>
+<td>周目标全是紧急任务，没有重要不紧急</td>
+</tr>
+<tr>
+<td>日</td>
+<td>完成 P0 就是胜利</td>
+<td>每天列超过 5 件事，结果一件都没做好</td>
+</tr>
+</tbody></table>
+<p><strong>通用原则</strong>：</p>
+<ul>
+<li>层级越高，越少考虑“紧急”。</li>
+<li>层级越低，越少纠结“重要”，只问“今天先做哪个”。</li>
+<li>日计划可改，但必须守住周目标的底线。</li>
+</ul>
+<hr>
+<h2 id="7-领域平衡机制（解决偏科问题）"><a href="#7-领域平衡机制（解决偏科问题）" class="headerlink" title="7. 领域平衡机制（解决偏科问题）"></a>7. 领域平衡机制（解决偏科问题）</h2><h3 id="7-1-领域定义"><a href="#7-1-领域定义" class="headerlink" title="7.1 领域定义"></a>7.1 领域定义</h3><ul>
+<li>根据个人情况列出 <strong>3～6 个核心领域</strong>（例如：技术、运动、阅读写作、心理、社交、家庭）。</li>
+<li>每年&#x2F;每季度可以调整领域列表。</li>
+</ul>
+<h3 id="7-2-战略层（年-季）规则"><a href="#7-2-战略层（年-季）规则" class="headerlink" title="7.2 战略层（年&#x2F;季）规则"></a>7.2 战略层（年&#x2F;季）规则</h3><ul>
+<li>为每个领域设定 <strong>1～2 个可量化的最低目标</strong>（不是任务清单）。</li>
+<li>用★数量标记本周期内各领域的<strong>相对重视程度</strong>（不影响优先级排序，仅作为自检）。</li>
+<li>输出《季度领域目标表》。</li>
+</ul>
+<p><strong>季度领域目标表示例</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>领域</th>
+<th>本季度最低目标</th>
+<th>重视程度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>技术</td>
+<td>完成项目A的数据库设计</td>
+<td>★★★</td>
+</tr>
+<tr>
+<td>运动</td>
+<td>每周运动3次，共36次</td>
+<td>★★☆</td>
+</tr>
+<tr>
+<td>阅读写作</td>
+<td>读完2本书并写笔记</td>
+<td>★★☆</td>
+</tr>
+<tr>
+<td>心理&#x2F;情绪</td>
+<td>每天冥想10分钟，共80天</td>
+<td>★☆☆</td>
+</tr>
+<tr>
+<td>社交</td>
+<td>参加2次线下活动</td>
+<td>★☆☆</td>
+</tr>
+</tbody></table>
+<h3 id="7-3-月度层规则"><a href="#7-3-月度层规则" class="headerlink" title="7.3 月度层规则"></a>7.3 月度层规则</h3><ul>
+<li>制定月度任务时，快速检查是否每个领域都有至少 1 个任务或子任务。</li>
+<li>若某领域缺失，主动补充一个<strong>最小可执行动作</strong>（例如“本领域本月只做1次”即可）。</li>
+</ul>
+<h3 id="7-4-周-日层规则"><a href="#7-4-周-日层规则" class="headerlink" title="7.4 周&#x2F;日层规则"></a>7.4 周&#x2F;日层规则</h3><ul>
+<li>不再标记领域标签，完全按照四象限（周）和 P0&#x2F;P1&#x2F;P2（日）执行。</li>
+<li>领域平衡已在更高层保证，执行层无需重复考虑。</li>
+</ul>
+<h3 id="7-5-“兴趣池”管理"><a href="#7-5-“兴趣池”管理" class="headerlink" title="7.5 “兴趣池”管理"></a>7.5 “兴趣池”管理</h3><ul>
+<li>新建一个独立清单，存放“不是目标但想尝试”的事情（如学画画、看某部电影）。</li>
+<li>不进任何计划层级，仅在每日 P0&#x2F;P1 完成后且有余力时选取。</li>
+<li>每周最多完成 2 项。</li>
+</ul>
+<h3 id="7-6-复盘时的领域检查"><a href="#7-6-复盘时的领域检查" class="headerlink" title="7.6 复盘时的领域检查"></a>7.6 复盘时的领域检查</h3><ul>
+<li>每周末、月末、季末复盘时，额外回答两个问题：<ul>
+<li>哪个领域被过度投入了？</li>
+<li>哪个领域被忽视了？下周期如何调整？</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="8-完整案例"><a href="#8-完整案例" class="headerlink" title="8. 完整案例"></a>8. 完整案例</h2><h3 id="8-1-季度目标（Q2）"><a href="#8-1-季度目标（Q2）" class="headerlink" title="8.1 季度目标（Q2）"></a>8.1 季度目标（Q2）</h3><ul>
+<li><strong>技术</strong>（★★★）：完成项目A的数据库设计</li>
+<li><strong>运动</strong>（★★☆）：每周运动3次，共36次</li>
+<li><strong>阅读</strong>（★★☆）：读2本书并写笔记</li>
+<li><strong>兴趣池</strong>：学吉他基础和弦、看《奥本海默》</li>
+</ul>
+<h3 id="8-2-月度（5月）"><a href="#8-2-月度（5月）" class="headerlink" title="8.2 月度（5月）"></a>8.2 月度（5月）</h3><ul>
+<li>技术：完成数据库ER图（第一象限，DDL 5&#x2F;20）</li>
+<li>运动：运动12次（第二象限）</li>
+<li>阅读：读完《深入理解计算机系统》前5章（第二象限）</li>
+<li>兴趣池：暂不进入月计划</li>
+</ul>
+<h3 id="8-3-周度（某周）"><a href="#8-3-周度（某周）" class="headerlink" title="8.3 周度（某周）"></a>8.3 周度（某周）</h3><p><strong>本周任务表</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>象限</th>
+<th>任务</th>
+<th>计划日</th>
+<th>DDL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一象限</td>
+<td>完成ER图初稿</td>
+<td>周二</td>
+<td>周三评审</td>
+</tr>
+<tr>
+<td>第二象限</td>
+<td>运动3次</td>
+<td>周一、三、五</td>
+<td>周日</td>
+</tr>
+<tr>
+<td>第二象限</td>
+<td>读书1章</td>
+<td>周四</td>
+<td>周日</td>
+</tr>
+</tbody></table>
+<h3 id="8-4-日度（某周二）"><a href="#8-4-日度（某周二）" class="headerlink" title="8.4 日度（某周二）"></a>8.4 日度（某周二）</h3><p><strong>2025-06-03 周二</strong>  </p>
+<ul>
+<li>P0：完成ER图初稿（来自技术领域）  </li>
+<li>P1：运动30分钟（来自运动领域）  </li>
+<li>（P0+P1共2个，合规）  </li>
+<li>P2：整理笔记  </li>
+<li>完成P0P1后有余力 → 从兴趣池拿出“练吉他10分钟”</li>
+</ul>
+<hr>
+<h2 id="9-最后一条建议"><a href="#9-最后一条建议" class="headerlink" title="9. 最后一条建议"></a>9. 最后一条建议</h2><p>如果你在实际执行中发现“即使有高层分类，执行时仍然偏科”，那说明你的<strong>周计划平衡</strong>出了问题。此时不要增加日度分类，而是强化周度计划的“四象限”时主动问一句：</p>
+<blockquote>
+<p><strong>“本周四个象限的任务里，是否每个领域至少出现了一次？”</strong></p>
+</blockquote>
+<p>如果没有，就在周计划里补一个第二象限的小任务（比如“周二晚上读10页书”）。</p>
+<hr>
+<h2 id="10-文档版本与更新"><a href="#10-文档版本与更新" class="headerlink" title="10. 文档版本与更新"></a>10. 文档版本与更新</h2><h3 id="v1-1"><a href="#v1-1" class="headerlink" title="v1.1"></a>v1.1</h3><ul>
+<li>当前版本：新增领域平衡机制，调整章节顺序</li>
+<li>制定依据：个人计划习惯 + 四象限法则 + 优先级分层策略 + 领域平衡需求</li>
+<li>后续迭代：每季度末回顾本需求文档，根据实际使用体验调整层级职责或模板字段。</li>
+</ul>
+<h3 id="v1-0"><a href="#v1-0" class="headerlink" title="v1.0"></a>v1.0</h3><ul>
+<li>当前版本：新增个人计划制定表</li>
+<li>制定依据：个人计划习惯 + 四象限法则 + 优先级分层策略</li>
+<li>后续迭代：每季度末回顾本需求文档，根据实际使用体验调整层级职责或模板字段。</li>
+</ul>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/assets/Head.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="/assets/Pay.jpg" />
+  </div>
+  <div class="like-text">“喜欢的话，请给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <div class="post-nav-item-left"></div>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2026/05/30/%E6%96%B0%E6%97%B6%E4%BB%A3AI%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AD%A6%E4%B9%A0/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      新时代AI使用相关的学习
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3-%E8%AE%A1%E5%88%92%E5%88%B6%E5%AE%9A/" class="post-tag">#需求文档 计划制定</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2024\04\13\前言\" title="前言" rel="bookmark">前言</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
