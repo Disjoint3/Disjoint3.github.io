@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        dark_飘字系统分析 | 渔人的小小世界
+      
+    </title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/Doraemon32x32.ico" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/Doraemon16x16.ico" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color="" />
+    
+    
+    
+      
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/normal.ttf);
+        font-weight: normal;
+    }
+  </style>
+
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
+
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+
+  <meta name="generator" content="Hexo 7.1.1"></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜索文章">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+
+    
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/Doraemon128x128.ico" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>搜索</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/computerStudy">技术学习</a>
+              
+                <a class="nav-menu-item" href="/civilStudy">公考学习</a>
+              
+                <a class="nav-menu-item" href="/life">休闲生活</a>
+              
+            
+            
+          </div>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner--toc">
+      <div class="post-content__head">
+        <div class="post-title">dark_飘字系统分析</div>
+        <div class="post-info">
+          
+  <a href="/tags/dark-%E6%88%98%E6%96%97/" class="post-tag">#dark 战斗</a>
+
+
+          <span class="post-date">2026-06-25</span>
+        </div>
+      </div>
+      
+        <aside class="toc-outer">
+          <div class="toc-title">目录</div>
+          <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BC%A4%E5%AE%B3%E9%A3%98%E5%AD%97%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0"><span class="post-toc-text">伤害飘字系统笔记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E6%95%B4%E4%BD%93%E6%80%9D%E8%B7%AF"><span class="post-toc-text">1. 整体思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%B1%82%E6%80%8E%E4%B9%88%E8%AE%BE%E8%AE%A1"><span class="post-toc-text">2. 数据层怎么设计</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E5%AF%B9%E8%B1%A1%E6%B1%A0%E6%80%8E%E4%B9%88%E6%8E%A5%E5%85%A5"><span class="post-toc-text">3. 对象池怎么接入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8C%89%E7%9B%AE%E6%A0%87%E6%8E%92%E9%98%9F"><span class="post-toc-text">4. 为什么要按目标排队</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E6%95%B0%E5%AD%97%E6%98%AF%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86%E7%9A%84"><span class="post-toc-text">5. 数字是怎么处理的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-%E7%B1%BB%E5%9E%8B%E5%89%8D%E7%BC%80%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-text">6. 类型前缀是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-%E4%BD%8D%E5%9B%BE%E5%AD%97%E4%BD%93-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E5%BA%93%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-text">7. 位图字体 &#x2F; 自定义字库是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-%E5%8D%95%E6%9D%A1%E9%A3%98%E5%AD%97%E5%8A%A8%E7%94%BB%E6%80%8E%E4%B9%88%E7%BB%84%E7%BB%87"><span class="post-toc-text">8. 单条飘字动画怎么组织</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-%E5%A6%82%E6%9E%9C%E8%87%AA%E5%B7%B1%E5%81%9A%EF%BC%8C%E6%9C%80%E5%B0%8F%E5%AE%9E%E7%8E%B0%E9%A1%BA%E5%BA%8F"><span class="post-toc-text">9. 如果自己做，最小实现顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-%E6%80%BB%E7%BB%93"><span class="post-toc-text">10. 总结</span></a></li></ol></li></ol>
+          <a href="#" class="toc-top">回到顶部</a>
+        </aside>
+      
+      <div class="post-content__body">
+        
+          <div class="post-gallery">
+            
+          </div>
+        
+        <h1 id="伤害飘字系统笔记"><a href="#伤害飘字系统笔记" class="headerlink" title="伤害飘字系统笔记"></a>伤害飘字系统笔记</h1><p>这套系统本质上是一条比较成熟的战斗 UI 表现链路：</p>
+<ol>
+<li>先把一条飘字抽象成数据</li>
+<li>管理器负责调度、资源、对象池、分层</li>
+<li>单个飘字对象只负责显示和动画</li>
+<li>播放结束后自动回收</li>
+</ol>
+<p>它不是单纯“把数字显示出来”，而是把 <strong>数值格式化、类型编码、字库映射、动画播放</strong> 串成了一套完整流程。</p>
+<hr>
+<h2 id="1-整体思路"><a href="#1-整体思路" class="headerlink" title="1. 整体思路"></a>1. 整体思路</h2><p>如果你以前做过 <code>UGUI + prefab + 对象池</code> 的飘字，这套可以理解成增强版：</p>
+<ul>
+<li>还是 UGUI 文本</li>
+<li>还是对象池复用</li>
+<li>但增加了按目标排队</li>
+<li>增加了多套字体切换</li>
+<li>增加了统一数字格式化</li>
+<li>增加了自定义字库编码</li>
+</ul>
+<p>一个典型入口大概像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public void ShowDamage(float damage, FontType fontType, bool isCrit, Unit target)</span><br><span class="line">&#123;</span><br><span class="line">    var data = isCrit</span><br><span class="line">        ? DamageFloatData.Crit(damage, fontType, target.worldPos)</span><br><span class="line">        : DamageFloatData.Normal(damage, fontType, target.worldPos);</span><br><span class="line"></span><br><span class="line">    data.IsHero = target.isHero;</span><br><span class="line">    ShowDamage(data, target);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里最重要的点是：<strong>外部不直接操作 UI，而是先构造一条“飘字数据”。</strong></p>
+<hr>
+<h2 id="2-数据层怎么设计"><a href="#2-数据层怎么设计" class="headerlink" title="2. 数据层怎么设计"></a>2. 数据层怎么设计</h2><p>一条飘字通常会包含这些信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public struct DamageFloatData</span><br><span class="line">&#123;</span><br><span class="line">    public float Damage &#123; get; set; &#125;</span><br><span class="line">    public FontType FontType &#123; get; set; &#125;</span><br><span class="line">    public FloatTextType TextType &#123; get; set; &#125;</span><br><span class="line">    public string DisplayText &#123; get; set; &#125;</span><br><span class="line">    public Vector3 WorldPosition &#123; get; set; &#125;</span><br><span class="line">    public Vector3 Offset &#123; get; set; &#125;</span><br><span class="line">    public bool IsHero;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这层的意义是把“业务含义”和“显示实现”分开。</p>
+<p>比如：</p>
+<ul>
+<li>普通伤害是一种数据</li>
+<li>暴击伤害是一种数据</li>
+<li>Miss 也是一种数据</li>
+<li>无效也是一种数据</li>
+</ul>
+<p>特殊飘字通常直接塞预设文本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static DamageFloatData Miss(Vector3 worldPos, FontType fontType, Vector3 offset = default)</span><br><span class="line">&#123;</span><br><span class="line">    return new DamageFloatData</span><br><span class="line">    &#123;</span><br><span class="line">        Damage = 0,</span><br><span class="line">        FontType = fontType,</span><br><span class="line">        TextType = FloatTextType.Miss,</span><br><span class="line">        DisplayText = &quot;s&quot;,</span><br><span class="line">        WorldPosition = worldPos,</span><br><span class="line">        Offset = offset</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的 <code>&quot;s&quot;</code> 不是普通字母，而更像是一个 <strong>字库控制码</strong>。</p>
+<hr>
+<h2 id="3-对象池怎么接入"><a href="#3-对象池怎么接入" class="headerlink" title="3. 对象池怎么接入"></a>3. 对象池怎么接入</h2><p>这套做法不是手动拖一个 prefab 进池，而是代码动态创建飘字对象。</p>
+<p>核心结构大概是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">private DamageFloatTextItem CreateFloatTextItem()</span><br><span class="line">&#123;</span><br><span class="line">    GameObject go = new GameObject(&quot;FloatText&quot;);</span><br><span class="line">    go.SetActive(false);</span><br><span class="line"></span><br><span class="line">    DamageFloatTextItem item = go.AddComponent&lt;DamageFloatTextItem&gt;();</span><br><span class="line">    RectTransform rect = go.AddComponent&lt;RectTransform&gt;();</span><br><span class="line">    CanvasGroup canvasGroup = go.AddComponent&lt;CanvasGroup&gt;();</span><br><span class="line"></span><br><span class="line">    Text text = new GameObject(&quot;Text&quot;).AddComponent&lt;Text&gt;();</span><br><span class="line">    text.transform.SetParent(rect, false);</span><br><span class="line">    text.alignment = TextAnchor.MiddleCenter;</span><br><span class="line">    text.raycastTarget = false;</span><br><span class="line"></span><br><span class="line">    return item;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后交给对象池统一管理：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">_objectPool = new ObjectPool&lt;DamageFloatTextItem&gt;(</span><br><span class="line">    createFunc: CreateFloatTextItem,</span><br><span class="line">    actionOnGet: OnGetFromPool,</span><br><span class="line">    actionOnRelease: OnReleaseToPool,</span><br><span class="line">    actionOnDestroy: OnDestroyPoolItem,</span><br><span class="line">    collectionCheck: false,</span><br><span class="line">    defaultCapacity: 100,</span><br><span class="line">    maxSize: 500</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>回收时最关键的是把状态清干净：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">private void OnReleaseToPool(DamageFloatTextItem item)</span><br><span class="line">&#123;</span><br><span class="line">    item.CancelAnimation();</span><br><span class="line">    item.gameObject.SetActive(false);</span><br><span class="line">    item.transform.SetParent(_poolContainer, false);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里值得学的是：</p>
+<ul>
+<li>不只是隐藏对象</li>
+<li>还要取消动画</li>
+<li>还要恢复默认状态</li>
+<li>避免池对象下次取出时带脏数据</li>
+</ul>
+<hr>
+<h2 id="4-为什么要按目标排队"><a href="#4-为什么要按目标排队" class="headerlink" title="4. 为什么要按目标排队"></a>4. 为什么要按目标排队</h2><p>这是它比普通飘字池更成熟的地方。</p>
+<p>如果同一个怪短时间吃到很多伤害，所有飘字同时出来会严重重叠，所以它会给每个单位维护独立队列。</p>
+<p>结构类似：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">private class UnitFloatQueue</span><br><span class="line">&#123;</span><br><span class="line">    public Queue&lt;QueuedFloatText&gt; Queue = new Queue&lt;QueuedFloatText&gt;();</span><br><span class="line">    public bool IsProcessing = false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>入队时：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private void EnqueueFloatText(DamageFloatData data, Unit target)</span><br><span class="line">&#123;</span><br><span class="line">    UnitFloatQueue unitQueue = GetOrCreateUnitQueue(target.eid);</span><br><span class="line">    unitQueue.Queue.Enqueue(new QueuedFloatText(data, target, worldPos));</span><br><span class="line"></span><br><span class="line">    if (!unitQueue.IsProcessing)</span><br><span class="line">    &#123;</span><br><span class="line">        _coroutineHost.StartCoroutine(ProcessUnitQueueCoroutine(target.eid, unitQueue));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样做的好处：</p>
+<ul>
+<li>同一个目标的飘字更有顺序</li>
+<li>不同目标互不影响</li>
+<li>可以限制单目标过量掉字</li>
+<li>高频战斗里更稳定</li>
+</ul>
+<hr>
+<h2 id="5-数字是怎么处理的"><a href="#5-数字是怎么处理的" class="headerlink" title="5. 数字是怎么处理的"></a>5. 数字是怎么处理的</h2><p>它的重点不是复杂算法，而是 <strong>统一数值格式化</strong>。</p>
+<p>思路类似：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">private static readonly (float threshold, string suffix)[] SuffixTable =</span><br><span class="line">&#123;</span><br><span class="line">    (1_000_000_000_000, &quot;T&quot;),</span><br><span class="line">    (1_000_000_000, &quot;B&quot;),</span><br><span class="line">    (1_000_000, &quot;M&quot;),</span><br><span class="line">    (1_000, &quot;K&quot;),</span><br><span class="line">    (1, &quot;&quot;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">public static string GetFormatDamageTxt(float damage)</span><br><span class="line">&#123;</span><br><span class="line">    if (damage &lt;= 0) return &quot;0&quot;;</span><br><span class="line"></span><br><span class="line">    foreach (var (threshold, suffix) in SuffixTable)</span><br><span class="line">    &#123;</span><br><span class="line">        if (damage &gt;= threshold)</span><br><span class="line">        &#123;</span><br><span class="line">            float value = damage / threshold;</span><br><span class="line">            return FormatWithSuffix(value, suffix);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return (Math.Truncate(damage * 100) / 100).ToString(&quot;0.##&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这意味着：</p>
+<ul>
+<li><code>999 -&gt; 999</code></li>
+<li><code>1200 -&gt; 1.2K</code></li>
+<li><code>1500000 -&gt; 1.5M</code></li>
+</ul>
+<p>这非常值得学，因为真实项目里最好不要到处直接 <code>ToString()</code>。</p>
+<hr>
+<h2 id="6-类型前缀是什么"><a href="#6-类型前缀是什么" class="headerlink" title="6. 类型前缀是什么"></a>6. 类型前缀是什么</h2><p>这套系统不是只传数字，而是先拼一串“带标记的字符串”。</p>
+<p>逻辑大概像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">switch (data.FontType)</span><br><span class="line">&#123;</span><br><span class="line">    case FontType.Fire:</span><br><span class="line">    case FontType.Ice:</span><br><span class="line">    case FontType.Lightning:</span><br><span class="line">        _textComponent.text = &quot;e&quot; + (_isCrit ? &quot;!&quot; : &quot;&quot;) + data.GetDisplayText();</span><br><span class="line">        break;</span><br><span class="line">    case FontType.Heal:</span><br><span class="line">    case FontType.Mana:</span><br><span class="line">        _textComponent.text = &quot;+&quot; + (_isCrit ? &quot;!&quot; : &quot;&quot;) + data.GetDisplayText();</span><br><span class="line">        break;</span><br><span class="line">    default:</span><br><span class="line">        _textComponent.text = (_isCrit ? &quot;!&quot; : &quot;&quot;) + data.GetDisplayText();</span><br><span class="line">        break;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (data.IsHero &amp;&amp; data.FontType != FontType.Heal &amp;&amp; data.FontType != FontType.Mana)</span><br><span class="line">&#123;</span><br><span class="line">    _textComponent.text = &quot;-&quot; + _textComponent.text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以把这些前缀理解成：</p>
+<ul>
+<li><code>e</code>：元素伤害标记</li>
+<li><code>!</code>：暴击标记</li>
+<li><code>+</code>：治疗&#x2F;回蓝</li>
+<li><code>-</code>：掉血</li>
+<li><code>s</code>：MISS</li>
+<li><code>i</code>：无效</li>
+</ul>
+<p>所以最终字符串可能会是：</p>
+<ul>
+<li><code>1234</code></li>
+<li><code>!1234</code></li>
+<li><code>e1234</code></li>
+<li><code>e!1234</code></li>
+<li><code>+500</code></li>
+<li><code>-1234</code></li>
+<li><code>s</code></li>
+<li><code>i</code></li>
+</ul>
+<p>关键点在于：<strong>这些字符不一定按字面显示，而是交给字库去解释。</strong></p>
+<hr>
+<h2 id="7-位图字体-自定义字库是什么"><a href="#7-位图字体-自定义字库是什么" class="headerlink" title="7. 位图字体 &#x2F; 自定义字库是什么"></a>7. 位图字体 &#x2F; 自定义字库是什么</h2><p>这部分是整套系统最关键的表现基础。</p>
+<p>它不是系统字体直接画文本，而是：</p>
+<ol>
+<li>美术把数字和特殊符号画到一张图上</li>
+<li>字体配置把字符映射到这张图里的某一块</li>
+<li>代码仍然像传普通字符串一样传给 <code>Text</code></li>
+<li>最终显示出来的是美术字，而不是默认字形</li>
+</ol>
+<p>你可以把它理解成：</p>
+<ul>
+<li><code>0-9</code> 是画好的图片字</li>
+<li><code>+ - K M</code> 是画好的符号</li>
+<li><code>MISS</code> 可能是一整块图</li>
+<li><code>无效</code> 可能也是一整块图</li>
+<li>元素图标也可能被映射成字符</li>
+</ul>
+<p>典型资源结构会是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fire.fontsettings</span><br><span class="line">firemat.mat</span><br><span class="line">firetex.png</span><br></pre></td></tr></table></figure>
+
+<p>它的优势是：</p>
+<ul>
+<li>视觉风格统一</li>
+<li>美术控制力强</li>
+<li>不需要自己拼很多 Image</li>
+<li>很适合高频飘字</li>
+</ul>
+<hr>
+<h2 id="8-单条飘字动画怎么组织"><a href="#8-单条飘字动画怎么组织" class="headerlink" title="8. 单条飘字动画怎么组织"></a>8. 单条飘字动画怎么组织</h2><p>单条飘字不会把所有逻辑塞进管理器，而是由飘字对象自己播放动画。</p>
+<p>入口大概是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public void Play(DamageFloatData data, Font font, Vector3 startScreenPos, Vector3 targetScreenPos,</span><br><span class="line">                 int eid, Action&lt;DamageFloatTextItem, int&gt; onComplete = null)</span><br><span class="line">&#123;</span><br><span class="line">    Initialize();</span><br><span class="line"></span><br><span class="line">    _onCompleteCallback = onComplete;</span><br><span class="line">    _startScreenPos = startScreenPos;</span><br><span class="line">    _targetScreenPos = targetScreenPos;</span><br><span class="line">    _isCrit = data.TextType == DamageFloatData.FloatTextType.Crit;</span><br><span class="line"></span><br><span class="line">    _textComponent.font = font;</span><br><span class="line">    _textComponent.text = BuildDisplayText(data);</span><br><span class="line"></span><br><span class="line">    _animRect.position = startScreenPos;</span><br><span class="line">    _animRect.localScale = Vector3.zero;</span><br><span class="line">    _canvasGroup.alpha = 0f;</span><br><span class="line"></span><br><span class="line">    _animationCTS = new CancellationTokenSource();</span><br><span class="line">    RunAnimationAsync(_animationCTS.Token).Forget();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>异步动画通常拆成几个阶段：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">private async UniTaskVoid RunAnimationAsync(CancellationToken token)</span><br><span class="line">&#123;</span><br><span class="line">    // 1. 飞出</span><br><span class="line">    // 2. 放大弹出</span><br><span class="line">    // 3. 停留</span><br><span class="line">    // 4. 缩小淡出</span><br><span class="line"></span><br><span class="line">    _onCompleteCallback?.Invoke(this, eid);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这套写法的好处：</p>
+<ul>
+<li>动画逻辑只在单体对象里</li>
+<li>管理器不用关心细节</li>
+<li>动画可以取消</li>
+<li>播放结束自动回收</li>
+</ul>
+<hr>
+<h2 id="9-如果自己做，最小实现顺序"><a href="#9-如果自己做，最小实现顺序" class="headerlink" title="9. 如果自己做，最小实现顺序"></a>9. 如果自己做，最小实现顺序</h2><p>如果你想自己照着实现，最适合的顺序是：</p>
+<ol>
+<li>先做一个最简单的 UGUI 飘字对象</li>
+<li>给它写一个 <code>Play</code></li>
+<li>做飞出和淡出动画</li>
+<li>接入对象池</li>
+<li>再加统一管理器</li>
+<li>再加按目标排队</li>
+<li>最后再换成自定义字库</li>
+</ol>
+<p>最小骨架可以理解成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ShowDamage(...)</span><br><span class="line">-&gt; 构造 DamageFloatData</span><br><span class="line">-&gt; 入队</span><br><span class="line">-&gt; 从池取对象</span><br><span class="line">-&gt; 设置文本和字体</span><br><span class="line">-&gt; 播放动画</span><br><span class="line">-&gt; 回收</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="10-总结"><a href="#10-总结" class="headerlink" title="10. 总结"></a>10. 总结</h2><p>这套系统最值得学的，不是“怎么让数字飘起来”，而是下面这些工程化思路：</p>
+<ul>
+<li>用数据抽象表现请求</li>
+<li>用对象池管理高频 UI</li>
+<li>用队列处理重叠问题</li>
+<li>用统一格式化控制数字显示</li>
+<li>用位图字体实现美术化文本</li>
+<li>用单体对象封装动画生命周期</li>
+</ul>
+<p>一句话概括就是：</p>
+<blockquote>
+<p>它把“战斗数值”先转换成“可显示的数据”，再编码成“字库可识别的字符串”，最后通过 UGUI、对象池和动画系统稳定地播放出来。</p>
+</blockquote>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" />
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/assets/Head.jpg" />
+    <img height="100px"
+         width="100px"
+         id="back-face"
+         alt="like code"
+         src="/assets/Pay.jpg" />
+  </div>
+  <div class="like-text">“喜欢的话，请给作者倒杯卡布奇诺”</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" />
+    </svg>
+    喜欢作者
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/2026/06/25/dark-%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F%E6%96%B9%E6%A1%88%E5%88%86%E6%9E%90/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>dark_字体样式方案分析</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/2026/06/25/dark_%E5%A4%A9%E8%B5%8B%E6%A0%91%E5%88%86%E6%9E%90/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      dark_天赋树分析
+    </a>
+  
+</div>
+
+    
+      <div class="related-post">
+  <div class="related__head">
+  <a href="/tags/dark-%E6%88%98%E6%96%97/" class="post-tag">#dark 战斗</a>
+
+</div>
+  <div class="realated__body">
+    
+      <div class="null"><div class="null-item"><div class="null-title"><a href="\2026\06\25\dark-字体样式方案分析\" title="dark_字体样式方案分析" rel="bookmark">dark_字体样式方案分析</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\hexo博客搭建\" title="hexo博客搭建" rel="bookmark">hexo博客搭建</a></div></div><div class="null-item"><div class="null-title"><a href="\2024\04\13\Shader学习（一）：基本概念\" title="Shader学习（一）：基本概念" rel="bookmark">Shader学习（一）：基本概念</a></div></div></div>
+    
+  </div>
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              <div class="matts">不</div><div class="matts">气</div><div class="matts">馁</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">有</div><div class="matts">召</div><div class="matts">唤</div>
+            </div>
+          
+            <div class="foot-line">
+              <div class="matts">爱</div><div class="matts">自</div><div class="matts">由</div>
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg" />
+                  <a class="foot-link"
+                     href="mailto:1463890764@qq.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/Disjoint3">Disjoint3</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg" />
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/despair-49-89">despair</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg" />
+                <a class="foot-link" href="mailto:1463890764@qq.com">1463890764@qq.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">渔人的小小世界</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+      <script src="/js/search.js"></script>
+      <script>searchInitialize("/search.json")</script>
+    
+    
+  
+
+  </body>
+</html>
